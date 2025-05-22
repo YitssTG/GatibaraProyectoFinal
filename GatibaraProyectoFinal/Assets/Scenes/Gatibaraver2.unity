@@ -257,6 +257,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 69ad4aa6-9580-4ce2-a148-62509c689395
     m_ActionName: 'Gatibara/Castear[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1000288959}
+        m_TargetAssemblyTypeName: CharacterController3D, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 805b1c47-454b-4817-83e4-a7264129293c
+    m_ActionName: 'Gatibara/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gatibara
@@ -830,7 +846,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcfd1efdc80a8f4b98d7185b293b7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1000288960}
+  speed: 5
+  movementInput: {x: 0, y: 0}
+  _origin: {fileID: 1000288965}
+  _direction: {x: 0, y: -1, z: 0}
+  _distance: 0
+  _layerInteraction:
+    serializedVersion: 2
+    m_Bits: 0
+  OnCollisionRay: {r: 0, g: 1, b: 0, a: 1}
+  OnNotCollisionRay: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1000288960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,7 +895,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1000288962
 BoxCollider:
