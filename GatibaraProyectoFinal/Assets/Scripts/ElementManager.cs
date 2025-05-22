@@ -14,7 +14,7 @@ public class ElementManager : MonoBehaviour
     public ElementData fire;
     public ElementData water;
 
-    public Player player;
+    public PlayerGatibara player;
     private void Awake()
     {
         Elements = new CustomSimpleLinkedList<ElementData>();
