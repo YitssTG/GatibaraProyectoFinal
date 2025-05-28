@@ -1,24 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening.Core.Easing;
 using UnityEngine;
-
-public class PlayerMovement : MonoBehaviour
+using UnityEngine.InputSystem;
+public class CharacterController3D : MonoBehaviour
 {
-    public Player player;
-    Rigidbody myrgbd;
-    float horizontal;
-    float transversal;
+    [Header("Player Movement Properties")]
+    [SerializeField] PlayerGatibara player;
+    [SerializeField] Vector2 movementInput;
+
+    private Rigidbody _rigidbody;
+
     private void Awake()
     {
-        myrgbd = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
     private void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        transversal = Input.GetAxisRaw("Vertical");
+
+        Vector3 direction = new Vector3(movementInput.x, 0f, movementInput.y);
+        transform.Translate(direction * player.speed * Time.deltaTime);
     }
-    private void FixedUpdate()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        myrgbd.linearVelocity = new Vector3(horizontal * player.speed, 0, transversal * player.speed);
+        movementInput = context.ReadValue<Vector2>();
     }
 }
