@@ -1,11 +1,13 @@
 using DG.Tweening.Core.Easing;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class CharacterController3D : MonoBehaviour
+public class Move : MonoBehaviour
 {
     [Header("Player Movement Properties")]
     [SerializeField] PlayerGatibara player;
     [SerializeField] Vector2 movementInput;
+    public static event Action<Vector2> OnMoving;
 
     private Rigidbody _rigidbody;
 
@@ -15,12 +17,12 @@ public class CharacterController3D : MonoBehaviour
     }
     private void Update()
     {
-
         Vector3 direction = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(direction * player.speed * Time.deltaTime);
     }
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+        OnMoving?.Invoke(movementInput);
     }
 }

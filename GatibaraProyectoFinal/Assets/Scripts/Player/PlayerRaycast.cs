@@ -15,9 +15,16 @@ public class PlayerRaycast : MonoBehaviour
     [SerializeField] Color colorColliding = Color.white;
     [SerializeField] Color colorNotColliding = Color.white;
 
+    private void OnEnable()
+    {
+        Move.OnMoving += GetMovement;
+    }
+    private void OnDisable()
+    {
+        Move.OnMoving -= GetMovement;
+    }
     void Update()
     {
-        _direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         DoRaycast(_direction);
     }
     public void DoRaycast(Vector3 _direction)
@@ -31,5 +38,9 @@ public class PlayerRaycast : MonoBehaviour
         {
             Debug.DrawRay(_origin.position, _direction * _distance, colorNotColliding);
         }
+    }
+    public void GetMovement(Vector2 movementImput)
+    {
+        _direction = new Vector3(movementImput.x, 0f, movementImput.y);
     }
 }
