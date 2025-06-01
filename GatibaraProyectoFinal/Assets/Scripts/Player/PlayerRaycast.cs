@@ -33,10 +33,14 @@ public class PlayerRaycast : MonoBehaviour
         if(Physics.Raycast(_origin.position, _direction, out hit, _distance, _layermask))
         {
             Debug.DrawRay(_origin.position, _direction * hit.distance, colorColliding);
+            PlayerInteractor.Instance?.SetCurrentHit(hit);
+
         }
         else
         {
             Debug.DrawRay(_origin.position, _direction * _distance, colorNotColliding);
+            PlayerInteractor.Instance?.ClearCurrentHit();
+
         }
     }
     public void GetMovement(Vector2 movementImput)
