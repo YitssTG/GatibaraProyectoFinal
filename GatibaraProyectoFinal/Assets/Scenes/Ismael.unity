@@ -273,6 +273,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 805b1c47-454b-4817-83e4-a7264129293c
     m_ActionName: 'Gatibara/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1000288968}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 16b18cde-2cc6-4a91-94c8-79c9a2e675bc
+    m_ActionName: 'Gatibara/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gatibara
@@ -1219,6 +1235,7 @@ GameObject:
   - component: {fileID: 1000288967}
   - component: {fileID: 1000288958}
   - component: {fileID: 1000288966}
+  - component: {fileID: 1000288968}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1243,9 +1260,9 @@ MonoBehaviour:
   _distance: 10
   _layermask:
     serializedVersion: 2
-    m_Bits: 0
-  colorColliding: {r: 1, g: 1, b: 1, a: 1}
-  colorNotColliding: {r: 1, g: 1, b: 1, a: 1}
+    m_Bits: 8
+  colorColliding: {r: 1, g: 0, b: 0, a: 1}
+  colorNotColliding: {r: 0, g: 0.77646065, b: 1, a: 1}
 --- !u!54 &1000288961
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1391,6 +1408,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   spellnumber: 1
+--- !u!114 &1000288968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000288957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84683618d1bfdd94787ebbf73316114d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1046472481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,6 +1705,127 @@ MonoBehaviour:
   fire: {fileID: 11400000, guid: b161ee176f742004d855cedac19961f0, type: 2}
   water: {fileID: 11400000, guid: 1df86a81b7145724283373b1a63cb2c1, type: 2}
   player: {fileID: 1000288967}
+--- !u!1 &1964848894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1964848900}
+  - component: {fileID: 1964848899}
+  - component: {fileID: 1964848898}
+  - component: {fileID: 1964848897}
+  - component: {fileID: 1964848901}
+  m_Layer: 3
+  m_Name: Obj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1964848897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964848894}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1964848898
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964848894}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 670d66390c226a74488e640507fa42c4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1964848899
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964848894}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1964848900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964848894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.59, y: 1, z: -4.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1964848901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964848894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0a0193715ac6d429a3ca25a2268833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078196858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1959,7 @@ SceneRoots:
   - {fileID: 1318656856}
   - {fileID: 1000288965}
   - {fileID: 404217998}
+  - {fileID: 1964848900}
   - {fileID: 135386047}
   - {fileID: 1952537654}
   - {fileID: 677100005}
