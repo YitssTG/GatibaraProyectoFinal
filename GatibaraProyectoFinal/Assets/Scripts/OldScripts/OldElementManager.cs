@@ -10,7 +10,7 @@ public class OldElementManager : MonoBehaviour
     public Elements tierra;
     public Elements fuego;
     public Elements agua;
-    public Player player;
+    public PlayerGatibara player;
     private void Update()
     {
         Elements.spellnumber = player.spellnumber;
