@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class EnemyDrop : MonoBehaviour
+public class RuletaController : MonoBehaviour
 {
-
+    [SerializeField]
     void Start()
     {
         

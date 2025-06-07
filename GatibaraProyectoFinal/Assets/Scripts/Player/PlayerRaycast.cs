@@ -9,23 +9,22 @@ public class PlayerRaycast : MonoBehaviour
     [SerializeField] Vector3 _direction;
     [SerializeField] float _distance;
     [SerializeField] LayerMask _layermask;
-    
 
     [Header("Draw Properties")]
     [SerializeField] Color colorColliding = Color.white;
     [SerializeField] Color colorNotColliding = Color.white;
 
-    private void OnEnable()
-    {
-        Move.OnMoving += GetMovement;
-    }
-    private void OnDisable()
-    {
-        Move.OnMoving -= GetMovement;
-    }
+    //private void OnEnable()
+    //{
+    //    Move.OnMoving += GetMovement;
+    //}
+    //private void OnDisable()
+    //{
+    //    Move.OnMoving -= GetMovement;
+    //}
     void Update()
     {
-        DoRaycast(_direction);
+        DoRaycast(transform.forward);
     }
     public void DoRaycast(Vector3 _direction)
     {
@@ -43,8 +42,8 @@ public class PlayerRaycast : MonoBehaviour
 
         }
     }
-    public void GetMovement(Vector2 movementImput)
-    {
-        _direction = new Vector3(movementImput.x, 0f, movementImput.y);
-    }
+    //public void GetMovement(Vector2 movementImput)
+    //{
+    //    _direction = new Vector3(movementImput.x, 0f, movementImput.y);
+    //}
 }

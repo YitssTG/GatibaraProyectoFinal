@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 340b06f2388402646ae4af691cdf727c, type: 2}
   audioMixerGroup: {fileID: 5740118946711355031, guid: 340b06f2388402646ae4af691cdf727c, type: 2}
-  audioMixerKey: 
-  audioKeySafe: 
+  audioMixerKey: SFX
+  audioKeySafe: SFX
   volumeScaled: 0.8
   volumeDBs: -1.9382001
   isMuted: 0
