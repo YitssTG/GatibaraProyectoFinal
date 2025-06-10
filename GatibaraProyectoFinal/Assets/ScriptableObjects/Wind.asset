@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4df5db3f3cef74185038b6423491aa, type: 3}
   m_Name: Wind
   m_EditorClassIdentifier: 
-  element: WindElement
-  description: Puedes inbuir tu arma con este elemento(Aumenta tu velocidad de ataque)
-  id: 3
+  elementName: Viento
+  elementDescription: 
+  elementID: 3
+  elementPrefab: {fileID: 7324124807653574158, guid: fa5ef0dc7540765469f030e526fff1c6, type: 3}

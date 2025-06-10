@@ -1236,11 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbaff9d3896f4e43957f4881adab817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
-  FuegoObject: {fileID: 3179014522010350092, guid: 4f40775c65a632545a5a07c0eaddb035, type: 3}
-  WaterObject: {fileID: 9131260225809871672, guid: 05d3b7d7ebc1f2c46a978bc3eaa53b74, type: 3}
-  EarthObject: {fileID: 8122743802572716806, guid: 4c7b68c69f117e4439ec25e1ec0107ff, type: 3}
-  WindObject: {fileID: 7324124807653574158, guid: fa5ef0dc7540765469f030e526fff1c6, type: 3}
+  slotID: 2
 --- !u!1 &962885727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,11 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbaff9d3896f4e43957f4881adab817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
-  FuegoObject: {fileID: 3179014522010350092, guid: 4f40775c65a632545a5a07c0eaddb035, type: 3}
-  WaterObject: {fileID: 9131260225809871672, guid: 05d3b7d7ebc1f2c46a978bc3eaa53b74, type: 3}
-  EarthObject: {fileID: 8122743802572716806, guid: 4c7b68c69f117e4439ec25e1ec0107ff, type: 3}
-  WindObject: {fileID: 7324124807653574158, guid: fa5ef0dc7540765469f030e526fff1c6, type: 3}
+  slotID: 1
 --- !u!1 &1318656852
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,6 +2061,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8244b2dfdbbbcc0498db107d75741deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slots:
+  - {fileID: 2081020446}
+  - {fileID: 1287921871}
+  - {fileID: 956424835}
   wind: {fileID: 11400000, guid: af7e4578b80506842b2fd7089401aa0a, type: 2}
   earth: {fileID: 11400000, guid: 8d505aa2ba7d935449d050ab8185e8af, type: 2}
   fire: {fileID: 11400000, guid: b161ee176f742004d855cedac19961f0, type: 2}
@@ -2283,10 +2279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9201781f0b26aff408f21015c55c7e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angulo: 0
   antihorario: 0
-  centerPivot: {fileID: 2078196859}
-  speed: 10
+  speed: 100
 --- !u!1 &2081020444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,11 +2325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbaff9d3896f4e43957f4881adab817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  FuegoObject: {fileID: 3179014522010350092, guid: 4f40775c65a632545a5a07c0eaddb035, type: 3}
-  WaterObject: {fileID: 9131260225809871672, guid: 05d3b7d7ebc1f2c46a978bc3eaa53b74, type: 3}
-  EarthObject: {fileID: 8122743802572716806, guid: 4c7b68c69f117e4439ec25e1ec0107ff, type: 3}
-  WindObject: {fileID: 7324124807653574158, guid: fa5ef0dc7540765469f030e526fff1c6, type: 3}
+  slotID: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

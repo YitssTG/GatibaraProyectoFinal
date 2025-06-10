@@ -20,11 +20,11 @@ public class PlayerGatibara : MonoBehaviour
 
     private void Start()
     {
-        level = 0;
+        level = 1;
         health = 10;
         damage = 1;
         speedattack = 2f;
-        spellnumber = 0;
+        spellnumber = 1;
     }
 
     private void OnEnable()

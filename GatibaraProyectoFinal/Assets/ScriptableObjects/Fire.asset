@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4df5db3f3cef74185038b6423491aa, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  element: FireElement
-  description: "Puedes inbuir tu arma con este elemento(Aplica da\xF1o por segundo
-    al enemigo)"
-  id: 1
+  elementName: Fuego
+  elementDescription: 
+  elementID: 1
+  elementPrefab: {fileID: 3179014522010350092, guid: 4f40775c65a632545a5a07c0eaddb035, type: 3}

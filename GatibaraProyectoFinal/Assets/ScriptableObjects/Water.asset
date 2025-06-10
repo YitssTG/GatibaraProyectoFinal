@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4df5db3f3cef74185038b6423491aa, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  element: WaterElement
-  description: Puedes inbuir tu arma con este elemento(Reduce la velocidad de atq
-    del enemigo)
-  id: 2
+  elementName: Agua
+  elementDescription: 
+  elementID: 2
+  elementPrefab: {fileID: 9131260225809871672, guid: 05d3b7d7ebc1f2c46a978bc3eaa53b74, type: 3}

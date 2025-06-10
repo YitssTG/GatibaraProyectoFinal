@@ -1,11 +1,13 @@
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputManagerEntry;
 
 public class ElementManager : MonoBehaviour
 {
+    public SlotObject[] slots;
+
     private CustomSimpleLinkedList<ElementData> Elements;
     public static event Action<CustomSimpleLinkedList<ElementData>, ElementData> OnCkeck;
 
@@ -45,6 +47,7 @@ public class ElementManager : MonoBehaviour
         {
             Elements.AddElement(earth);
             OnCkeck?.Invoke(Elements, earth);
+            UpdateSlots();
         }
     }
     public void OnJPressedFire(InputAction.CallbackContext context)
@@ -53,6 +56,7 @@ public class ElementManager : MonoBehaviour
         {
             Elements.AddElement(fire);
             OnCkeck?.Invoke(Elements, fire);
+            UpdateSlots();
         }
     }
     public void OnKPressedWater(InputAction.CallbackContext context)
@@ -61,6 +65,7 @@ public class ElementManager : MonoBehaviour
         {
             Elements.AddElement(water);
             OnCkeck?.Invoke(Elements, water);
+            UpdateSlots();
         }
     }
     public void OnLPressedWind(InputAction.CallbackContext context)
@@ -69,6 +74,23 @@ public class ElementManager : MonoBehaviour
         {
             Elements.AddElement(wind);
             OnCkeck?.Invoke(Elements, wind);
+            UpdateSlots();
+        }
+    }
+
+    private void UpdateSlots()
+    {
+        List<ElementData> ordered = Elements.GetOrderedElements();
+        for(int i = 0; i< slots.Length; i++)
+        {
+            if (i < ordered.Count)
+            {
+                slots[i].SetElement(ordered[i]);
+            }
+            else
+            {
+                slots[i].SetElement(null);
+            }
         }
     }
 }
