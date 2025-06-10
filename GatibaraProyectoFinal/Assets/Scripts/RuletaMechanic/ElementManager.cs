@@ -41,43 +41,30 @@ public class ElementManager : MonoBehaviour
         player.spellnumber = 3;
         Debug.Log("Player puede usar tres habilidades a la vez");
     }
-    public void OnNPressedEarth(InputAction.CallbackContext context)
+    public void OnEarth()
     {
-        if (context.performed)
-        {
-            Elements.AddElement(earth);
-            OnCkeck?.Invoke(Elements, earth);
-            UpdateSlots();
-        }
+        Elements.AddElement(earth);
+        OnCkeck?.Invoke(Elements, earth);
+        UpdateSlots();
     }
-    public void OnJPressedFire(InputAction.CallbackContext context)
+    public void OnFire()
     {
-        if (context.performed)
-        {
-            Elements.AddElement(fire);
-            OnCkeck?.Invoke(Elements, fire);
-            UpdateSlots();
-        }
+        Elements.AddElement(fire);
+        OnCkeck?.Invoke(Elements, fire);
+        UpdateSlots();
     }
-    public void OnKPressedWater(InputAction.CallbackContext context)
+    public void OnWater()
     {
-        if (context.performed)
-        {
-            Elements.AddElement(water);
-            OnCkeck?.Invoke(Elements, water);
-            UpdateSlots();
-        }
+        Elements.AddElement(water);
+        OnCkeck?.Invoke(Elements, water);
+        UpdateSlots();
     }
-    public void OnLPressedWind(InputAction.CallbackContext context)
+    public void OnWind()
     {
-        if (context.performed)
-        {
-            Elements.AddElement(wind);
-            OnCkeck?.Invoke(Elements, wind);
-            UpdateSlots();
-        }
+        Elements.AddElement(wind);
+        OnCkeck?.Invoke(Elements, wind);
+        UpdateSlots();
     }
-
     private void UpdateSlots()
     {
         List<ElementData> ordered = Elements.GetOrderedElements();

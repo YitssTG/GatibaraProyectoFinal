@@ -42,24 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Combinar",
-                    "type": "Button",
-                    "id": "e3e37530-1247-4cf3-9916-0b16cf8e8dfb",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Castear",
-                    "type": "Button",
-                    "id": "69ad4aa6-9580-4ce2-a148-62509c689395",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "805b1c47-454b-4817-83e4-a7264129293c",
@@ -72,6 +54,15 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "16b18cde-2cc6-4a91-94c8-79c9a2e675bc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftClick",
+                    "type": "Button",
+                    "id": "50fc3b20-5516-4f3d-9647-b53c1d736967",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -120,28 +111,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Viento",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a53e50eb-6090-4888-91cc-f3c58c98e64b",
-                    "path": "<Keyboard>/h",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Combinar",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "35a5aba0-866c-44b2-96a6-c14e1752c496",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Castear",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -208,6 +177,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a64a0bc-4581-4e9f-bcc1-23ccbf8e7498",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

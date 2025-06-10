@@ -227,38 +227,6 @@ MonoBehaviour:
     m_ActionName: 'Gatibara/Viento[/Keyboard/l]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952537652}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: e3e37530-1247-4cf3-9916-0b16cf8e8dfb
-    m_ActionName: 'Gatibara/Combinar[/Keyboard/h]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1952537652}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 69ad4aa6-9580-4ce2-a148-62509c689395
-    m_ActionName: 'Gatibara/Castear[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 1000288966}
         m_TargetAssemblyTypeName: Move, Assembly-CSharp
         m_MethodName: OnMove
@@ -289,6 +257,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 16b18cde-2cc6-4a91-94c8-79c9a2e675bc
     m_ActionName: 'Gatibara/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1837406664}
+        m_TargetAssemblyTypeName: RouletteController, Assembly-CSharp
+        m_MethodName: LeftClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 50fc3b20-5516-4f3d-9647-b53c1d736967
+    m_ActionName: 'Gatibara/LeftClick[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gatibara
@@ -2017,6 +2001,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1837406663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837406665}
+  - component: {fileID: 1837406664}
+  m_Layer: 0
+  m_Name: RouletteController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1837406664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837406663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d8aaf554d01014597c06422c9898f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roulette: {fileID: 2078196862}
+  manager: {fileID: 1952537655}
+--- !u!4 &1837406665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837406663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 550.0809, y: 524.1137, z: -100.14711}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1952537652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,7 +2256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 376}
+  m_AnchoredPosition: {x: 0, y: 418}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2078196860
@@ -2281,6 +2311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   antihorario: 0
   speed: 100
+  spinning: 0
 --- !u!1 &2081020444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2342,3 +2373,4 @@ SceneRoots:
   - {fileID: 302273748}
   - {fileID: 963194228}
   - {fileID: 331123468}
+  - {fileID: 1837406665}
