@@ -5,6 +5,5 @@ public class ElementData : ScriptableObject
 {
     public string elementName;
     public string elementDescription;
-    public int elementID;
     public GameObject elementPrefab;
 }

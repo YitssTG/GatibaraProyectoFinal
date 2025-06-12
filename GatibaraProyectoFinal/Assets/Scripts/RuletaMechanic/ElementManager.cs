@@ -41,6 +41,15 @@ public class ElementManager : MonoBehaviour
         player.spellnumber = 3;
         Debug.Log("Player puede usar tres habilidades a la vez");
     }
+    //[Button]
+    //public void CombineElements()
+    //{
+    //    List<ElementData> combination = Elements.GetOrderedElements();
+    //    if(combination.Count == 3)
+    //    {
+    //        string comboKey = 
+    //    }
+    //}
     public void OnEarth()
     {
         Elements.AddElement(earth);

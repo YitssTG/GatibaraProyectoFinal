@@ -5,7 +5,6 @@ using static UnityEngine.InputManagerEntry;
 
 public class SlotObject : MonoBehaviour
 {
-    public int slotID;
     private ElementData currentElement;
     private GameObject currentPrefab;
     public void SetElement(ElementData data)

@@ -1220,7 +1220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbaff9d3896f4e43957f4881adab817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotID: 2
 --- !u!1 &962885727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,7 +1623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  spellnumber: 1
+  spellnumber: 3
 --- !u!1 &1046472481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbaff9d3896f4e43957f4881adab817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotID: 1
 --- !u!1 &1318656852
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbaff9d3896f4e43957f4881adab817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotID: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
