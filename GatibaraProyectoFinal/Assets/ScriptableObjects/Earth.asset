@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4df5db3f3cef74185038b6423491aa, type: 3}
   m_Name: Earth
   m_EditorClassIdentifier: 
-  elementName: Tierra
+  elementName: Earth
   elementDescription: 
-  elementID: 0
   elementPrefab: {fileID: 8122743802572716806, guid: 4c7b68c69f117e4439ec25e1ec0107ff, type: 3}
+  type: 3
