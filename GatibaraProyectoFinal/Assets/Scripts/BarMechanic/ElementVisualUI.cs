@@ -45,11 +45,11 @@ public class ElementVisualUI : MonoBehaviour
         {
             foreach(var image in elementImage)
             {
-                image.color = new Color(1, 1, 1, 0.3f);
+                image.color = new Color(1f, 1f, 1f, 0.3f);
             }
             Image current = elementImage[currentIndex];
             current.DOFade(1f, selectDuration * 0.5f).SetLoops(2,LoopType.Yoyo);
-
+            current.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1f), selectDuration * 0.5f).SetLoops(2, LoopType.Yoyo);
             yield return new WaitForSeconds(selectDuration);
             currentIndex = (currentIndex +1) % elementImage.Count;
         }

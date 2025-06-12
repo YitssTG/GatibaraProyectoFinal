@@ -1,21 +1,24 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class SelectorController : MonoBehaviour
 {
     [SerializeField] private ElementVisualUI elementUI;
     [SerializeField] private ElementManager manager;
+    public GameObject ElementBarPanel;
     private bool isSpinning;
-
     void Start()
     {
         isSpinning = false;
+        ElementBarPanel.SetActive(false);
     }
     public void OnClick(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
+            ElementBarPanel.SetActive(true);
             if (!isSpinning)
             {
                 elementUI.StartSpinning();
@@ -25,6 +28,7 @@ public class SelectorController : MonoBehaviour
             {
                 elementUI.StopSpinning();
                 isSpinning = false;
+                ElementBarPanel.SetActive(false);
                 ElementData.ElementType selected = elementUI.GetCurrentElementType();
                 ApplyElement(selected);
             }
