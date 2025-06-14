@@ -1,16 +1,15 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-    }
+        Vector3 escalaOriginal = transform.localScale;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Sequence latido = DOTween.Sequence();
+        latido.Append(transform.DOScale(escalaOriginal * 1.1f, 0.2f).SetEase(Ease.OutQuad));
+        latido.Append(transform.DOScale(escalaOriginal, 0.4f).SetEase(Ease.InQuad));       
+        latido.SetLoops(-1); 
     }
 }
