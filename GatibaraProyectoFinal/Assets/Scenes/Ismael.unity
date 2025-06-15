@@ -550,6 +550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7afd0bd6652d34c8797cd7e7ab463e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireDamage: 0
+  attackSpeedPenalty: 0
+  speedMovementPenalty: 0
 --- !u!114 &404217994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,6 +1917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  currentAttackSpeed: 0
   spellnumber: 3
 --- !u!1 &1046472481
 GameObject:
@@ -2454,6 +2458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1952537654}
   - component: {fileID: 1952537655}
+  - component: {fileID: 1952537656}
   m_Layer: 0
   m_Name: ElementManager
   m_TagString: Untagged
@@ -2497,6 +2502,21 @@ MonoBehaviour:
   fire: {fileID: 11400000, guid: b161ee176f742004d855cedac19961f0, type: 2}
   water: {fileID: 11400000, guid: 1df86a81b7145724283373b1a63cb2c1, type: 2}
   player: {fileID: 1000288969}
+--- !u!114 &1952537656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952537652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8226721a289e2bc479b47367e8052913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1000288969}
+  enemies:
+  - {fileID: 404217993}
 --- !u!1 &1964848894
 GameObject:
   m_ObjectHideFlags: 0
