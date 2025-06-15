@@ -44,15 +44,16 @@ public class ElementManager : MonoBehaviour
         UpdateSlots();
         Debug.Log("Player puede usar tres habilidades a la vez");
     }
-    //[Button]
-    //public void CombineElements()
-    //{
-    //    List<ElementData> combination = Elements.GetOrderedElements();
-    //    if(combination.Count == 3)
-    //    {
-    //        string comboKey = 
-    //    }
-    //}
+    public List<ElementData.ElementType> GetTypes()
+    {
+        List<ElementData> ordered = Elements.GetOrderedElements();
+        List<ElementData.ElementType> types = new List<ElementData.ElementType>();
+        for(int i = 0; i < player.spellnumber && i < ordered.Count; i++)
+        {
+            types.Add(ordered[i].type);
+        }
+        return types;
+    }
     public void OnEarth()
     {
         Elements.AddElement(earth);
