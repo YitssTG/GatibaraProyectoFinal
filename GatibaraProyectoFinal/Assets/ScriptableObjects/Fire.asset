@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementName: Fire
   elementDescription: "Da\xF1o por segundo hacia el enemigo"
-  elementPrefab: {fileID: 3179014522010350092, guid: 4f40775c65a632545a5a07c0eaddb035, type: 3}
+  elementPrefab: {fileID: 1548603949357869988, guid: 67e24a0bbf0321e4c9c60a1b7d1b4c56, type: 3}
   type: 0

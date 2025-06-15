@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementName: Wind
   elementDescription: Velocidad de ataque del player aumentado
-  elementPrefab: {fileID: 7324124807653574158, guid: fa5ef0dc7540765469f030e526fff1c6, type: 3}
+  elementPrefab: {fileID: 108204484555003161, guid: e549b6c1f384bed489d3d01d060c8212, type: 3}
   type: 2
