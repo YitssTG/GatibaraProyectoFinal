@@ -14,6 +14,11 @@ public class PlayerRaycast : MonoBehaviour
     [SerializeField] Color colorColliding = Color.white;
     [SerializeField] Color colorNotColliding = Color.white;
 
+    private GameObject lastHitObject = null;
+    private ObjectBreakable lastBreakable = null;
+
+    [SerializeField] private Color highlightColor = Color.red;
+
     //private void OnEnable()
     //{
     //    Move.OnMoving += GetMovement;
@@ -33,12 +38,35 @@ public class PlayerRaycast : MonoBehaviour
         {
             Debug.DrawRay(_origin.position, _direction * hit.distance, colorColliding);
             PlayerInteractor.Instance?.SetCurrentHit(hit);
+            Debug.Log("Obejto detectado");
+            GameObject hitObj = hit.collider.gameObject;
+
+
+            if (hitObj != lastHitObject)
+            {
+                if (lastBreakable != null)
+                    lastBreakable.ResetColor();
+
+                lastHitObject = hitObj;
+                lastBreakable = hitObj.GetComponent<ObjectBreakable>();
+
+                if (lastBreakable != null)
+                    lastBreakable.Highlight(highlightColor);
+            }
 
         }
         else
         {
             Debug.DrawRay(_origin.position, _direction * _distance, colorNotColliding);
             PlayerInteractor.Instance?.ClearCurrentHit();
+            Debug.Log("No hay obejto detectado");
+            if (lastBreakable != null)
+            {
+                lastBreakable.ResetColor();
+                lastBreakable = null;
+                lastHitObject = null;
+            }
+
 
         }
     }
