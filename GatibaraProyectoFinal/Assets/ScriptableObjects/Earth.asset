@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   elementName: Earth
-  elementDescription: 
+  elementDescription: Reduce la velocidad de movimiento del enemigo
   elementPrefab: {fileID: 8122743802572716806, guid: 4c7b68c69f117e4439ec25e1ec0107ff, type: 3}
   type: 3

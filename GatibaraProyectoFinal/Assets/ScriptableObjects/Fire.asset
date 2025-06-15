@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   elementName: Fire
-  elementDescription: 
+  elementDescription: "Da\xF1o por segundo hacia el enemigo"
   elementPrefab: {fileID: 3179014522010350092, guid: 4f40775c65a632545a5a07c0eaddb035, type: 3}
   type: 0

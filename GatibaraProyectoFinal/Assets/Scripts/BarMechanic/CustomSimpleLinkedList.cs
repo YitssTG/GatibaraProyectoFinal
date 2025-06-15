@@ -35,6 +35,16 @@ public class CustomSimpleLinkedList<T> : SimpleLinkedList<T>
         head = head.Next;
         count--;
     }
+    public void ReduceSpellNumber()
+    {
+        while(count > spellnumber)
+        {
+            if(head != null)
+            {
+                RemoveElement(head.Value);
+            }
+        }
+    }
     public List<T> GetOrderedElements()
     {
         List<T> elements = new List<T>();

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wind
   m_EditorClassIdentifier: 
   elementName: Wind
-  elementDescription: 
+  elementDescription: Velocidad de ataque del player aumentado
   elementPrefab: {fileID: 7324124807653574158, guid: fa5ef0dc7540765469f030e526fff1c6, type: 3}
   type: 2
