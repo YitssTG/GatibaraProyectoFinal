@@ -28,12 +28,12 @@ public class ElementManager : MonoBehaviour
     void Update()
     {
         Elements.spellnumber = player.spellnumber;
+        Elements.ReduceSpellNumber();
     }
     [Button]
     public void SetLevel2()
     {
         player.spellnumber = 2;
-        Elements.ReduceSpellNumber();
         UpdateSlots();
         Debug.Log("Player puede usar dos habilidades a la vez");
     }
