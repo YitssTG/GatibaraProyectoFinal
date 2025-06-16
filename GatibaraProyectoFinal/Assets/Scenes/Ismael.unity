@@ -1760,6 +1760,7 @@ MonoBehaviour:
     m_Bits: 8
   colorColliding: {r: 1, g: 0, b: 0, a: 1}
   colorNotColliding: {r: 0, g: 0.77646065, b: 1, a: 1}
+  highlightColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!54 &1000288961
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1918,7 +1919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   currentAttackSpeed: 0
-  spellnumber: 3
+  spellnumber: 2
 --- !u!1 &1046472481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,6 +2639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0a0193715ac6d429a3ca25a2268833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteract: 0
 --- !u!1 &2081020444
 GameObject:
   m_ObjectHideFlags: 0

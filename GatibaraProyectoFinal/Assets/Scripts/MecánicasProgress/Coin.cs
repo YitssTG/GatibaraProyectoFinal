@@ -5,7 +5,6 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public static event Action OnCoinsCollection;
-    //Vector3 AngleRotations;
 
     void Start()
     {

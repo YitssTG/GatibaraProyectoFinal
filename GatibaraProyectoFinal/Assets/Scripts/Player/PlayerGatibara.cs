@@ -33,10 +33,12 @@ public class PlayerGatibara : MonoBehaviour
     private void OnEnable()
     {
         Coin.OnCoinsCollection += CollectCoins;
+        Health.OnHealthDestroy += CollectHealth;
     }
     private void OnDisable()
     {
         Coin.OnCoinsCollection -= CollectCoins;
+        Health.OnHealthDestroy -= CollectHealth;
     }
     public void IncreaseAttackSpeed(int stacks)
     {
@@ -64,5 +66,9 @@ public class PlayerGatibara : MonoBehaviour
     public void CollectCoins()
     {
         coins = coins + 5;
+    }
+    public void CollectHealth()
+    {
+        Debug.Log("Corazon Recogido");
     }
 }
