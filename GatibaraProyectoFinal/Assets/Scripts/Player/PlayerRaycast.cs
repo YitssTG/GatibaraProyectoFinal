@@ -59,7 +59,7 @@ public class PlayerRaycast : MonoBehaviour
         {
             Debug.DrawRay(_origin.position, _direction * _distance, colorNotColliding);
             PlayerInteractor.Instance?.ClearCurrentHit();
-            Debug.Log("No hay obejto detectado");
+            //Debug.Log("No hay obejto detectado");
             if (lastBreakable != null)
             {
                 lastBreakable.ResetColor();
