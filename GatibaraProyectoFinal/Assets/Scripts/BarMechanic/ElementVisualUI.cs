@@ -12,13 +12,7 @@ public class ElementVisualUI : MonoBehaviour
     [SerializeField] private float selectDuration;
     private int currentIndex;
     private Coroutine coroutine;
-    //public int CurrentIndex
-    //{
-    //    get
-    //    {
-    //        return currentIndex;
-    //    }
-    //}
+
     private void Start()
     {
         currentIndex = 0;
