@@ -41,7 +41,16 @@ public class PlayerRaycast : MonoBehaviour
             //Debug.Log("Obejto detectado");
             GameObject hitObj = hit.collider.gameObject;
 
-
+            // ==== ATAQUE AL ENEMIGO SI DETECTA ====
+            if (Input.GetMouseButtonDown(1)) // Click derecho
+            {
+                EnemyPrueba enemigo = hitObj.GetComponent<EnemyPrueba>();
+                if (enemigo != null)
+                {
+                    enemigo.RecibirAtaque(_direction);
+                }
+            }
+            // ==== INTERACTUABLES VISUALES ====
             if (hitObj != lastHitObject)
             {
                 if (lastBreakable != null)
