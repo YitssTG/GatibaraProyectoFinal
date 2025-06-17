@@ -38,4 +38,16 @@ public class ElementCombination : ScriptableObject
         }
         return null;
     }
+    public CombinationData GetCombinationByKey(string key)
+    {
+        if(searcher.Count == 0 || searcher == null)
+        {
+            Initialize();
+        }
+        if(searcher.TryGetValue(key, out var combination))
+        {
+            return combination;
+        }
+        return null;
+    }
 }
