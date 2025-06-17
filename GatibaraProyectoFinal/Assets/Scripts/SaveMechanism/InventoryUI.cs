@@ -7,13 +7,12 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private ElementCombination allCombinations;
     [SerializeField] private UnlockedAbilities unlockedAbilities;
-    [SerializeField] private Transform panel;
-    private void Start()
-    {
-        
-    }
+    [SerializeField] private List<GameObject> slot;
     private void InitializeSlots()
     {
-        
+        for(int i = 0; i < slot.Count; i++)
+        {
+            slot[i] = unlockedAbilities.GetSlot(i);
+        }
     }
 }
