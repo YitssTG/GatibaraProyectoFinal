@@ -10,6 +10,8 @@ public class AbilityCaster : MonoBehaviour
     [SerializeField] private ElementManager manager;
     [SerializeField] private ElementCombination listCombinations;
     [SerializeField] private PlayerShake cameraShake;
+    [SerializeField] private UnlockedAbilities unlockedAbilities;
+    [SerializeField] private InventoryUI inventoryUI;
     public void OnRightClick(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -19,6 +21,8 @@ public class AbilityCaster : MonoBehaviour
             if (combination != null)
             {
                 Debug.Log("Castear habilidad: " + combination.abilityName);
+                unlockedAbilities.UnlockCombination(combination);
+                inventoryUI.ShowUnlockedAbilities();
                 imageUI.GetComponent<RectTransform>().DOKill();
                 imageUI.GetComponent<RectTransform>().localScale = Vector3.one;
                 imageUI.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1f), 0.25f).SetLoops(2, LoopType.Yoyo);

@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class ElementManager : MonoBehaviour
 {
     public SlotObject[] slots;
-
     private CustomSimpleLinkedList<ElementData> Elements;
     public static event Action<CustomSimpleLinkedList<ElementData>, ElementData> OnCkeck;
 
@@ -29,6 +28,11 @@ public class ElementManager : MonoBehaviour
     {
         Elements.spellnumber = player.spellnumber;
         Elements.ReduceSpellNumber();
+    }
+    [Button]
+    public void ResetUnlockedCombinations()
+    {
+
     }
     [Button]
     public void SetLevel2()
