@@ -5,14 +5,52 @@ using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private ElementCombination allCombinations;
     [SerializeField] private UnlockedAbilities unlockedAbilities;
     [SerializeField] private List<GameObject> slot;
-    private void InitializeSlots()
+    private void Start()
     {
-        for(int i = 0; i < slot.Count; i++)
+        for (int i = 0; i < slot.Count; i++)
         {
-            //slot[i] = unlockedAbilities.GetSlot(i);
+            var ui = slot[i].GetComponent<AbilitySlotUI>();
+            if (ui != null && ui.combination != null)
+            {
+                Debug.Log($"[Slot {i}] combinación: {ui.combination.abilityName} ({ui.combination.combinationKey})");
+            }
+            else
+            {
+                Debug.LogWarning($"[Slot {i}] está mal configurado o no tiene combinación.");
+            }
+        }
+        for (int i = 0; i < slot.Count; i++)
+        {
+            slot[i].SetActive(false);
+        }
+        ShowUnlockedAbilities();
+    }
+    public void ShowUnlockedAbilities()
+    {
+        List<CombinationData> unlocked = unlockedAbilities.GetUnlockedList();
+        for (int i = 0; i < slot.Count; i++)
+        {
+            AbilitySlotUI slotUI = slot[i].GetComponent<AbilitySlotUI>();
+            if (slotUI != null && slotUI.combination != null)
+            {
+                string slotKey = slotUI.combination.combinationKey;
+                bool found = false;
+                foreach (var unlockedCombo in unlocked)
+                {
+                    if (slotKey == unlockedCombo.combinationKey)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                slot[i].SetActive(found);
+            }
+            else
+            {
+                slot[i].SetActive(false);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 [CreateAssetMenu(fileName = "ElementCombination", menuName = "ScriptableObjects/ElementCombination")]
 public class ElementCombination : ScriptableObject
@@ -19,6 +20,10 @@ public class ElementCombination : ScriptableObject
             {
                 searcher[combination.combinationKey] = combination;
             }
+            else
+            {
+                Debug.LogWarning("Clave duplicada: " + combination.combinationKey);
+            }
         }
     }
     public CombinationData GetCombination(List<ElementData.ElementType> elements)
@@ -32,8 +37,13 @@ public class ElementCombination : ScriptableObject
                 key += "+";
             }
         }
+        if(searcher == null ||searcher.Count == 0)
+        {
+            Initialize();
+        }
         if(searcher.TryGetValue(key, out var combination))
         {
+            Debug.Log("combinación: " + key);
             return combination;
         }
         return null;

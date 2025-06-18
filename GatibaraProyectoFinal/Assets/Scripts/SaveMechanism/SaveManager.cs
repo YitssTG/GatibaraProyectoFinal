@@ -8,7 +8,6 @@ public class SaveManager
     public void SaveUnlockedCombinations(List<string> keys)
     {
         string saveData = "";
-        
         for (int i=0;i<keys.Count; i++)
         {
             saveData += keys[i];
