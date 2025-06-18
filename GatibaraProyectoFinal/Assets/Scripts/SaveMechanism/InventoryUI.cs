@@ -12,7 +12,7 @@ public class InventoryUI : MonoBehaviour
     {
         for(int i = 0; i < slot.Count; i++)
         {
-            slot[i] = unlockedAbilities.GetSlot(i);
+            //slot[i] = unlockedAbilities.GetSlot(i);
         }
     }
 }
