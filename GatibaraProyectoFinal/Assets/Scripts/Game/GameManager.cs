@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public HUD hud;
     public int corazones = 5;
 
+    [Header("PopUp")]
+    public PopUpController popUpController;
+
     public int PuntosTotales {  get; private set; }
     [Header("Data Structure")]
     private List<GenerateEnemy> pointGenerateEnemy=new List<GenerateEnemy>();
@@ -28,6 +31,16 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnEnable()
+    {
+        Health.OnHealthDestroy += RecuperarCorazon;
+    }
+
+    private void OnDisable()
+    {
+        Health.OnHealthDestroy -= RecuperarCorazon;
+    }
+
     public void AddpointGenerateEnemy(GenerateEnemy generate)
     {
         pointGenerateEnemy.Add(generate);
@@ -63,7 +76,27 @@ public class GameManager : MonoBehaviour
     }
     public void PerderCorazones()
     {
-        corazones -= 1;
+        corazones--;
+
         hud.DesactivarCorazones(corazones);
+
+        if (corazones <= 0)
+        {
+            Debug.Log("¡Jugador sin corazones! Fin del juego.");
+            popUpController.ShowLosePopUp();
+        }
+    }
+    public void RecuperarCorazon()
+    {
+        if (corazones < hud.corazones.Length)
+        {
+            hud.ActivarCorazones(corazones);
+            corazones++; 
+            Debug.Log("Recuperaste un corazón. Corazones actuales: " + corazones);
+        }
+        else
+        {
+            Debug.Log("Vida al máximo. No se agregó corazón.");
+        }
     }
 }
