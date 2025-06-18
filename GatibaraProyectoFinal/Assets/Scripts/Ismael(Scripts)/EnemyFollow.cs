@@ -1,8 +1,14 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public Transform jugador;
+    public int vidas = 3;
+    public float fuerzaEmpuje = 6f;
+    public float fuerzaVertical = 2f;
+    private Rigidbody _rb;
+
+    [SerializeField] public Transform jugador;
     public float velocidadBase = 3f;
     public float distanciaStop = 2f;
     public float distanciaRay = 2f;
@@ -13,16 +19,17 @@ public class EnemyFollow : MonoBehaviour
     private bool puedeSeguir = false;
     private bool enMovimiento = false;
     private float tiempoActual = 0f;
-
+    void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
     private void Start()
     {
         StartCoroutine(EsperarYActivarMovimiento(0.6f));
+        //transform.DOMoveX(transform.position.x + 2f, 1.5f)
+        //         .SetLoops(-1, LoopType.Yoyo)
+        //         .SetEase(Ease.InOutSine);
     }
-    //void HabilitarMovimiento()
-    //{
-    //    puedeSeguir = true;
-    //}
-
     void Update()
     {
         if (!puedeSeguir || jugador == null) return;
@@ -57,5 +64,16 @@ public class EnemyFollow : MonoBehaviour
     {
         yield return new WaitForSeconds(tiempo);
         puedeSeguir = true;
+    }
+    public void RecibirAtaque(Vector3 direccion)
+    {
+        vidas--;
+        Vector3 fuerzaTotal = direccion.normalized * fuerzaEmpuje + Vector3.up * fuerzaVertical;
+        _rb.AddForce(fuerzaTotal, ForceMode.Impulse);
+
+        if (vidas <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

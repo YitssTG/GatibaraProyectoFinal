@@ -44,7 +44,7 @@ public class PlayerRaycast : MonoBehaviour
             // ==== ATAQUE AL ENEMIGO SI DETECTA ====
             if (Input.GetMouseButtonDown(1)) // Click derecho
             {
-                EnemyPrueba enemigo = hitObj.GetComponent<EnemyPrueba>();
+                EnemyFollow enemigo = hitObj.GetComponent<EnemyFollow>();
                 if (enemigo != null)
                 {
                     enemigo.RecibirAtaque(_direction);

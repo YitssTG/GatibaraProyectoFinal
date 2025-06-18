@@ -5,7 +5,10 @@ using Unity.Mathematics;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public HUD hud;
+    public int corazones = 5;
 
+    public int PuntosTotales {  get; private set; }
     [Header("Data Structure")]
     private List<GenerateEnemy> pointGenerateEnemy=new List<GenerateEnemy>();
 
@@ -52,5 +55,15 @@ public class GameManager : MonoBehaviour
     public void SetPlayerTransform(Transform transform_Player)
     {
         player = transform_Player;
+    }
+    public void SumarPuntos(int sumaPuntos)
+    {
+        PuntosTotales += sumaPuntos;
+        hud.UpdatePoints(sumaPuntos);
+    }
+    public void PerderCorazones()
+    {
+        corazones -= 1;
+        hud.DesactivarCorazones(corazones);
     }
 }

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4856669654951384273}
   - component: {fileID: 5210944772636058235}
   - component: {fileID: 1062412886534272298}
-  - component: {fileID: -167450633756138994}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -152,6 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb818d62c265b4345894bddfe893e436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidas: 3
+  fuerzaEmpuje: 6
+  fuerzaVertical: 6
   jugador: {fileID: 0}
   velocidadBase: 3
   distanciaStop: 2
@@ -190,18 +192,3 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   tiempoAceleracion: 1.5
---- !u!114 &-167450633756138994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8370519299689583087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da187cadaf9a296439be9cad1a7fd1e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidas: 3
-  fuerzaEmpuje: 6
-  fuerzaVertical: 6
