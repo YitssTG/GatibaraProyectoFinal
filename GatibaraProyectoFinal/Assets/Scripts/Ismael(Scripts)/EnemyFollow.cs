@@ -1,5 +1,6 @@
-using DG.Tweening;
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
@@ -19,52 +20,69 @@ public class EnemyFollow : MonoBehaviour
     private bool puedeSeguir = false;
     private bool enMovimiento = false;
     private float tiempoActual = 0f;
+
+    private NavMeshAgent agent;
+    public static event Func<Transform> OnGetPlayerPosition;
+    private static Transform playerTransform;
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
     }
+
     private void Start()
     {
-        StartCoroutine(EsperarYActivarMovimiento(0.6f));
-        //transform.DOMoveX(transform.position.x + 2f, 1.5f)
-        //         .SetLoops(-1, LoopType.Yoyo)
-        //         .SetEase(Ease.InOutSine);
+        //StartCoroutine(EsperarYActivarMovimiento(0.6f));
+        ////transform.DOMoveX(transform.position.x + 2f, 1.5f)
+        ////         .SetLoops(-1, LoopType.Yoyo)
+        ////         .SetEase(Ease.InOutSine);
+        ///if
+        ///if
+        if (playerTransform == null)
+        {
+            playerTransform = OnGetPlayerPosition?.Invoke();
+        }
     }
     void Update()
     {
-        if (!puedeSeguir || jugador == null) return;
+        //if (!puedeSeguir || jugador == null) return;
 
-        Vector3 direccion = (jugador.position - transform.position).normalized;
-        RaycastHit hit;
-        bool detectaJugador = Physics.Raycast(transform.position, direccion, out hit, distanciaRay);
+        //Vector3 direccion = (jugador.position - transform.position).normalized;
+        //RaycastHit hit;
+        //bool detectaJugador = Physics.Raycast(transform.position, direccion, out hit, distanciaRay);
 
-        if (detectaJugador && hit.collider.CompareTag("Player"))
-        {
-            enMovimiento = false; 
-            return;
-        }
-        float distancia = Vector3.Distance(transform.position, jugador.position);
-        if (distancia > distanciaStop)
-        {
-            enMovimiento = true;
-        }
-        if (enMovimiento)
-        {
-            tiempoActual += Time.deltaTime / tiempoAceleracion;
-            float curvaValor = curvaMovimiento.Evaluate(tiempoActual);
-            transform.position += direccion * velocidadBase * curvaValor * Time.deltaTime;
-        }
+        //if (detectaJugador && hit.collider.CompareTag("Player"))
+        //{
+        //    enMovimiento = false; 
+        //    return;
+        //}
+        //float distancia = Vector3.Distance(transform.position, jugador.position);
+        //if (distancia > distanciaStop)
+        //{
+        //    enMovimiento = true;
+        //}
+        //if (enMovimiento)
+        //{
+        //    tiempoActual += Time.deltaTime / tiempoAceleracion;
+        //    float curvaValor = curvaMovimiento.Evaluate(tiempoActual);
+        //    transform.position += direccion * velocidadBase * curvaValor * Time.deltaTime;
+        //}
+        Destination(playerTransform.position);
     }
-    private void OnDrawGizmosSelected()
+    private void Destination(Vector3 destino)
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, transform.forward * distanciaRay);
+        agent.destination = destino;
     }
-    private System.Collections.IEnumerator EsperarYActivarMovimiento(float tiempo)
-    {
-        yield return new WaitForSeconds(tiempo);
-        puedeSeguir = true;
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawRay(transform.position, transform.forward * distanciaRay);
+    //}
+    //private System.Collections.IEnumerator EsperarYActivarMovimiento(float tiempo)
+    //{
+    //    yield return new WaitForSeconds(tiempo);
+    //    puedeSeguir = true;
+    //}
     public void RecibirAtaque(Vector3 direccion)
     {
         vidas--;

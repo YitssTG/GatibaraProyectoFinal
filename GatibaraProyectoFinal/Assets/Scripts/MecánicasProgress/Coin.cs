@@ -17,6 +17,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             OnCoinsCollection?.Invoke();
+            Debug.Log("Colisiono con el player");
             Destroy(this.gameObject);
         }
     }

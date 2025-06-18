@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     public void SumarPuntos(int sumaPuntos)
     {
         PuntosTotales += sumaPuntos;
-        hud.UpdatePoints(sumaPuntos);
+        //hud.UpdatePoints(sumaPuntos);
     }
     public void PerderCorazones()
     {

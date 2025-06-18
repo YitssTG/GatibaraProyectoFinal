@@ -34,11 +34,18 @@ public class PlayerGatibara : MonoBehaviour
     {
         Coin.OnCoinsCollection += CollectCoins;
         Health.OnHealthDestroy += CollectHealth;
+        EnemyFollow.OnGetPlayerPosition += GetPlayer;
+
     }
     private void OnDisable()
     {
         Coin.OnCoinsCollection -= CollectCoins;
         Health.OnHealthDestroy -= CollectHealth;
+        EnemyFollow.OnGetPlayerPosition -= GetPlayer;
+    }
+    private Transform GetPlayer()
+    {
+        return transform;
     }
     public void IncreaseAttackSpeed(int stacks)
     {
@@ -57,7 +64,7 @@ public class PlayerGatibara : MonoBehaviour
     }
     public void Die()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
             //panel perdida(resetear el nivel, checkpoint, mapa)
         }

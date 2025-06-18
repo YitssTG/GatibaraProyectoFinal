@@ -3,16 +3,23 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
-    public TextMeshPro points;
+    public TMP_Text points;
     public GameObject[] corazones;
 
-    private void Update()
+    [Header("Coin Data")]
+    private int puntos;
+    private void OnEnable()
     {
-        points.text = GameManager.instance.PuntosTotales.ToString();
+        Coin.OnCoinsCollection += UpdatePoints;
     }
-    public void UpdatePoints(int totalPoints)
+    private void OnDisable()
     {
-        points.text = totalPoints.ToString();
+        Coin.OnCoinsCollection -= UpdatePoints;
+    }
+    public void UpdatePoints()
+    {
+        ++puntos;
+        points.text = puntos.ToString();
     }
     public void DesactivarCorazones(int indice)
     {
