@@ -8,10 +8,10 @@ public class SaveManager
     public void SaveUnlockedCombinations(List<string> keys)
     {
         string saveData = "";
-        for (int i=0;i<keys.Count; i++)
+        for (int i = 0; i < keys.Count; i++)
         {
             saveData += keys[i];
-            if(i< keys.Count - 1)
+            if (i < keys.Count - 1)
             {
                 saveData += ",";
             }
@@ -29,9 +29,9 @@ public class SaveManager
             return new List<string>();
         }
         else
-        {            
+        {
             string[] savedCombinations = saved.Split(',');
-            for(int i=0; i < savedCombinations.Length; i++)
+            for (int i = 0; i < savedCombinations.Length; i++)
             {
                 combinationsList.Add(savedCombinations[i]);
             }

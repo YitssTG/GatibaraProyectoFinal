@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class ElementManager : MonoBehaviour
 {
-    private CustomSimpleLinkedList<ElementData> elements;
-    public event Action<List<ElementData>> OnElementsChanged;
+    public SlotObject[] slots;
+    private CustomSimpleLinkedList<ElementData> Elements;
     public static event Action<CustomSimpleLinkedList<ElementData>, ElementData> OnCkeck;
 
     public ElementData wind;
@@ -18,31 +18,78 @@ public class ElementManager : MonoBehaviour
     public PlayerGatibara player;
     private void Awake()
     {
-        elements = new CustomSimpleLinkedList<ElementData>();
+        Elements = new CustomSimpleLinkedList<ElementData>();
     }
     public void Start()
     {
-        elements.spellnumber = 1;
+        Elements.spellnumber = 1;
     }
     void Update()
     {
-        elements.spellnumber = player.spellnumber;
-        elements.ReduceSpellNumber();
+        Elements.spellnumber = player.spellnumber;
+        Elements.ReduceSpellNumber();
     }
-    public void AddElement(ElementData element)
+    [Button]
+    public void SetLevel2()
     {
-        elements.Add(element);
-        OnCkeck?.Invoke(elements, element);
-        OnElementsChanged?.Invoke(elements.GetOrderedElements());
+        player.spellnumber = 2;
+        UpdateSlots();
+        Debug.Log("Player puede usar dos habilidades a la vez");
+    }
+    [Button]
+    public void SetLevel3()
+    {
+        player.spellnumber = 3;
+        UpdateSlots();
+        Debug.Log("Player puede usar tres habilidades a la vez");
     }
     public List<ElementData.ElementType> GetTypes()
     {
-        List<ElementData> ordered = elements.GetOrderedElements();
+        List<ElementData> ordered = Elements.GetOrderedElements();
         List<ElementData.ElementType> types = new List<ElementData.ElementType>();
         for (int i = 0; i < player.spellnumber && i < ordered.Count; i++)
         {
             types.Add(ordered[i].type);
         }
         return types;
+    }
+    public void OnEarth()
+    {
+        Elements.AddElement(earth);
+        OnCkeck?.Invoke(Elements, earth);
+        UpdateSlots();
+    }
+    public void OnFire()
+    {
+        Elements.AddElement(fire);
+        OnCkeck?.Invoke(Elements, fire);
+        UpdateSlots();
+    }
+    public void OnWater()
+    {
+        Elements.AddElement(water);
+        OnCkeck?.Invoke(Elements, water);
+        UpdateSlots();
+    }
+    public void OnWind()
+    {
+        Elements.AddElement(wind);
+        OnCkeck?.Invoke(Elements, wind);
+        UpdateSlots();
+    }
+    private void UpdateSlots()
+    {
+        List<ElementData> ordered = Elements.GetOrderedElements();
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i < ordered.Count)
+            {
+                slots[i].SetElement(ordered[i]);
+            }
+            else
+            {
+                slots[i].SetElement(null);
+            }
+        }
     }
 }

@@ -20,7 +20,7 @@ public class ElementEffectManager : MonoBehaviour
         List<ElementData> ordered = elements.GetOrderedElements();
         List<ElementData.ElementType> types = new List<ElementData.ElementType>();
         int limit = Mathf.Min(player.spellnumber, ordered.Count);
-        for(int i = 0; i < limit; i++)
+        for (int i = 0; i < limit; i++)
         {
             types.Add(ordered[i].type);
         }
@@ -31,14 +31,14 @@ public class ElementEffectManager : MonoBehaviour
         Debug.Log(enemies[0].speedMovementPenalty);
         Debug.Log(player.currentAttackSpeed);
     }
-    public void ApplyActiveElements(List <ElementData.ElementType> activeElements)
+    public void ApplyActiveElements(List<ElementData.ElementType> activeElements)
     {
         player.ResetEffect();
         int fireCount = 0;
         int waterCount = 0;
         int windCount = 0;
         int earthCount = 0;
-        for(int i=0; i<activeElements.Count; i++)
+        for (int i = 0; i < activeElements.Count; i++)
         {
             switch (activeElements[i])
             {
@@ -56,10 +56,10 @@ public class ElementEffectManager : MonoBehaviour
                     break;
             }
         }
-        for(int i=0; i< enemies.Count; i++)
+        for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].ResetDebuffs();
-            if(fireCount > 0)
+            if (fireCount > 0)
             {
                 enemies[i].ApplyFireDamage(fireCount);
             }
@@ -72,7 +72,7 @@ public class ElementEffectManager : MonoBehaviour
                 enemies[i].ReduceMovementSpeed(earthCount);
             }
         }
-        if(windCount > 0)
+        if (windCount > 0)
         {
             player.IncreaseAttackSpeed(windCount);
         }

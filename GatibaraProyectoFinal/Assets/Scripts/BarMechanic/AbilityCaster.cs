@@ -6,11 +6,12 @@ using DG.Tweening;
 
 public class AbilityCaster : MonoBehaviour
 {
+    [SerializeField] public Image imageUI;
     [SerializeField] private ElementManager manager;
     [SerializeField] private ElementCombination listCombinations;
     [SerializeField] private PlayerShake cameraShake;
     [SerializeField] private UnlockedAbilities unlockedAbilities;
-    public static event System.Action<CombinationData> OnAbilityCasted;
+    [SerializeField] private InventoryUI inventoryUI;
     public void OnFCombinationButton(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -21,12 +22,18 @@ public class AbilityCaster : MonoBehaviour
             {
                 Debug.Log("Castear habilidad: " + combination.abilityName);
                 unlockedAbilities.UnlockCombination(combination);
-                OnAbilityCasted?.Invoke(combination);
+                inventoryUI.ShowUnlockedAbilities();
+                imageUI.GetComponent<RectTransform>().DOKill();
+                imageUI.GetComponent<RectTransform>().localScale = Vector3.one;
+                imageUI.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1f), 0.25f).SetLoops(2, LoopType.Yoyo);
             }
             else
             {
                 Debug.Log("Combinación no existente");
-                OnAbilityCasted?.Invoke(null);
+                imageUI.GetComponent<RectTransform>().DOKill();
+                imageUI.GetComponent<RectTransform>().localScale = Vector3.one;
+                imageUI.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1f), 0.025f).SetLoops(2, LoopType.Yoyo);
+                cameraShake.Shake();
             }
         }
     }

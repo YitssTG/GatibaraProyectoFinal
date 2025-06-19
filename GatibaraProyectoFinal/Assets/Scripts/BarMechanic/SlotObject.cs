@@ -10,7 +10,7 @@ public class SlotObject : MonoBehaviour
     public void SetElement(ElementData data)
     {
         currentElement = data;
-        if(currentPrefab != null)
+        if (currentPrefab != null)
         {
             Destroy(currentPrefab);
         }

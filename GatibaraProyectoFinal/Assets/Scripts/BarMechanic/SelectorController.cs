@@ -39,16 +39,16 @@ public class SelectorController : MonoBehaviour
         switch (type)
         {
             case ElementData.ElementType.Fire:
-                manager.AddElement(manager.fire);
+                manager.OnFire();
                 break;
             case ElementData.ElementType.Water:
-                manager.AddElement(manager.water);
+                manager.OnWater();
                 break;
             case ElementData.ElementType.Wind:
-                manager.AddElement(manager.wind);
+                manager.OnWind();
                 break;
             case ElementData.ElementType.Earth:
-                manager.AddElement(manager.earth);
+                manager.OnEarth();
                 break;
         }
     }
