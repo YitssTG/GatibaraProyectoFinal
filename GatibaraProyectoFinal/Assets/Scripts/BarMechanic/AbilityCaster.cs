@@ -6,13 +6,12 @@ using DG.Tweening;
 
 public class AbilityCaster : MonoBehaviour
 {
-    [SerializeField] public Image imageUI;
     [SerializeField] private ElementManager manager;
     [SerializeField] private ElementCombination listCombinations;
     [SerializeField] private PlayerShake cameraShake;
     [SerializeField] private UnlockedAbilities unlockedAbilities;
-    [SerializeField] private InventoryUI inventoryUI;
-    public void OnRightClick(InputAction.CallbackContext context)
+    public static event System.Action<CombinationData> OnAbilityCasted;
+    public void OnFCombinationButton(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -22,18 +21,12 @@ public class AbilityCaster : MonoBehaviour
             {
                 Debug.Log("Castear habilidad: " + combination.abilityName);
                 unlockedAbilities.UnlockCombination(combination);
-                inventoryUI.ShowUnlockedAbilities();
-                imageUI.GetComponent<RectTransform>().DOKill();
-                imageUI.GetComponent<RectTransform>().localScale = Vector3.one;
-                imageUI.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1f), 0.25f).SetLoops(2, LoopType.Yoyo);
+                OnAbilityCasted?.Invoke(combination);
             }
             else
             {
                 Debug.Log("Combinación no existente");
-                imageUI.GetComponent<RectTransform>().DOKill();
-                imageUI.GetComponent<RectTransform>().localScale = Vector3.one;
-                imageUI.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1f), 0.025f).SetLoops(2, LoopType.Yoyo);
-                cameraShake.Shake();
+                OnAbilityCasted?.Invoke(null);
             }
         }
     }

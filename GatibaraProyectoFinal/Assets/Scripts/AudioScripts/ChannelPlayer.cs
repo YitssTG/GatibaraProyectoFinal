@@ -13,6 +13,7 @@ public class ChannelPlayer : MonoBehaviour
     }
     public void PlayClip(AudioClip clipToPlay, bool loop = true)
     {
+        Debug.Log("clip: " + clipToPlay.name);
         if (loop)
         {
             audioSource.clip = clipToPlay;
@@ -37,12 +38,10 @@ public class ChannelPlayer : MonoBehaviour
     {
         GameObject tempAudio = new GameObject("TempAudioSource");
         tempAudio.transform.position = transform.position;
-
         AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
         tempSource.outputAudioMixerGroup = audioSettings.AudioMixerGroup;
         tempSource.clip = clipToPlay;
         tempSource.Play();
-
         Destroy(tempAudio, clipToPlay.length);
     }
 }

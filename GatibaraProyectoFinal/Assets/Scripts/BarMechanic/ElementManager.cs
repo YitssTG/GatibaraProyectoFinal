@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class ElementManager : MonoBehaviour
 {
-    public SlotObject[] slots;
-    private CustomSimpleLinkedList<ElementData> Elements;
+    private CustomSimpleLinkedList<ElementData> elements;
+    public event Action<List<ElementData>> OnElementsChanged;
     public static event Action<CustomSimpleLinkedList<ElementData>, ElementData> OnCkeck;
 
     public ElementData wind;
@@ -18,83 +18,31 @@ public class ElementManager : MonoBehaviour
     public PlayerGatibara player;
     private void Awake()
     {
-        Elements = new CustomSimpleLinkedList<ElementData>();
+        elements = new CustomSimpleLinkedList<ElementData>();
     }
     public void Start()
     {
-        Elements.spellnumber = 1;
+        elements.spellnumber = 1;
     }
     void Update()
     {
-        Elements.spellnumber = player.spellnumber;
-        Elements.ReduceSpellNumber();
+        elements.spellnumber = player.spellnumber;
+        elements.ReduceSpellNumber();
     }
-    [Button]
-    public void ResetUnlockedCombinations()
+    public void AddElement(ElementData element)
     {
-
-    }
-    [Button]
-    public void SetLevel2()
-    {
-        player.spellnumber = 2;
-        UpdateSlots();
-        Debug.Log("Player puede usar dos habilidades a la vez");
-    }
-    [Button]
-    public void SetLevel3()
-    {
-        player.spellnumber = 3;
-        UpdateSlots();
-        Debug.Log("Player puede usar tres habilidades a la vez");
+        elements.Add(element);
+        OnCkeck?.Invoke(elements, element);
+        OnElementsChanged?.Invoke(elements.GetOrderedElements());
     }
     public List<ElementData.ElementType> GetTypes()
     {
-        List<ElementData> ordered = Elements.GetOrderedElements();
+        List<ElementData> ordered = elements.GetOrderedElements();
         List<ElementData.ElementType> types = new List<ElementData.ElementType>();
-        for(int i = 0; i < player.spellnumber && i < ordered.Count; i++)
+        for (int i = 0; i < player.spellnumber && i < ordered.Count; i++)
         {
             types.Add(ordered[i].type);
         }
         return types;
-    }
-    public void OnEarth()
-    {
-        Elements.AddElement(earth);
-        OnCkeck?.Invoke(Elements, earth);
-        UpdateSlots();
-    }
-    public void OnFire()
-    {
-        Elements.AddElement(fire);
-        OnCkeck?.Invoke(Elements, fire);
-        UpdateSlots();
-    }
-    public void OnWater()
-    {
-        Elements.AddElement(water);
-        OnCkeck?.Invoke(Elements, water);
-        UpdateSlots();
-    }
-    public void OnWind()
-    {
-        Elements.AddElement(wind);
-        OnCkeck?.Invoke(Elements, wind);
-        UpdateSlots();
-    }
-    private void UpdateSlots()
-    {
-        List<ElementData> ordered = Elements.GetOrderedElements();
-        for(int i = 0; i< slots.Length; i++)
-        {
-            if (i < ordered.Count)
-            {
-                slots[i].SetElement(ordered[i]);
-            }
-            else
-            {
-                slots[i].SetElement(null);
-            }
-        }
     }
 }

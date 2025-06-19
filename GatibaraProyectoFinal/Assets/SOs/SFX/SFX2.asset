@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b83602fd62e05e540bfb6494e4d8093b, type: 3}
-  m_Name: SFX1
+  m_Name: SFX2
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: fe168aabed0b4e640a85cf5637d33fd0, type: 3}
+  audioClip: {fileID: 8300000, guid: 3de20be9632b58b46859701d2a05e4e1, type: 3}

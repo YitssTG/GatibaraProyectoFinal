@@ -4,5 +4,12 @@ using UnityEngine;
 public class AudioData : ScriptableObject
 {
     [SerializeField] private AudioClip audioClip;
-    public AudioClip AudioClip => audioClip;
+
+    public AudioClip AudioClip
+    {
+        get
+        {
+            return audioClip;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerRaycast : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerRaycast : MonoBehaviour
 
     private GameObject lastHitObject = null;
     private ObjectBreakable lastBreakable = null;
+
+    private GameObject hitObject;
 
     [SerializeField] private Color highlightColor = Color.red;
 
@@ -39,25 +42,16 @@ public class PlayerRaycast : MonoBehaviour
             Debug.DrawRay(_origin.position, _direction * hit.distance, colorColliding);
             PlayerInteractor.Instance?.SetCurrentHit(hit);
             //Debug.Log("Obejto detectado");
-            GameObject hitObj = hit.collider.gameObject;
+            hitObject = hit.collider.gameObject;
 
-            // ==== ATAQUE AL ENEMIGO SI DETECTA ====
-            if (Input.GetMouseButtonDown(1)) // Click derecho
-            {
-                EnemyFollow enemigo = hitObj.GetComponent<EnemyFollow>();
-                if (enemigo != null)
-                {
-                    enemigo.RecibirAtaque(_direction);
-                }
-            }
             // ==== INTERACTUABLES VISUALES ====
-            if (hitObj != lastHitObject)
+            if (hitObject != lastHitObject)
             {
                 if (lastBreakable != null)
                     lastBreakable.ResetColor();
 
-                lastHitObject = hitObj;
-                lastBreakable = hitObj.GetComponent<ObjectBreakable>();
+                lastHitObject = hitObject;
+                lastBreakable = hitObject.GetComponent<ObjectBreakable>();
 
                 if (lastBreakable != null)
                     lastBreakable.Highlight(highlightColor);
@@ -77,6 +71,18 @@ public class PlayerRaycast : MonoBehaviour
             }
 
 
+        }
+    }
+    public void OnRightClick(InputAction.CallbackContext context)
+    {
+        // ==== ATAQUE AL ENEMIGO SI DETECTA ====
+        if (context.performed)
+        {
+            EnemyFollow enemigo = hitObject.GetComponent<EnemyFollow>();
+            if (enemigo != null)
+            {
+                enemigo.RecibirAtaque(_direction);
+            }
         }
     }
     //public void GetMovement(Vector2 movementImput)

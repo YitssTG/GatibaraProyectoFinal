@@ -6,42 +6,6 @@
             "id": "988860bf-16b8-4f75-ae44-81d570263445",
             "actions": [
                 {
-                    "name": "Tierra",
-                    "type": "Button",
-                    "id": "4fcd763b-63b2-4397-86f2-147220b4c1dc",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Fuego",
-                    "type": "Button",
-                    "id": "3847c75d-7044-4160-8b99-b60e460a9433",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Agua",
-                    "type": "Button",
-                    "id": "abc87dcd-61ca-40a1-8677-773b96c62c7a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Viento",
-                    "type": "Button",
-                    "id": "04ee0b54-ae3d-4a7f-b6db-a9e4be96fe2d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "805b1c47-454b-4817-83e4-a7264129293c",
@@ -76,53 +40,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CombinateElements",
+                    "type": "Button",
+                    "id": "84ad7ab5-23b3-4447-a5fc-26b235568294",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "22903bac-32a9-421c-ac11-81e7da42e2ee",
-                    "path": "<Keyboard>/n",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Tierra",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fa099770-c3a9-4cc8-98b6-404f9efbde00",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fuego",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2f758874-1460-4999-b8da-7f05d983bb52",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Agua",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0452fad9-29f3-49f3-b822-9f0e81c8492e",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Viento",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "c76b176a-a16d-41df-b750-f6a9f11daa84",
@@ -208,6 +137,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49bcf5f8-1ad7-49fb-b2a2-0d151f259bc3",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CombinateElements",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

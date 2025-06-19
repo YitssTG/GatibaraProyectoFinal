@@ -7,6 +7,7 @@ public class UnlockedAbilities : MonoBehaviour
     private List<CombinationData> currentUnlockedList = new List<CombinationData>();
     private List<CombinationData> savedUnlockedList = new List<CombinationData>();
     private SaveManager saveManager;
+    public event System.Action<CombinationData> OnCombinationUnlocked;
 
     private void Start()
     {
@@ -30,23 +31,25 @@ public class UnlockedAbilities : MonoBehaviour
         }
         currentUnlockedList.Add(combination);
         Debug.Log("Combinación desbloqueada: " + combination.abilityName);
+        OnCombinationUnlocked?.Invoke(combination);
     }
     public void SaveProgress()
     {
         for(int i = 0;i < currentUnlockedList.Count; i++)
         {
+            CombinationData combination = currentUnlockedList[i];
             bool Unlocked = false;
             for(int j = 0; j< savedUnlockedList.Count; j++)
             {
-                if (savedUnlockedList[j].combinationKey == currentUnlockedList[i].combinationKey)
+                if (savedUnlockedList[j].combinationKey == combination.combinationKey)
                 {
                     Unlocked = true;
                     break;
                 }
-                if (!Unlocked)
-                {
-                    savedUnlockedList.Add(currentUnlockedList [j]);
-                }
+            }
+            if (!Unlocked)
+            {
+                savedUnlockedList.Add(combination);
             }
         } 
         List<string> keysToSave = new List<string>();
@@ -63,7 +66,7 @@ public class UnlockedAbilities : MonoBehaviour
         for (int i = 0;i < keys.Count; i++)
         {
             string key = keys [i];
-            CombinationData combination = allCombinations.GetCombinationByKey(keys[i]);
+            CombinationData combination = allCombinations.GetCombinationByKey(key);
             if(combination != null)
             {
                 savedUnlockedList.Add(combination);

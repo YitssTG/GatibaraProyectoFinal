@@ -7,49 +7,60 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private UnlockedAbilities unlockedAbilities;
     [SerializeField] private List<GameObject> slot;
+    private void OnEnable()
+    {
+        unlockedAbilities.OnCombinationUnlocked += OnNewCombinationUnlocked;
+    }
+    private void OnDisable()
+    {
+        unlockedAbilities.OnCombinationUnlocked -= OnNewCombinationUnlocked;
+    }
     private void Start()
     {
         for (int i = 0; i < slot.Count; i++)
         {
-            var ui = slot[i].GetComponent<AbilitySlotUI>();
-            if (ui != null && ui.combination != null)
-            {
-                Debug.Log($"[Slot {i}] combinación: {ui.combination.abilityName} ({ui.combination.combinationKey})");
-            }
-            else
-            {
-                Debug.LogWarning($"[Slot {i}] está mal configurado o no tiene combinación.");
-            }
-        }
-        for (int i = 0; i < slot.Count; i++)
-        {
             slot[i].SetActive(false);
         }
-        ShowUnlockedAbilities();
-    }
-    public void ShowUnlockedAbilities()
-    {
         List<CombinationData> unlocked = unlockedAbilities.GetUnlockedList();
+        ShowUnlockedAbilities(unlocked);
+    }
+    private void OnNewCombinationUnlocked(CombinationData newCombination)
+    {
+        for(int i = 0; i < slot.Count; i++)
+        {
+            GameObject abilityUI = slot[i];
+            AbilitySlotUI slotUI = abilityUI.GetComponent<AbilitySlotUI>();
+            if(slotUI != null && slotUI.combination != null && slotUI.combination.combinationKey == newCombination.combinationKey)
+            {
+                abilityUI.SetActive(true);
+                break;
+            }
+        }
+    }
+    public void ShowUnlockedAbilities(List<CombinationData> unlocked)
+    {
         for (int i = 0; i < slot.Count; i++)
         {
+            GameObject abilityUI = slot[i];
             AbilitySlotUI slotUI = slot[i].GetComponent<AbilitySlotUI>();
             if (slotUI != null && slotUI.combination != null)
             {
                 string slotKey = slotUI.combination.combinationKey;
                 bool found = false;
-                foreach (var unlockedCombo in unlocked)
+                for(int j = 0; j < unlocked.Count; j++)
                 {
-                    if (slotKey == unlockedCombo.combinationKey)
+                    CombinationData unlockedCombination = unlocked[j];
+                    if (slotKey == unlockedCombination.combinationKey)
                     {
                         found = true;
                         break;
                     }
                 }
-                slot[i].SetActive(found);
+                abilityUI.SetActive(found);
             }
             else
             {
-                slot[i].SetActive(false);
+                abilityUI.SetActive(false);
             }
         }
     }

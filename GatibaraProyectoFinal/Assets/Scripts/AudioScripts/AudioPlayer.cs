@@ -8,19 +8,20 @@ public class AudioPlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        InteractableObjects.OnCollisionMusic += PlayPlayer;
-        InteractableObjects.OnCollisionStopMusic += StopPlayer;
-        InteractableObjects.OnExitCollision += PlayExit;
+        AudioManager.OnCollisionMusic += PlayPlayer;
+        AudioManager.OnCollisionStopMusic += StopPlayer;
+        AudioManager.OnExitCollision += PlayExit;
     }
     private void OnDisable()
     {
-        InteractableObjects.OnCollisionMusic -= PlayPlayer;
-        InteractableObjects.OnCollisionStopMusic -= StopPlayer;
-        InteractableObjects.OnExitCollision -= PlayExit;
+        AudioManager.OnCollisionMusic -= PlayPlayer;
+        AudioManager.OnCollisionStopMusic -= StopPlayer;
+        AudioManager.OnExitCollision -= PlayExit;
 
     }
     private void PlayPlayer(AudioMixerGroup currentGroup, AudioClip currentAudioClip)
     {
+        Debug.Log("CurrentClip: " + currentAudioClip.name);
         if (currentGroup == musicPlayer.PlayerChannel)
         {
             musicPlayer.PlayClip(currentAudioClip, true);
