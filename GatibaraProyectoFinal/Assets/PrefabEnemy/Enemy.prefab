@@ -152,7 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb818d62c265b4345894bddfe893e436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidas: 3
+  target: {fileID: 7744614354792721040}
+  fireDamage: 1
+  attackSpeedPenalty: 20
+  speedMovementPenalty: 30
+  vidas: 20
 --- !u!195 &-387936399025466190
 NavMeshAgent:
   m_ObjectHideFlags: 0

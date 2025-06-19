@@ -1690,6 +1690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 331123468}
   - component: {fileID: 331123467}
+  - component: {fileID: 331123469}
   m_Layer: 0
   m_Name: AudioPlayerManager
   m_TagString: Untagged
@@ -1728,6 +1729,20 @@ Transform:
   - {fileID: 140882170}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331123469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331123466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a99a1fa052a6f49902e387c5ec74e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioData: {fileID: 11400000, guid: 2bfe78fbf556612488c85796480d20aa, type: 2}
+  audioSettings: {fileID: 11400000, guid: 66f43ea9811172d47ab8278dd659fdd8, type: 2}
 --- !u!1 &331243628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,6 +2062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7afd0bd6652d34c8797cd7e7ab463e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   fireDamage: 0
   attackSpeedPenalty: 0
   speedMovementPenalty: 0
@@ -9691,7 +9707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1000288969}
   enemies:
-  - {fileID: 404217993}
+  - {fileID: 1062412886534272298, guid: 327195607cca2e5449981f3e19f42756, type: 3}
 --- !u!114 &1952537657
 MonoBehaviour:
   m_ObjectHideFlags: 0

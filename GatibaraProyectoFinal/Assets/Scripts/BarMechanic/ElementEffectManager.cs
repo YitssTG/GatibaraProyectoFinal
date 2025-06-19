@@ -5,7 +5,7 @@ using System.Threading;
 public class ElementEffectManager : MonoBehaviour
 {
     [SerializeField] private PlayerGatibara player;
-    [SerializeField] private List<Enemy> enemies;
+    [SerializeField] private List<EnemyFollow> enemies;
 
     private void OnEnable()
     {

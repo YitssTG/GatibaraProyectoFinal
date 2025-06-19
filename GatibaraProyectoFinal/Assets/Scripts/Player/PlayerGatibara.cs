@@ -10,30 +10,23 @@ public class PlayerGatibara : MonoBehaviour
     private float baseAttackSpeed;
     public float currentAttackSpeed;
     private float bonusSpeed;
-    int coins;
-    int damage;// va con el speedattack xd
-    float speedattack;//pa cuando tenga raycast3d xdxdxdxd
+    //int coins;
     public int spellnumber;
 
     private void Start()
     {
         baseAttackSpeed = 1f;
-        bonusSpeed = 0f;
-
-        damage = 1;
-        speedattack = 2f;
+        bonusSpeed = 100f;
         spellnumber = 1;
     }
     private void OnEnable()
     {
-        Coin.OnCoinsCollection += CollectCoins;
         Health.OnHealthDestroy += CollectHealth;
         EnemyFollow.OnGetPlayerPosition += GetPlayer;
 
     }
     private void OnDisable()
     {
-        Coin.OnCoinsCollection -= CollectCoins;
         Health.OnHealthDestroy -= CollectHealth;
         EnemyFollow.OnGetPlayerPosition -= GetPlayer;
     }
@@ -55,11 +48,6 @@ public class PlayerGatibara : MonoBehaviour
     public void UpdateEffect()
     {
         currentAttackSpeed = baseAttackSpeed + bonusSpeed;
-    }
-
-    public void CollectCoins()
-    {
-        coins = coins + 5;
     }
     public void CollectHealth()
     {

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   elementName: Water
-  elementDescription: Reduce la velocidad de ataque del enemigo
+  elementDescription: Reduce lataque del enemigo
   elementPrefab: {fileID: 3426882857051613024, guid: 994d71eb9fa084149a7bd984163d6960, type: 3}
   type: 1
