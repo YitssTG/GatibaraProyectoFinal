@@ -45,10 +45,10 @@ public class EnemyFollow : MonoBehaviour
     private void Destination(Vector3 destino)
     {
         agent.destination = destino;
-        if (speedMovementPenalty > 0)
-        {
-            agent.speed = Mathf.Max(0, agent.speed * (1f - speedMovementPenalty));
-        }
+        //if (speedMovementPenalty > 0)
+        //{
+        //    agent.speed = Mathf.Max(0, agent.speed * (1f - speedMovementPenalty));
+        //}
     }
     public void RecibirAtaque(Vector3 direccion)
     {

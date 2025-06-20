@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PopUpController : MonoBehaviour
 {
     public GameObject popUpPuase;
+    public GameObject popUpSelectorPause;
+    public GameObject popUpSliderSounds;
     public GameObject popUpLoose;
     public GameObject popUpWin;
     public GameObject popUpInventory;
@@ -15,11 +18,16 @@ public class PopUpController : MonoBehaviour
         popUpPuase.SetActive(false);
         popUpLoose.SetActive(false);
         popUpWin.SetActive(false);
+        popUpSelectorPause.SetActive(false);
+        popUpSliderSounds.SetActive(false);
         popUpInventory.SetActive(inventory);
     }
     public void OnPopUpActive()
     {
         popUpPuase.SetActive(true);
+        popUpSelectorPause.SetActive(true);
+
+
         Time.timeScale = 0f;
     }
     public void OnBackPress()
@@ -27,6 +35,16 @@ public class PopUpController : MonoBehaviour
         popUpPuase.SetActive(false);
         Time.timeScale = 1f;
 
+    }
+    public void OnAudioPress()
+    {
+        popUpSliderSounds.SetActive(true);
+        popUpSelectorPause.SetActive(false);
+    }
+    public void OnPressClose()
+    {
+        popUpSliderSounds.SetActive(false);
+        popUpSelectorPause.SetActive(true);
     }
     public void ShowWinPopUp()
     {
