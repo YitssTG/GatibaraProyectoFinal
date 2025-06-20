@@ -9,14 +9,16 @@ public class SelectorController : MonoBehaviour
     [SerializeField] private ElementManager manager;
     public GameObject ElementBarPanel;
     private bool isSpinning;
+    public bool isPaused;
     void Start()
     {
         isSpinning = false;
         ElementBarPanel.SetActive(false);
+        isPaused = false;
     }
     public void OnClick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !isPaused)
         {
             ElementBarPanel.SetActive(true);
             if (!isSpinning)
