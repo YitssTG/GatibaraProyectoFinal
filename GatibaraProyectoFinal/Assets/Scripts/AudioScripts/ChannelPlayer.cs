@@ -38,10 +38,12 @@ public class ChannelPlayer : MonoBehaviour
     {
         GameObject tempAudio = new GameObject("TempAudioSource");
         tempAudio.transform.position = transform.position;
+
         AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
         tempSource.outputAudioMixerGroup = audioSettings.AudioMixerGroup;
         tempSource.clip = clipToPlay;
         tempSource.Play();
+
         Destroy(tempAudio, clipToPlay.length);
     }
 }

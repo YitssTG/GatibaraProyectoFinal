@@ -4,6 +4,9 @@ using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
+    public EnemyBarraVida barraUI;
+    private int vidasMaximas;
+
     [Header("Stats Enemy DeBuffs")]
     public float fireDamage = 0f;
     public float attackSpeedPenalty = 0f;
@@ -24,6 +27,11 @@ public class EnemyFollow : MonoBehaviour
     }
     private void Start()
     {
+        vidasMaximas = vidas;
+        if (barraUI != null)
+        {
+            barraUI.SetVida(vidas, vidasMaximas);
+        }
         if (playerTransform == null)
         {
             playerTransform = OnGetPlayerPosition?.Invoke();
@@ -53,6 +61,11 @@ public class EnemyFollow : MonoBehaviour
     public void RecibirAtaque(Vector3 direccion)
     {
         vidas--;
+        if (barraUI != null)
+        {
+            barraUI.SetVida(vidas, vidasMaximas);
+        }
+
         if (vidas <= 0)
         {
             Destroy(gameObject);
@@ -61,7 +74,12 @@ public class EnemyFollow : MonoBehaviour
     private void RecibirFuego()
     {
         vidas -= (int)fireDamage;
+        if (barraUI != null)
+        {
+            barraUI.SetVida(vidas, vidasMaximas);
+        }
         Debug.Log($"🔥 Daño de fuego: {fireDamage}, Vidas restantes: {vidas}");
+
         if (vidas <= 0)
         {
             Destroy(gameObject);

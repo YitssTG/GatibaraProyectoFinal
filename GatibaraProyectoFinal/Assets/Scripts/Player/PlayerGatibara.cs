@@ -7,10 +7,10 @@ public class PlayerGatibara : MonoBehaviour
     [Header("Player Movement")]
     [SerializeField] public float speed;
 
+    public float vida;
     private float baseAttackSpeed;
     public float currentAttackSpeed;
     private float bonusSpeed;
-    //int coins;
     public int spellnumber;
 
     private void Start()

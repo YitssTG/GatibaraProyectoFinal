@@ -6,14 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public HUD hud;
-    public int corazones = 5;
+    public PlayerGatibara playerGatibara;
 
     [Header("PopUp")]
     public PopUpController popUpController;
 
-    public int PuntosTotales {  get; private set; }
+    public int PuntosTotales { get; private set; }
     [Header("Data Structure")]
-    private List<GenerateEnemy> pointGenerateEnemy=new List<GenerateEnemy>();
+    private List<GenerateEnemy> pointGenerateEnemy = new List<GenerateEnemy>();
 
     [Header("Enemy Generation Data")]
     private Transform player;
@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void Start()
+    {
+        hud.SetPlayer(playerGatibara);
     }
     private void OnEnable()
     {
@@ -57,7 +61,7 @@ public class GameManager : MonoBehaviour
         {
             currentDistance = Vector3.Distance(player.position, pointGenerateEnemy[i].gameObject.transform.position);
             pointGenerateEnemy[i].enabled = false;
-            if (minDistance > currentDistance )
+            if (minDistance > currentDistance)
             {
                 minDistance = currentDistance;
                 indexListPoint = i;
@@ -72,15 +76,14 @@ public class GameManager : MonoBehaviour
     public void SumarPuntos(int sumaPuntos)
     {
         PuntosTotales += sumaPuntos;
-        //hud.UpdatePoints(sumaPuntos);
     }
     public void PerderCorazones()
     {
-        corazones--;
+        playerGatibara.vida--;
 
-        hud.DesactivarCorazones(corazones);
+        hud.UpdateLifeBar();
 
-        if (corazones <= 0)
+        if (playerGatibara.vida <= 0)
         {
             Debug.Log("¡Jugador sin corazones! Fin del juego.");
             popUpController.ShowLosePopUp();
@@ -88,11 +91,11 @@ public class GameManager : MonoBehaviour
     }
     public void RecuperarCorazon()
     {
-        if (corazones < hud.corazones.Length)
+        if (playerGatibara.vida < hud.GetVidaMax())
         {
-            hud.ActivarCorazones(corazones);
-            corazones++; 
-            Debug.Log("Recuperaste un corazón. Corazones actuales: " + corazones);
+            playerGatibara.vida++;
+            hud.UpdateLifeBar();
+            Debug.Log("Recuperaste un corazón. Corazones actuales: " + playerGatibara.vida);
         }
         else
         {

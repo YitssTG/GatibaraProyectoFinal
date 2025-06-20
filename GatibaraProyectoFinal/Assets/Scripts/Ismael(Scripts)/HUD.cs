@@ -1,13 +1,17 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
     public TMP_Text points;
-    public GameObject[] corazones;
+    public Image rellenoVida;
+    private PlayerGatibara playerGatibara;
+    private float vidaMax;
 
     [Header("Coin Data")]
     private int puntos;
+
     private void OnEnable()
     {
         Coin.OnCoinsCollection += UpdatePoints;
@@ -21,12 +25,18 @@ public class HUD : MonoBehaviour
         ++puntos;
         points.text = puntos.ToString();
     }
-    public void DesactivarCorazones(int indice)
+    public void UpdateLifeBar()
     {
-        corazones[indice].SetActive(false);
+        rellenoVida.fillAmount = playerGatibara.vida / vidaMax;
     }
-    public void ActivarCorazones(int indice)
+    public void SetPlayer(PlayerGatibara player)
     {
-        corazones[indice].SetActive(true);
+        playerGatibara = player;
+        vidaMax = player.vida;
+        UpdateLifeBar();
+    }
+    public float GetVidaMax()
+    {
+        return vidaMax;
     }
 }
