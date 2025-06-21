@@ -8,9 +8,12 @@ public class UnlockedAbilities : MonoBehaviour
     private List<CombinationData> savedUnlockedList = new List<CombinationData>();
     private SaveManager saveManager;
 
-    private void Start()
+    private void Awake()
     {
         saveManager = new SaveManager();
+    }
+    private void Start()
+    {
         LoadSaved();
     }
     public void UnlockCombination(CombinationData combination)
@@ -35,17 +38,17 @@ public class UnlockedAbilities : MonoBehaviour
     {
         for (int i = 0; i < currentUnlockedList.Count; i++)
         {
-            bool Unlocked = false;
+            bool unlocked = false;
             for (int j = 0; j < savedUnlockedList.Count; j++)
             {
                 if (savedUnlockedList[j].combinationKey == currentUnlockedList[i].combinationKey)
                 {
-                    Unlocked = true;
+                    unlocked = true;
                     break;
                 }
-                if (!Unlocked)
+                if (!unlocked)
                 {
-                    savedUnlockedList.Add(currentUnlockedList[j]);
+                    savedUnlockedList.Add(currentUnlockedList[i]);
                 }
             }
         }

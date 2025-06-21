@@ -74,4 +74,10 @@ public class PopUpController : MonoBehaviour
             inventory = !inventory;
         }
     }
+    public void ResetPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        ReiniciarNivel();
+    }
 }
