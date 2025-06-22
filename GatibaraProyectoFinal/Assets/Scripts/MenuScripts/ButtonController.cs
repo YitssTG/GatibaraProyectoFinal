@@ -37,8 +37,9 @@ public class ButtonController : MonoBehaviour
         escena2.SetActive(false);
         escena3.SetActive(false);
     }
-    public void NewGame()
+    public void NewGame(string newScene)
     {
+        SceneManager.LoadScene(newScene);
         Debug.Log("Iniciando nueva partida");
     }
     public void Continue()

@@ -40,23 +40,19 @@ public class EnemyFollow : MonoBehaviour
     void Update()
     {
         Destination(playerTransform.position);
-        if (fireDamage > 0)
-        {
-            fireDamageTimer += Time.deltaTime;
-            if (fireDamageTimer >= fireDamageInterval)
-            {
-                fireDamageTimer = 0f;
-                RecibirFuego();
-            }
-        }
+        //if (fireDamage > 0)
+        //{
+        //    fireDamageTimer += Time.deltaTime;
+        //    if (fireDamageTimer >= fireDamageInterval)
+        //    {
+        //        fireDamageTimer = 0f;
+        //        RecibirFuego();
+        //    }
+        //}
     }
     private void Destination(Vector3 destino)
     {
         agent.destination = destino;
-        //if (speedMovementPenalty > 0)
-        //{
-        //    agent.speed = Mathf.Max(0, agent.speed * (1f - speedMovementPenalty));
-        //}
     }
     public void RecibirAtaque(Vector3 direccion)
     {
@@ -71,20 +67,20 @@ public class EnemyFollow : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void RecibirFuego()
-    {
-        vidas -= (int)fireDamage;
-        if (barraUI != null)
-        {
-            barraUI.SetVida(vidas, vidasMaximas);
-        }
-        Debug.Log($"🔥 Daño de fuego: {fireDamage}, Vidas restantes: {vidas}");
+    //private void RecibirFuego()
+    //{
+    //    vidas -= (int)fireDamage;
+    //    if (barraUI != null)
+    //    {
+    //        barraUI.SetVida(vidas, vidasMaximas);
+    //    }
+    //    Debug.Log($"🔥 Daño de fuego: {fireDamage}, Vidas restantes: {vidas}");
 
-        if (vidas <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+    //    if (vidas <= 0)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && Time.time - tiempoUltimoGolpe > tiempoEntreGolpes)
