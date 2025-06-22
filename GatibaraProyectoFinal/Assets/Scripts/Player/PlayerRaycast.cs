@@ -23,6 +23,7 @@ public class PlayerRaycast : MonoBehaviour
     private GameObject hitObject;
 
     [SerializeField] private Color highlightColor = Color.red;
+    public bool isAttacking = false;
 
     void Update()
     {
@@ -31,7 +32,7 @@ public class PlayerRaycast : MonoBehaviour
     public void DoRaycast(Vector3 _direction)
     {
         RaycastHit hit;
-        if(Physics.Raycast(_origin.position, _direction, out hit, _distance, _layermask))
+        if (Physics.Raycast(_origin.position, _direction, out hit, _distance, _layermask))
         {
             Debug.DrawRay(_origin.position, _direction * hit.distance, colorColliding);
             PlayerInteractor.Instance?.SetCurrentHit(hit);
@@ -66,9 +67,10 @@ public class PlayerRaycast : MonoBehaviour
     }
     public void OnRightClick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !isAttacking)
         {
-            attack.SetBool("isAttack", true);
+            attack.SetTrigger("isAttack");
+            isAttacking = true;
             EnemyFollow enemigo = hitObject?.GetComponent<EnemyFollow>();
             if (enemigo != null)
             {
@@ -78,6 +80,7 @@ public class PlayerRaycast : MonoBehaviour
     }
     public void EndAttack()
     {
-        attack.SetBool("isAttack", false);
+        attack.SetTrigger("Idle");
+        isAttacking = false;
     }
 }

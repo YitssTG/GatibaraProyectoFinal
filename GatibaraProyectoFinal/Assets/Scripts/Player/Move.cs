@@ -11,14 +11,18 @@ public class Move : MonoBehaviour
     [SerializeField] Transform reference;
 
     public Animator move;
-
+    private string lastTrigger = "";
+    private PlayerRaycast playerRaycast;
+    private void Awake()
+    {
+        playerRaycast = GetComponent<PlayerRaycast>();
+    }
     private void Update()
     {
         Vector3 direction = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(direction * player.speed * Time.deltaTime);
 
 
-        move.SetFloat("Speed", direction.magnitude);
 
 
         Vector3 rota = new Vector3(0f, reference.eulerAngles.y, 0f);
@@ -27,15 +31,28 @@ public class Move : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (!move.GetBool("isAttack"))
+        movementInput = context.ReadValue<Vector2>();
+        movementInput = movementInput.normalized;
+        OnMoving?.Invoke(movementInput);
+        playerRaycast.isAttacking = false;
+        if (movementInput != Vector2.zero)
         {
-            movementInput = context.ReadValue<Vector2>();
-            OnMoving?.Invoke(movementInput);
+            if (lastTrigger != "Run")
+            {
+                move.ResetTrigger("Idle");
+                move.SetTrigger("Run");
+                lastTrigger = "Run";
+            }
         }
         else
         {
-            OnMoving?.Invoke(Vector2.zero);
-            Debug.Log("ZERO");
+            if (lastTrigger != "Idle")
+            {
+                move.ResetTrigger("Run");
+                move.SetTrigger("Idle");
+                lastTrigger = "Idle";
+            }
         }
     }
+
 }
