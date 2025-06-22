@@ -10,16 +10,16 @@ public class Move : MonoBehaviour
     public static event Action<Vector2> OnMoving;
     [SerializeField] Transform reference;
 
-    private Rigidbody _rigidbody;
+    public Animator move;
 
-    private void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-    }
     private void Update()
     {
         Vector3 direction = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(direction * player.speed * Time.deltaTime);
+
+
+        move.SetFloat("Speed", direction.magnitude);
+
 
         Vector3 rota = new Vector3(0f, reference.eulerAngles.y, 0f);
         transform.rotation = Quaternion.Euler(rota);
@@ -27,7 +27,15 @@ public class Move : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        movementInput = context.ReadValue<Vector2>();
-        OnMoving?.Invoke(movementInput);
+        if (!move.GetBool("isAttack"))
+        {
+            movementInput = context.ReadValue<Vector2>();
+            OnMoving?.Invoke(movementInput);
+        }
+        else
+        {
+            OnMoving?.Invoke(Vector2.zero);
+            Debug.Log("ZERO");
+        }
     }
 }

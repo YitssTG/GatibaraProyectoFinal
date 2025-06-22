@@ -1,10 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerRaycast : MonoBehaviour
 {
+    public Animator attack;
+
     [Header("Raycast Properties")]
     [SerializeField] Transform _origin;
     [SerializeField] Vector3 _direction;
@@ -22,14 +24,6 @@ public class PlayerRaycast : MonoBehaviour
 
     [SerializeField] private Color highlightColor = Color.red;
 
-    //private void OnEnable()
-    //{
-    //    Move.OnMoving += GetMovement;
-    //}
-    //private void OnDisable()
-    //{
-    //    Move.OnMoving -= GetMovement;
-    //}
     void Update()
     {
         DoRaycast(transform.forward);
@@ -56,7 +50,6 @@ public class PlayerRaycast : MonoBehaviour
                 if (lastBreakable != null)
                     lastBreakable.Highlight(highlightColor);
             }
-
         }
         else
         {
@@ -69,24 +62,22 @@ public class PlayerRaycast : MonoBehaviour
                 lastBreakable = null;
                 lastHitObject = null;
             }
-
-
         }
     }
     public void OnRightClick(InputAction.CallbackContext context)
     {
-        // ==== ATAQUE AL ENEMIGO SI DETECTA ====
         if (context.performed)
         {
-            EnemyFollow enemigo = hitObject.GetComponent<EnemyFollow>();
+            attack.SetBool("isAttack", true);
+            EnemyFollow enemigo = hitObject?.GetComponent<EnemyFollow>();
             if (enemigo != null)
             {
                 enemigo.RecibirAtaque(_direction);
             }
         }
     }
-    //public void GetMovement(Vector2 movementImput)
-    //{
-    //    _direction = new Vector3(movementImput.x, 0f, movementImput.y);
-    //}
+    public void EndAttack()
+    {
+        attack.SetBool("isAttack", false);
+    }
 }
