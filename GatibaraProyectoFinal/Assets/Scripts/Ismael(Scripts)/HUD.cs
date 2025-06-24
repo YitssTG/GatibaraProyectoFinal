@@ -10,7 +10,7 @@ public class HUD : MonoBehaviour
     private float vidaMax;
 
     [Header("Coin Data")]
-    private int puntos;
+    public int puntos;
 
     private void OnEnable()
     {

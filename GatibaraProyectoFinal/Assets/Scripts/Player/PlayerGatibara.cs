@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerGatibara : MonoBehaviour
 {
     [Header("Player Movement")]
     [SerializeField] public float speed;
+    [SerializeField] HUD hud;
+    [SerializeField] UnlockedAbilities unlockedAbilities;
 
     public float vida;
     private float baseAttackSpeed;
     public float currentAttackSpeed;
     private float bonusSpeed;
     public int spellnumber;
-
     private void Start()
     {
         baseAttackSpeed = 1f;
         bonusSpeed = 100f;
         spellnumber = 1;
+        LoadStats();
     }
     private void OnEnable()
     {
@@ -52,5 +55,24 @@ public class PlayerGatibara : MonoBehaviour
     public void CollectHealth()
     {
         Debug.Log("Corazon Recogido");
+    }
+    public void LoadStats()
+    {
+        if (PlayerPrefs.HasKey("Coins"))
+        {
+            hud.puntos = PlayerPrefs.GetInt("Coins");
+            hud.UpdatePoints();
+        }
+        if (PlayerPrefs.HasKey("SpellNumber"))
+        {
+            spellnumber = PlayerPrefs.GetInt("SpellNumber");
+        }
+        if (PlayerPrefs.HasKey("PositionX") && PlayerPrefs.HasKey("PositionY") && PlayerPrefs.HasKey("PositionZ"))
+        {
+            float x = PlayerPrefs.GetFloat("PositionX");
+            float y = PlayerPrefs.GetFloat("PositionY");
+            float z = PlayerPrefs.GetFloat("PositionZ");
+            transform.position = new Vector3(x, y, z);
+        }
     }
 }

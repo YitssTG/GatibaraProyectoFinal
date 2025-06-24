@@ -50,7 +50,7 @@ public class ElementCombination : ScriptableObject
     }
     public CombinationData GetCombinationByKey(string key)
     {
-        if(searcher.Count == 0 || searcher == null)
+        if(searcher == null || searcher.Count == 0)
         {
             Initialize();
         }

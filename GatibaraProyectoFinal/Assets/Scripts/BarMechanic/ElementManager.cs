@@ -92,4 +92,22 @@ public class ElementManager : MonoBehaviour
             }
         }
     }
+    public void ApplyElement(ElementData.ElementType type)
+    {
+        switch (type)
+        {
+            case ElementData.ElementType.Fire:
+                OnFire();
+                break;
+            case ElementData.ElementType.Water:
+                OnWater();
+                break;
+            case ElementData.ElementType.Wind:
+                OnWind();
+                break;
+            case ElementData.ElementType.Earth:
+                OnEarth();
+                break;
+        }
+    }
 }
