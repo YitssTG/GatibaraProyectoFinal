@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,26 +33,8 @@ public class SelectorController : MonoBehaviour
                 isSpinning = false;
                 ElementBarPanel.SetActive(false);
                 ElementData.ElementType selected = elementUI.GetCurrentElementType();
-                ApplyElement(selected);
+                manager.ApplyElement(selected);
             }
-        }
-    }
-    private void ApplyElement(ElementData.ElementType type)
-    {
-        switch (type)
-        {
-            case ElementData.ElementType.Fire:
-                manager.OnFire();
-                break;
-            case ElementData.ElementType.Water:
-                manager.OnWater();
-                break;
-            case ElementData.ElementType.Wind:
-                manager.OnWind();
-                break;
-            case ElementData.ElementType.Earth:
-                manager.OnEarth();
-                break;
         }
     }
 }

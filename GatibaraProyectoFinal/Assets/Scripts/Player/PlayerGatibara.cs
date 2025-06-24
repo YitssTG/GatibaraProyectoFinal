@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerGatibara : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class PlayerGatibara : MonoBehaviour
         if (PlayerPrefs.HasKey("Coins"))
         {
             hud.puntos = PlayerPrefs.GetInt("Coins");
+            hud.UpdatePoints();
         }
         if (PlayerPrefs.HasKey("SpellNumber"))
         {
@@ -72,7 +74,5 @@ public class PlayerGatibara : MonoBehaviour
             float z = PlayerPrefs.GetFloat("PositionZ");
             transform.position = new Vector3(x, y, z);
         }
-
-        unlockedAbilities.LoadSaved();
     }
 }

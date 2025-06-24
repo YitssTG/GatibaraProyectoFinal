@@ -46,10 +46,10 @@ public class UnlockedAbilities : MonoBehaviour
                     unlocked = true;
                     break;
                 }
-                if (!unlocked)
-                {
-                    savedUnlockedList.Add(currentUnlockedList[i]);
-                }
+            }
+            if (!unlocked)
+            {
+                savedUnlockedList.Add(currentUnlockedList[i]);
             }
         }
         List<string> keysToSave = new List<string>();
