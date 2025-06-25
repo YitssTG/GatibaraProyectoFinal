@@ -30,13 +30,7 @@ public class ElementManager : MonoBehaviour
         Elements.ReduceSpellNumber();
     }
     [Button]
-    public void SetLevel2()
-    {
-        player.spellnumber = 2;
-        UpdateSlots();
-        Debug.Log("Player puede usar dos habilidades a la vez");
-    }
-    [Button]
+    
     public void SetLevel3()
     {
         player.spellnumber = 3;
@@ -77,7 +71,7 @@ public class ElementManager : MonoBehaviour
         OnCkeck?.Invoke(Elements, wind);
         UpdateSlots();
     }
-    private void UpdateSlots()
+    public void UpdateSlots()
     {
         List<ElementData> ordered = Elements.GetOrderedElements();
         for (int i = 0; i < slots.Length; i++)

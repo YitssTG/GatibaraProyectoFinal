@@ -56,7 +56,7 @@ public class EnemyFollow : MonoBehaviour
     }
     public void RecibirAtaque(Vector3 direccion)
     {
-        vidas--;
+        vidas = vidas - 3;
         if (barraUI != null)
         {
             barraUI.SetVida(vidas, vidasMaximas);
@@ -81,9 +81,9 @@ public class EnemyFollow : MonoBehaviour
     //        Destroy(gameObject);
     //    }
     //}
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player") && Time.time - tiempoUltimoGolpe > tiempoEntreGolpes)
+        if (collision.gameObject.tag == "Player" && Time.time - tiempoUltimoGolpe > tiempoEntreGolpes)
         {
             tiempoUltimoGolpe = Time.time;
             Debug.Log("Jugador alcanzado, pierde un corazón.");
@@ -110,4 +110,5 @@ public class EnemyFollow : MonoBehaviour
         fireDamageTimer = 0f; 
         Debug.Log("Debuff Reseted");
     }
+    
 }

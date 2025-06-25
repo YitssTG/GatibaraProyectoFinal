@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     }
     public void PerderCorazones()
     {
-        playerGatibara.vida--;
+        playerGatibara.vida = playerGatibara.vida -3;
 
         hud.UpdateLifeBar();
 
