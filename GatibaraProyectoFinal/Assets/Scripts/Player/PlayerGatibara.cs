@@ -10,6 +10,8 @@ public class PlayerGatibara : MonoBehaviour
     [SerializeField] HUD hud;
     [SerializeField] UnlockedAbilities unlockedAbilities;
 
+    [SerializeField] PopUpController onWin;
+
     public float vida;
     private float baseAttackSpeed;
     public float currentAttackSpeed;
@@ -73,6 +75,13 @@ public class PlayerGatibara : MonoBehaviour
             float y = PlayerPrefs.GetFloat("PositionY");
             float z = PlayerPrefs.GetFloat("PositionZ");
             transform.position = new Vector3(x, y, z);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Win"))
+        {
+            onWin.ShowWinPopUp();
         }
     }
 }
