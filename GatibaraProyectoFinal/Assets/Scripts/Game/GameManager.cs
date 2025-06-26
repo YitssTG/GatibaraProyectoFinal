@@ -77,9 +77,9 @@ public class GameManager : MonoBehaviour
     {
         PuntosTotales += sumaPuntos;
     }
-    public void PerderCorazones()
+    public void PerderCorazones(int cantidad)
     {
-        playerGatibara.vida = playerGatibara.vida -3;
+        playerGatibara.vida -= cantidad;
 
         hud.UpdateLifeBar();
 

@@ -1,80 +1,105 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Threading;
+using System.Collections;
 
 public class ElementEffectManager : MonoBehaviour
 {
     [SerializeField] private PlayerGatibara player;
-    [SerializeField] private List<EnemyFollow> enemies;
+    private Coroutine healthCoroutine;
+    private List<ElementData.ElementType> types;
 
+    private void Start()
+    {
+        types = new List<ElementData.ElementType>();
+    }
     private void OnEnable()
     {
         ElementManager.OnCkeck += ApplyEffects;
+        healthCoroutine = StartCoroutine(HealthTick());
     }
     private void OnDisable()
     {
         ElementManager.OnCkeck -= ApplyEffects;
+        //gaaaaaaaaaaaaaaaaaaaaa
+    }
+    IEnumerator HealthTick()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            ApplyTickEffect();
+        }
+    }
+    private void ApplyTickEffect()
+    {
+        for(int i = 0; i < types.Count; i++)
+        {
+            //if(types[i] == ElementData.ElementType.Fire)
+            //{
+            //    for(int j = 0; j < enemies.Count; j++)
+            //    {
+            //        enemies[j].RecibirFuego(1);
+            //    }
+            //}
+            if(types[i] == ElementData.ElementType.Water)
+            {
+                player.Heal(1);
+            }
+        }
     }
     private void ApplyEffects(CustomSimpleLinkedList<ElementData> elements, ElementData elementData)
     {
         List<ElementData> ordered = elements.GetOrderedElements();
-        List<ElementData.ElementType> types = new List<ElementData.ElementType>();
+
+        types.Clear();
         int limit = Mathf.Min(player.spellnumber, ordered.Count);
-        for (int i = 0; i < limit; i++)
+        for(int i = 0;i < limit; i++)
         {
             types.Add(ordered[i].type);
         }
-        ApplyActiveElements(types);
-        //acá llamo para actualizar
-        Debug.Log(enemies[0].fireDamage);
-        Debug.Log(enemies[0].attackSpeedPenalty);
-        Debug.Log(enemies[0].speedMovementPenalty);
-        Debug.Log(player.currentAttackSpeed);
+        ApplyEffectsToPlayer(types);
     }
-    public void ApplyActiveElements(List<ElementData.ElementType> activeElements)
+    public void ApplyEffectsToPlayer(List<ElementData.ElementType> activeElements)
     {
         player.ResetEffect();
-        int fireCount = 0;
-        int waterCount = 0;
         int windCount = 0;
-        int earthCount = 0;
         for (int i = 0; i < activeElements.Count; i++)
         {
-            switch (activeElements[i])
+            if (activeElements[i] == ElementData.ElementType.Wind)
+            {
+                windCount++;
+            }
+        }
+        if (windCount > 0)
+        {
+            player.IncreaseSpeed(windCount);
+        }
+    }
+    public void ApplyEffectsToEnemy(EnemyFollow enemy, List<ElementData.ElementType> type)
+    {
+        enemy.ResetDebuffs();
+        enemy.StopFireEffect();
+        int fireCount = 0;
+        int earthCount = 0;
+        for (int i = 0; i < type.Count; i++)
+        {
+            switch (type[i])
             {
                 case ElementData.ElementType.Fire:
                     fireCount++;
-                    break;
-                case ElementData.ElementType.Water:
-                    waterCount++;
-                    break;
-                case ElementData.ElementType.Wind:
-                    windCount++;
                     break;
                 case ElementData.ElementType.Earth:
                     earthCount++;
                     break;
             }
         }
-        for (int i = 0; i < enemies.Count; i++)
+        if (fireCount > 0)
         {
-            enemies[i].ResetDebuffs();
-            if (fireCount > 0)
-            {
-                enemies[i].ApplyFireDamage(fireCount);
-            }
-            if (waterCount > 0)
-            {
-                enemies[i].ReduceAttackSpeed(waterCount);
-            }
-            if (earthCount > 0)
-            {
-                enemies[i].ReduceMovementSpeed(earthCount);
-            }
+            enemy.ApplyFireDamage(fireCount);
         }
-        if (windCount > 0)
+        if(earthCount > 0)
         {
-            player.IncreaseAttackSpeed(windCount);
+            enemy.ReduceDamage(earthCount);
         }
     }
 }
