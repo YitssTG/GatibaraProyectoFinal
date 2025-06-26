@@ -77,7 +77,7 @@ public class PlayerGatibara : MonoBehaviour
 
     //    }
     //}
-    public List<ElementData.ElementType> GetElementTypes()
+    public List<ElementType> GetElementTypes()
     {
         return manager.GetTypes();
     }

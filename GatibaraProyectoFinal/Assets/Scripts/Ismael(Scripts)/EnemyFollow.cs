@@ -21,6 +21,9 @@ public class EnemyFollow : MonoBehaviour
     private float tiempoUltimoGolpe = -999f;
     private float tiempoEntreGolpes = 1f;
 
+   
+    public ElementType resistances;
+
     private Coroutine fireCoroutine;
     void Awake()
     {
@@ -46,7 +49,7 @@ public class EnemyFollow : MonoBehaviour
     {
         agent.destination = destino;
     }
-    public void RecibirAtaque(Vector3 direccion)
+    public void RecibirAtaque()
     {
         vidas = vidas - 3;
         if (barraUI != null)
@@ -58,6 +61,11 @@ public class EnemyFollow : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void TakeDamage(float damage, ElementType element)
+    {
+
     }
     public void RecibirFuego(int cantidad)
     {

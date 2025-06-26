@@ -54,15 +54,15 @@ public class ElementVisualUI : MonoBehaviour
         switch (name)
         {
             case "Fire":
-                return ElementData.ElementType.Fire;
+                return ElementType.Fire;
             case "Water":
-                return ElementData.ElementType.Water;
-            case "Wind":
-                return ElementData.ElementType.Wind;
+                return ElementType.Water;
+            case "Wind":    
+                return ElementType.Wind;
             case "Earth":
-                return ElementData.ElementType.Earth;
-            default:
-                return ElementData.ElementType.Empty;
+                return ElementType.Earth;
+            default:    
+                return ElementType.Empty;
         }
     }
 }

@@ -617,9 +617,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraUI: {fileID: 90372232913266335}
+  damageReduction: 1
   vidas: 20
   baseDamage: 3
   currentDamage: 0
+  resistances: 0
 --- !u!195 &8633302838338769120
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class SelectorController : MonoBehaviour
                 elementUI.StopSpinning();
                 isSpinning = false;
                 ElementBarPanel.SetActive(false);
-                ElementData.ElementType selected = elementUI.GetCurrentElementType();
+                ElementType selected = elementUI.GetCurrentElementType();
                 manager.ApplyElement(selected);
             }
         }

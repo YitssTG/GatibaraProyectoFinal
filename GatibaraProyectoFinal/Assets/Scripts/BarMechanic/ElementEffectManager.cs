@@ -6,11 +6,11 @@ public class ElementEffectManager : MonoBehaviour
 {
     [SerializeField] private PlayerGatibara player;
     private Coroutine healthCoroutine;
-    private List<ElementData.ElementType> types;
+    private List<ElementType> types;
 
     private void Start()
     {
-        types = new List<ElementData.ElementType>();
+        types = new List<ElementType>();
     }
     private void OnEnable()
     {
@@ -41,7 +41,7 @@ public class ElementEffectManager : MonoBehaviour
             //        enemies[j].RecibirFuego(1);
             //    }
             //}
-            if(types[i] == ElementData.ElementType.Water)
+            if(types[i] == ElementType.Water)
             {
                 player.Heal(1);
             }
@@ -59,13 +59,13 @@ public class ElementEffectManager : MonoBehaviour
         }
         ApplyEffectsToPlayer(types);
     }
-    public void ApplyEffectsToPlayer(List<ElementData.ElementType> activeElements)
+    public void ApplyEffectsToPlayer(List<ElementType> activeElements)
     {
         player.ResetEffect();
         int windCount = 0;
         for (int i = 0; i < activeElements.Count; i++)
         {
-            if (activeElements[i] == ElementData.ElementType.Wind)
+            if (activeElements[i] == ElementType.Wind)
             {
                 windCount++;
             }
@@ -75,7 +75,7 @@ public class ElementEffectManager : MonoBehaviour
             player.IncreaseSpeed(windCount);
         }
     }
-    public void ApplyEffectsToEnemy(EnemyFollow enemy, List<ElementData.ElementType> type)
+    public void ApplyEffectsToEnemy(EnemyFollow enemy, List<ElementType> type)
     {
         enemy.ResetDebuffs();
         enemy.StopFireEffect();
@@ -85,10 +85,10 @@ public class ElementEffectManager : MonoBehaviour
         {
             switch (type[i])
             {
-                case ElementData.ElementType.Fire:
+                case ElementType.Fire:
                     fireCount++;
                     break;
-                case ElementData.ElementType.Earth:
+                case ElementType.Earth:
                     earthCount++;
                     break;
             }

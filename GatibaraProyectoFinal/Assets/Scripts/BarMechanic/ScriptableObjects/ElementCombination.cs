@@ -26,7 +26,7 @@ public class ElementCombination : ScriptableObject
             }
         }
     }
-    public CombinationData GetCombination(List<ElementData.ElementType> elements)
+    public CombinationData GetCombination(List<ElementType> elements)
     {
         string key = "";
         for(int i = 0; i< elements.Count; i++)
