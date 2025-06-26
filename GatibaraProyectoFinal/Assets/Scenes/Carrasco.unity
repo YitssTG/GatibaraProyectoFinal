@@ -40650,13 +40650,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a8d3a6ba5d9a149a3ef763d70dad0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  baseSpeed: 0
+  currentSpeed: 0
   hud: {fileID: 677100006}
   unlockedAbilities: {fileID: 1952537658}
   onWin: {fileID: 1176166038}
   manager: {fileID: 1952537655}
   vida: 50
-  currentAttackSpeed: 0
   spellnumber: 2
 --- !u!54 &1934623083
 Rigidbody:
@@ -40787,8 +40787,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1934623082}
-  enemies:
-  - {fileID: 1062412886534272298, guid: 327195607cca2e5449981f3e19f42756, type: 3}
 --- !u!114 &1952537658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46724,6 +46722,7 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1318656856}
+  - {fileID: 886392797}
   - {fileID: 1578384344}
   - {fileID: 135386047}
   - {fileID: 1952537654}
@@ -46738,4 +46737,3 @@ SceneRoots:
   - {fileID: 1295934223}
   - {fileID: 1752427307}
   - {fileID: 761423683}
-  - {fileID: 886392797}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementName: Water
   elementDescription: Cura por segundo al player
-  elementPrefab: {fileID: 3426882857051613024, guid: 994d71eb9fa084149a7bd984163d6960, type: 3}
+  elementPrefab: {fileID: 502281058067489655, guid: 994d71eb9fa084149a7bd984163d6960, type: 3}
   type: 1
