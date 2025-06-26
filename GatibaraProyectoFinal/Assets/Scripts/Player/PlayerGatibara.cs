@@ -10,6 +10,9 @@ public class PlayerGatibara : MonoBehaviour
     [SerializeField] HUD hud;
     [SerializeField] UnlockedAbilities unlockedAbilities;
 
+    [SerializeField] PopUpController onWin;
+    [SerializeField] ElementManager manager;
+
     public float vida;
     private float baseAttackSpeed;
     public float currentAttackSpeed;
@@ -74,5 +77,23 @@ public class PlayerGatibara : MonoBehaviour
             float z = PlayerPrefs.GetFloat("PositionZ");
             transform.position = new Vector3(x, y, z);
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Win"))
+        {
+            onWin.ShowWinPopUp();
+        }
+        if (other.CompareTag("Level2"))
+        {
+            SetLevel2();
+        }
+
+    }
+    public void SetLevel2()
+    {
+        spellnumber = 2;
+        manager.UpdateSlots();
+        Debug.Log("Player puede usar dos habilidades a la vez");
     }
 }

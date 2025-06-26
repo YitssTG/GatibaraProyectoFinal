@@ -1,8 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.InputManagerEntry;
-
 public class SlotObject : MonoBehaviour
 {
     private ElementData currentElement;
