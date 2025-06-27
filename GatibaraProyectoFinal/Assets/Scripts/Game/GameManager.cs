@@ -1,10 +1,39 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    private int enemiesKilled;
+    public int EnemyKilled
+    {
+        get
+        {
+            return enemiesKilled;
+        }
+        set
+        {
+            enemiesKilled = value;
+        }
+    }
+    private int requiredKills;
+    public int RequiredKills
+    {
+        get
+        {
+            return requiredKills;
+        }
+        set
+        {
+            requiredKills = value;
+        }
+    }
+
+    public static event Action OnAllEnemiesKilled;
+
     public HUD hud;
     public PlayerGatibara playerGatibara;
 
@@ -100,6 +129,20 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Vida al máximo. No se agregó corazón.");
+        }
+    }
+    public void SetRequiredKills(int required)
+    {
+        RequiredKills = required;
+        enemiesKilled = 0;
+    }
+    public void RegisterKill()
+    {
+        enemiesKilled++;
+        Debug.Log("Enemigos eliminados: " + requiredKills);
+        if(enemiesKilled >= RequiredKills)
+        {
+            OnAllEnemiesKilled?.Invoke();
         }
     }
 }
