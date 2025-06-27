@@ -18,10 +18,12 @@ public class Move : MonoBehaviour
     }
     private void Update()
     {
-        Vector3 direction = new Vector3(movementInput.x, 0f, movementInput.y);
-        transform.Translate(direction * player.currentSpeed * Time.deltaTime);
-        Vector3 rota = new Vector3(0f, reference.eulerAngles.y, 0f);
-        transform.rotation = Quaternion.Euler(rota);
+        Vector3 forwardMovement = transform.forward * movementInput.y * player.currentSpeed * Time.deltaTime;
+        transform.position += forwardMovement;
+
+        float rotationSpeed = 100f;
+        float rotationAmount = movementInput.x * rotationSpeed * Time.deltaTime;
+        transform.Rotate(0, rotationAmount, 0);
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -29,7 +31,7 @@ public class Move : MonoBehaviour
         movementInput = movementInput.normalized;
         OnMoving?.Invoke(movementInput);
         playerRaycast.isAttacking = false;
-        if (movementInput != Vector2.zero)
+        if (movementInput.y != 0)
         {
             if (lastTrigger != "Run")
             {
