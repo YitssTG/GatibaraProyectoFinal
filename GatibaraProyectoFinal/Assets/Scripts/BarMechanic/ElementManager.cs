@@ -37,10 +37,10 @@ public class ElementManager : MonoBehaviour
         UpdateSlots();
         Debug.Log("Player puede usar tres habilidades a la vez");
     }
-    public List<ElementData.ElementType> GetTypes()
+    public List<ElementType> GetTypes()
     {
         List<ElementData> ordered = Elements.GetOrderedElements();
-        List<ElementData.ElementType> types = new List<ElementData.ElementType>();
+        List<ElementType> types = new List<ElementType>();
         for (int i = 0; i < player.spellnumber && i < ordered.Count; i++)
         {
             types.Add(ordered[i].type);
@@ -86,20 +86,20 @@ public class ElementManager : MonoBehaviour
             }
         }
     }
-    public void ApplyElement(ElementData.ElementType type)
+    public void ApplyElement(ElementType type)
     {
         switch (type)
         {
-            case ElementData.ElementType.Fire:
+            case ElementType.Fire:
                 OnFire();
                 break;
-            case ElementData.ElementType.Water:
+            case ElementType.Water:
                 OnWater();
                 break;
-            case ElementData.ElementType.Wind:
+            case ElementType.Wind:
                 OnWind();
                 break;
-            case ElementData.ElementType.Earth:
+            case ElementType.Earth:
                 OnEarth();
                 break;
         }

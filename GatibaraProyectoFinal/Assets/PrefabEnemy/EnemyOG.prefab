@@ -407,6 +407,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0602c37d243ec09418bacf77dcf2401d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1156334875509381579, guid: 0602c37d243ec09418bacf77dcf2401d, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -613,10 +617,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraUI: {fileID: 90372232913266335}
-  fireDamage: 1
-  attackSpeedPenalty: 20
-  speedMovementPenalty: 30
+  damageReduction: 1
   vidas: 20
+  baseDamage: 3
+  currentDamage: 0
+  resistances: 0
 --- !u!195 &8633302838338769120
 NavMeshAgent:
   m_ObjectHideFlags: 0

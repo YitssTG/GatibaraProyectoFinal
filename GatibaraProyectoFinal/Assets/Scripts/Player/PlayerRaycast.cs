@@ -74,7 +74,7 @@ public class PlayerRaycast : MonoBehaviour
             EnemyFollow enemigo = hitObject?.GetComponent<EnemyFollow>();
             if (enemigo != null)
             {
-                enemigo.RecibirAtaque(_direction);
+                enemigo.RecibirAtaque();
             }
         }
     }

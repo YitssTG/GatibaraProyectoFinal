@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerGatibara : MonoBehaviour
 {
     [Header("Player Movement")]
-    [SerializeField] public float speed;
+    [SerializeField] public float baseSpeed;
+    [SerializeField] public float currentSpeed;
     [SerializeField] HUD hud;
     [SerializeField] UnlockedAbilities unlockedAbilities;
 
@@ -14,14 +13,11 @@ public class PlayerGatibara : MonoBehaviour
     [SerializeField] ElementManager manager;
 
     public float vida;
-    private float baseAttackSpeed;
-    public float currentAttackSpeed;
-    private float bonusSpeed;
     public int spellnumber;
     private void Start()
     {
-        baseAttackSpeed = 1f;
-        bonusSpeed = 100f;
+        baseSpeed = 5f;
+        currentSpeed = baseSpeed;
         spellnumber = 1;
         LoadStats();
     }
@@ -35,29 +31,6 @@ public class PlayerGatibara : MonoBehaviour
     {
         Health.OnHealthDestroy -= CollectHealth;
         EnemyFollow.OnGetPlayerPosition -= GetPlayer;
-    }
-    private Transform GetPlayer()
-    {
-        return transform;
-    }
-    public void IncreaseAttackSpeed(int stacks)
-    {
-        bonusSpeed = 0.2f * stacks;
-        UpdateEffect();
-    }
-    public void ResetEffect()
-    {
-        bonusSpeed = 0f;
-        UpdateEffect();
-        Debug.Log("Efectos reseteados");
-    }
-    public void UpdateEffect()
-    {
-        currentAttackSpeed = baseAttackSpeed + bonusSpeed;
-    }
-    public void CollectHealth()
-    {
-        Debug.Log("Corazon Recogido");
     }
     public void LoadStats()
     {
@@ -78,6 +51,51 @@ public class PlayerGatibara : MonoBehaviour
             transform.position = new Vector3(x, y, z);
         }
     }
+    private Transform GetPlayer()
+    {
+        return transform;
+    }
+    public void CollectHealth()
+    {
+        Debug.Log("Corazon Recogido");
+    }
+    public void Heal(int healQuantity)
+    {
+        vida += healQuantity;
+        if(vida > hud.GetVidaMax())
+        {
+            vida = hud.GetVidaMax();
+        }
+        hud.UpdateLifeBar();
+    }
+    //public void RecibirDano(int cantidad)
+    //{
+    //    vida -= cantidad;
+    //    hud.UpdateLifeBar();
+    //    if(vida <= 0)
+    //    {
+
+    //    }
+    //}
+    public List<ElementType> GetElementTypes()
+    {
+        return manager.GetTypes();
+    }
+    public void IncreaseSpeed(int stacks)
+    {
+        currentSpeed = baseSpeed + stacks;
+    }
+    public void ResetEffect()
+    {
+        currentSpeed = baseSpeed;
+        Debug.Log("Efectos reseteados");
+    }
+    public void SetLevel2()
+    {
+        spellnumber = 2;
+        manager.UpdateSlots();
+        Debug.Log("Player puede usar dos habilidades a la vez");
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Win"))
@@ -88,12 +106,5 @@ public class PlayerGatibara : MonoBehaviour
         {
             SetLevel2();
         }
-
-    }
-    public void SetLevel2()
-    {
-        spellnumber = 2;
-        manager.UpdateSlots();
-        Debug.Log("Player puede usar dos habilidades a la vez");
     }
 }

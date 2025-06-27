@@ -1,4 +1,3 @@
-using DG.Tweening.Core.Easing;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,7 +19,7 @@ public class Move : MonoBehaviour
     private void Update()
     {
         Vector3 direction = new Vector3(movementInput.x, 0f, movementInput.y);
-        transform.Translate(direction * player.speed * Time.deltaTime);
+        transform.Translate(direction * player.currentSpeed * Time.deltaTime);
 
 
 

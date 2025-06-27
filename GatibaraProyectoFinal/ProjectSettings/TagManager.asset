@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Win
   - Level2
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
+  - wall
   - 
   - 
   - 

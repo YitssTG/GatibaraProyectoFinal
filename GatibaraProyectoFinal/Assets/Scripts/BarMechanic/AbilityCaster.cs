@@ -9,7 +9,7 @@ public class AbilityCaster : MonoBehaviour
     [SerializeField] private ElementCombination Listcombinations;
     [SerializeField] private UnlockedAbilities unlockedAbilities;
 
-    public CombinationData CastAbility(List<ElementData.ElementType> types)
+    public CombinationData CastAbility(List<ElementType> types)
     {
         var combination = Listcombinations.GetCombination(types);
         if (combination != null)

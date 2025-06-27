@@ -1,26 +1,30 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.HID;
 
 public class EnemyFollow : MonoBehaviour
 {
     public EnemyBarraVida barraUI;
-    private int vidasMaximas;
+    private float vidasMaximas;
 
     [Header("Stats Enemy DeBuffs")]
-    public float fireDamage = 0f;
-    public float attackSpeedPenalty = 0f;
-    public float speedMovementPenalty = 0f;
+    public int damageReduction = 1;
 
-    private float fireDamageInterval = 1f;
-    private float fireDamageTimer = 0f;
-
-    public int vidas = 20;
+    public float vidas = 20;
+    public int baseDamage = 4;
+    public int currentDamage;
     private NavMeshAgent agent;
     public static event Func<Transform> OnGetPlayerPosition;
     private static Transform playerTransform;
     private float tiempoUltimoGolpe = -999f;
     private float tiempoEntreGolpes = 1f;
+
+   
+    public ElementType resistances;
+
+    private Coroutine fireCoroutine;
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -40,21 +44,12 @@ public class EnemyFollow : MonoBehaviour
     void Update()
     {
         Destination(playerTransform.position);
-        //if (fireDamage > 0)
-        //{
-        //    fireDamageTimer += Time.deltaTime;
-        //    if (fireDamageTimer >= fireDamageInterval)
-        //    {
-        //        fireDamageTimer = 0f;
-        //        RecibirFuego();
-        //    }
-        //}
     }
     private void Destination(Vector3 destino)
     {
         agent.destination = destino;
     }
-    public void RecibirAtaque(Vector3 direccion)
+    public void RecibirAtaque()
     {
         vidas = vidas - 3;
         if (barraUI != null)
@@ -67,48 +62,68 @@ public class EnemyFollow : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    //private void RecibirFuego()
-    //{
-    //    vidas -= (int)fireDamage;
-    //    if (barraUI != null)
-    //    {
-    //        barraUI.SetVida(vidas, vidasMaximas);
-    //    }
-    //    Debug.Log($"🔥 Daño de fuego: {fireDamage}, Vidas restantes: {vidas}");
 
-    //    if (vidas <= 0)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    public void TakeDamage(float damage, ElementType element)
+    {
+
+    }
+    public void RecibirFuego(int cantidad)
+    {
+        vidas -= (cantidad * 0.01f);
+        if (barraUI != null)
+        {
+            barraUI.SetVida(vidas, vidasMaximas);
+        }
+        if (vidas <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void ApplyFireDamage(int stacks)
+    {
+        if(fireCoroutine != null)
+        {
+            StopCoroutine(fireCoroutine);
+        }
+        fireCoroutine = StartCoroutine(FireTick(stacks));
+    }
+    private IEnumerator FireTick(int stacks)
+    {
+        while (true)
+        {
+            RecibirFuego(stacks);
+            yield return new WaitForSeconds(1);
+        }
+    }
+    public void StopFireEffect()
+    {
+        if(fireCoroutine != null)
+        {
+            StopCoroutine(fireCoroutine);
+            fireCoroutine = null;
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player" && Time.time - tiempoUltimoGolpe > tiempoEntreGolpes)
         {
             tiempoUltimoGolpe = Time.time;
-            Debug.Log("Jugador alcanzado, pierde un corazón.");
-            GameManager.instance.PerderCorazones();
+            PlayerGatibara player = collision.gameObject.GetComponent<PlayerGatibara>();
+            if(player != null)
+            {
+                currentDamage = Mathf.Max(0, baseDamage - damageReduction);
+                GameManager.instance.PerderCorazones(currentDamage);
+            }
+            Debug.Log("Jugador alcanzado, pierde vida.");
         }
     }
-    public void ApplyFireDamage(int stacks)
+    public void ReduceDamage(int stacks)
     {
-        fireDamage = 5f * stacks;
-    }
-    public void ReduceAttackSpeed(int stacks)
-    {
-        attackSpeedPenalty = 0.1f * stacks;
-    }
-    public void ReduceMovementSpeed(int stacks)
-    {
-        speedMovementPenalty = 0.1f * stacks;
+        damageReduction = stacks;
     }
     public void ResetDebuffs()
     {
-        fireDamage = 0;
-        attackSpeedPenalty = 0;
-        speedMovementPenalty = 0;
-        fireDamageTimer = 0f; 
+        damageReduction = 0;
         Debug.Log("Debuff Reseted");
     }
-    
 }
