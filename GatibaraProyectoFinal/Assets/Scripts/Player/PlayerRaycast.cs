@@ -65,7 +65,7 @@ public class PlayerRaycast : MonoBehaviour
             }
         }
     }
-    public void OnRightClick(InputAction.CallbackContext context)
+    public void OnLeftClick(InputAction.CallbackContext context)
     {
         if (context.performed && !isAttacking)
         {

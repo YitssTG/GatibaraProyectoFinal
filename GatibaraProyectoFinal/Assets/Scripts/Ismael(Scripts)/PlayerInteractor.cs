@@ -19,7 +19,7 @@ public class PlayerInteractor : MonoBehaviour
     {
         currentHit = null;
     }
-    public void OnInteract(InputAction.CallbackContext context)
+    public void OnBreak(InputAction.CallbackContext context)
     {
         if (!context.performed || currentHit == null) return;
 

@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RightClick",
+                    "name": "spaceElement",
                     "type": "Button",
                     "id": "30861131-b141-4d16-96aa-66e85262f87f",
                     "expectedControlType": "",
@@ -150,11 +150,11 @@
                 {
                     "name": "",
                     "id": "24802ad8-eb59-43ad-8d30-533e79581d87",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RightClick",
+                    "action": "spaceElement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

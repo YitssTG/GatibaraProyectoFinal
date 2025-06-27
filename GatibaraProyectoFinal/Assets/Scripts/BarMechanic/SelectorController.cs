@@ -17,7 +17,7 @@ public class SelectorController : MonoBehaviour
         ElementBarPanel.SetActive(false);
         isPaused = false;
     }
-    public void OnClick(InputAction.CallbackContext context)
+    public void OnSpace(InputAction.CallbackContext context)
     {
         if (context.performed && !isPaused)
         {
