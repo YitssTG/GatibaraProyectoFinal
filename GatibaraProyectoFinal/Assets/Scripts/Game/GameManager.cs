@@ -6,7 +6,20 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    private int currentSpellNumber;
+    private int maxSpellNumberUnlocked;
+    public int MaxSpellNumberUnlocked
+    {
+        get
+        {
+            return maxSpellNumberUnlocked;
+        }
+        set
+        {
+            maxSpellNumberUnlocked = value;
+        }
+    }
+    [SerializeField] private int spellUnlockCost;
     private int enemiesKilled;
     public int EnemyKilled
     {
@@ -34,13 +47,13 @@ public class GameManager : MonoBehaviour
 
     public static event Action OnAllEnemiesKilled;
 
-    public HUD hud;
-    public PlayerGatibara playerGatibara;
+    [Header("References")]
+    [SerializeField] HUD hud;
+    [SerializeField] PlayerGatibara playerGatibara;
+    [SerializeField] ElementManager manager;
+    [SerializeField] PopUpController popUpController;
 
-    [Header("PopUp")]
-    public PopUpController popUpController;
-
-    public int PuntosTotales { get; private set; }
+    //public int PuntosTotales { get; private set; }
     [Header("Data Structure")]
     private List<GenerateEnemy> pointGenerateEnemy = new List<GenerateEnemy>();
 
@@ -62,6 +75,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        currentSpellNumber = 1;
+        maxSpellNumberUnlocked = currentSpellNumber;
         hud.SetPlayer(playerGatibara);
     }
     private void OnEnable()
@@ -102,10 +117,10 @@ public class GameManager : MonoBehaviour
     {
         player = transform_Player;
     }
-    public void SumarPuntos(int sumaPuntos)
-    {
-        PuntosTotales += sumaPuntos;
-    }
+    //public void SumarPuntos(int sumaPuntos)
+    //{
+    //    PuntosTotales += sumaPuntos;
+    //}
     public void PerderCorazones(int cantidad)
     {
         playerGatibara.vida -= cantidad;
@@ -131,6 +146,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("Vida al máximo. No se agregó corazón.");
         }
     }
+    public int GetCurrentSpellNumber()
+    {
+        return currentSpellNumber;
+    }
     public void SetRequiredKills(int required)
     {
         RequiredKills = required;
@@ -144,5 +163,33 @@ public class GameManager : MonoBehaviour
         {
             OnAllEnemiesKilled?.Invoke();
         }
+    }
+    public bool UnlockNewSpellNumber()
+    {
+        if(hud.SpendPuntos(spellUnlockCost) && maxSpellNumberUnlocked < 3)
+        {
+            maxSpellNumberUnlocked++;
+            spellUnlockCost *= 2;
+            Debug.Log("Acabas de aumentar el número de elementos que puedes usar");
+            return true;
+        }
+        else
+        {
+            Debug.Log("No tienes suficientes monedas para desbloquear");
+            return false;
+        }
+    }
+    public void SetCurrentSpellNumber(int newSpellNumber)
+    {
+        if(newSpellNumber <= maxSpellNumberUnlocked)
+        {
+            currentSpellNumber = newSpellNumber;
+            playerGatibara.spellnumber = newSpellNumber;
+            manager.UpdateSlots();
+        }
+    }
+    public int GetCost()
+    {
+        return spellUnlockCost;
     }
 }

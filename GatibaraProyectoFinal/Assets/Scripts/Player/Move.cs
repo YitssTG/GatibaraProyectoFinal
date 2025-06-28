@@ -8,6 +8,7 @@ public class Move : MonoBehaviour
     [SerializeField] Vector2 movementInput;
     public static event Action<Vector2> OnMoving;
     [SerializeField] Transform reference;
+    [SerializeField] float rotationSpeed = 100f;
 
     public Animator move;
     private string lastTrigger = "";
@@ -21,7 +22,6 @@ public class Move : MonoBehaviour
         Vector3 forwardMovement = transform.forward * movementInput.y * player.currentSpeed * Time.deltaTime;
         transform.position += forwardMovement;
 
-        float rotationSpeed = 100f;
         float rotationAmount = movementInput.x * rotationSpeed * Time.deltaTime;
         transform.Rotate(0, rotationAmount, 0);
     }

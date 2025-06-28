@@ -20,10 +20,27 @@ public class HUD : MonoBehaviour
     {
         Coin.OnCoinsCollection -= UpdatePoints;
     }
+    //public int GetPuntos()
+    //{
+    //    return puntos;
+    //}
     public void UpdatePoints()
     {
         ++puntos;
         points.text = puntos.ToString();
+    }
+    public bool SpendPuntos(int amount)
+    {
+        if(puntos >= amount)
+        {
+            puntos -= amount;
+            points.text = puntos.ToString();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public void UpdateLifeBar()
     {

@@ -2,11 +2,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using static UnityEngine.Rendering.DebugUI;
 
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private UnlockedAbilities unlockedAbilities;
     [SerializeField] private List<GameObject> slot;
+
+    [SerializeField] private Slider spellNumberSlider;
+    [SerializeField] private TMP_Text spellNumberText;
+    [SerializeField] private TMP_Text priceCost;
     private void Start()
     {
         for (int i = 0; i < slot.Count; i++)
@@ -18,6 +23,14 @@ public class InventoryUI : MonoBehaviour
             slot[i].SetActive(false);
         }
         ShowUnlockedAbilities();
+        spellNumberSlider.minValue = 1;
+        spellNumberSlider.maxValue = GameManager.instance.MaxSpellNumberUnlocked;
+        spellNumberSlider.value = GameManager.instance.GetCurrentSpellNumber();
+        UpdateText(spellNumberSlider.value);
+    }
+    private void Update()
+    {
+        priceCost.text = "Costo para la mejora: " + GameManager.instance.GetCost();
     }
     public void ShowUnlockedAbilities()
     {
@@ -44,5 +57,23 @@ public class InventoryUI : MonoBehaviour
                 slot[i].SetActive(false);
             }
         }
+    }
+    public void OnUnlockSpellNumber()
+    {
+        bool success = GameManager.instance.UnlockNewSpellNumber();
+        if (success)
+        {
+            spellNumberSlider.maxValue = GameManager.instance.MaxSpellNumberUnlocked;
+        }
+    }
+    public void OnSliderChanged(float newspeelnumber)
+    {
+        int value = Mathf.RoundToInt(newspeelnumber);
+        GameManager.instance.SetCurrentSpellNumber(value);
+        UpdateText(newspeelnumber);
+    }
+    private void UpdateText(float newspeelnumber)
+    {
+        spellNumberText.text = Mathf.RoundToInt(newspeelnumber).ToString();
     }
 }

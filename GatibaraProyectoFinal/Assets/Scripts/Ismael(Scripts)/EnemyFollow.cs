@@ -124,7 +124,7 @@ public class EnemyFollow : MonoBehaviour
     public void ResetDebuffs()
     {
         damageReduction = 0;
-        Debug.Log("Debuff Reseted");
+        //Debug.Log("Debuff Reseted");
     }
     private void OnDestroy()
     {

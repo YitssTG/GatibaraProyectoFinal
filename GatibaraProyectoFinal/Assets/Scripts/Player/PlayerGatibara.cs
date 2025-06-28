@@ -102,9 +102,5 @@ public class PlayerGatibara : MonoBehaviour
         {
             onWin.ShowWinPopUp();
         }
-        if (other.CompareTag("Level2"))
-        {
-            SetLevel2();
-        }
     }
 }
