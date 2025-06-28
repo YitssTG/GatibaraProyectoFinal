@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] HUD hud;
     [SerializeField] PlayerGatibara playerGatibara;
     [SerializeField] ElementManager manager;
-    [SerializeField] PopUpController popUpController;
 
     //public int PuntosTotales { get; private set; }
     [Header("Data Structure")]
@@ -128,7 +127,7 @@ public class GameManager : MonoBehaviour
         if (playerGatibara.vida <= 0)
         {
             Debug.Log("¡Jugador sin corazones! Fin del juego.");
-            popUpController.ShowLosePopUp();
+            PopUpController.instance.ShowLosePopUp();
         }
     }
     public void RecuperarCorazon()

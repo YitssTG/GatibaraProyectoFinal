@@ -22,13 +22,16 @@ public class PlayerInteractor : MonoBehaviour
     public void OnBreak(InputAction.CallbackContext context)
     {
         if (!context.performed || currentHit == null) return;
-
-        var hit = currentHit.Value;
-        var interactable = hit.collider.GetComponent<Interactable>();
-
-        if (interactable != null)
+        if (!PopUpController.instance.IsInventoryActive())
         {
-            interactable.Interact();
-        }
+            var hit = currentHit.Value;
+            var interactable = hit.collider.GetComponent<Interactable>();
+
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
+
+        }        
     }
 }

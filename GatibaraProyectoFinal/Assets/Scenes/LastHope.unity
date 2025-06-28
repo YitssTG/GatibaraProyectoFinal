@@ -23685,7 +23685,6 @@ MonoBehaviour:
   hud: {fileID: 677100006}
   playerGatibara: {fileID: 1934623082}
   manager: {fileID: 1952537655}
-  popUpController: {fileID: 1176166038}
 --- !u!4 &1176166037
 Transform:
   m_ObjectHideFlags: 0
@@ -34205,9 +34204,8 @@ MonoBehaviour:
   currentSpeed: 0
   hud: {fileID: 677100006}
   unlockedAbilities: {fileID: 1952537658}
-  onWin: {fileID: 1176166038}
   manager: {fileID: 1952537655}
-  vida: 50
+  vida: 0
   spellNumber: 0
 --- !u!54 &1934623083
 Rigidbody:

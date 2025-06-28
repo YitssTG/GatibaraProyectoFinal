@@ -9,7 +9,6 @@ public class PlayerGatibara : MonoBehaviour
     [SerializeField] HUD hud;
     [SerializeField] UnlockedAbilities unlockedAbilities;
 
-    [SerializeField] PopUpController onWin;
     [SerializeField] ElementManager manager;
 
     public float vida;
@@ -100,7 +99,7 @@ public class PlayerGatibara : MonoBehaviour
     {
         if (other.CompareTag("Win"))
         {
-            onWin.ShowWinPopUp();
+            PopUpController.instance.ShowWinPopUp();
         }
     }
 }

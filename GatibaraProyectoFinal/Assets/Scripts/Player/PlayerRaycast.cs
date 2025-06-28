@@ -69,12 +69,15 @@ public class PlayerRaycast : MonoBehaviour
     {
         if (context.performed && !isAttacking)
         {
-            attack.SetTrigger("isAttack");
-            isAttacking = true;
-            EnemyFollow enemigo = hitObject?.GetComponent<EnemyFollow>();
-            if (enemigo != null)
+            if (!PopUpController.instance.IsInventoryActive())
             {
-                enemigo.RecibirAtaque();
+                attack.SetTrigger("isAttack");
+                isAttacking = true;
+                EnemyFollow enemigo = hitObject?.GetComponent<EnemyFollow>();
+                if (enemigo != null)
+                {
+                    enemigo.RecibirAtaque();
+                }
             }
         }
     }

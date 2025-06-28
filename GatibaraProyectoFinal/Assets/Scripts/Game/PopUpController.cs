@@ -6,6 +6,8 @@ using UnityEngine.InputSystem.XR;
 
 public class PopUpController : MonoBehaviour
 {
+    public static PopUpController instance;
+
     public GameObject popUpPuase;
     public GameObject popUpSelectorPause;
     public GameObject popUpSliderSounds;
@@ -14,6 +16,17 @@ public class PopUpController : MonoBehaviour
     public GameObject popUpInventory;
     [SerializeField] private SelectorController barController;
     bool inventory;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         inventory = false;
@@ -79,5 +92,9 @@ public class PopUpController : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         ReiniciarNivel();
+    }
+    public bool IsInventoryActive()
+    {
+        return inventory;
     }
 }
