@@ -6,12 +6,14 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private UnlockedAbilities unlockedAbilities;
-    [SerializeField] private List<GameObject> slot;
-
+    [SerializeField] private PlayerGatibara player;
     [SerializeField] private Slider spellNumberSlider;
     [SerializeField] private TMP_Text spellNumberText;
     [SerializeField] private TMP_Text priceCost;
+
+    [SerializeField] private UnlockedAbilities unlockedAbilities;
+    [SerializeField] private List<GameObject> slot;
+
     private void Start()
     {
         for (int i = 0; i < slot.Count; i++)
@@ -69,8 +71,11 @@ public class InventoryUI : MonoBehaviour
     public void OnSliderChanged(float newspeelnumber)
     {
         int value = Mathf.RoundToInt(newspeelnumber);
-        GameManager.instance.SetCurrentSpellNumber(value);
-        UpdateText(newspeelnumber);
+        if(value >= 1 && value < (GameManager.instance.MaxSpellNumberUnlocked + 1))
+        {
+            player.SetGatibaraLevel(value);
+            UpdateText(value);
+        }
     }
     private void UpdateText(float newspeelnumber)
     {

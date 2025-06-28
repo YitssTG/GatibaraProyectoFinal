@@ -38,7 +38,7 @@ public class Checkpoint : MonoBehaviour
     {
         unlockedAbilities.SaveProgress();
         PlayerPrefs.SetInt("Coins", hud.puntos);
-        PlayerPrefs.SetInt("SpellNumber", player.spellnumber);
+        PlayerPrefs.SetInt("SpellNumber", player.spellNumber);
         Vector3 position = player.transform.position;
         PlayerPrefs.SetFloat("PositionX", position.x);
         PlayerPrefs.SetFloat("PositionY", position.y);

@@ -52,7 +52,7 @@ public class ElementEffectManager : MonoBehaviour
         List<ElementData> ordered = elements.GetOrderedElements();
 
         types.Clear();
-        int limit = Mathf.Min(player.spellnumber, ordered.Count);
+        int limit = Mathf.Min(player.spellNumber, ordered.Count);
         for(int i = 0;i < limit; i++)
         {
             types.Add(ordered[i].type);

@@ -13,12 +13,12 @@ public class PlayerGatibara : MonoBehaviour
     [SerializeField] ElementManager manager;
 
     public float vida;
-    public int spellnumber;
+    public int spellNumber;
     private void Start()
     {
         baseSpeed = 5f;
         currentSpeed = baseSpeed;
-        spellnumber = 1;
+        spellNumber = 1;
         LoadStats();
     }
     private void OnEnable()
@@ -41,7 +41,7 @@ public class PlayerGatibara : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("SpellNumber"))
         {
-            spellnumber = PlayerPrefs.GetInt("SpellNumber");
+            spellNumber = PlayerPrefs.GetInt("SpellNumber");
         }
         if (PlayerPrefs.HasKey("PositionX") && PlayerPrefs.HasKey("PositionY") && PlayerPrefs.HasKey("PositionZ"))
         {
@@ -90,11 +90,11 @@ public class PlayerGatibara : MonoBehaviour
         currentSpeed = baseSpeed;
         Debug.Log("Efectos reseteados");
     }
-    public void SetLevel2()
+    public void SetGatibaraLevel(int newLevel)
     {
-        spellnumber = 2;
+        spellNumber = newLevel;
         manager.UpdateSlots();
-        Debug.Log("Player puede usar dos habilidades a la vez");
+        Debug.Log("Player puede usar " + newLevel + " habilidades a la vez");
     }
     private void OnTriggerEnter(Collider other)
     {

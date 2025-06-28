@@ -26,14 +26,14 @@ public class ElementManager : MonoBehaviour
     }
     void Update()
     {
-        Elements.spellnumber = player.spellnumber;
+        Elements.spellnumber = player.spellNumber;
         Elements.ReduceSpellNumber();
     }
     [Button]
     
     public void SetLevel3()
     {
-        player.spellnumber = 3;
+        player.spellNumber = 3;
         UpdateSlots();
         Debug.Log("Player puede usar tres habilidades a la vez");
     }
@@ -41,7 +41,7 @@ public class ElementManager : MonoBehaviour
     {
         List<ElementData> ordered = Elements.GetOrderedElements();
         List<ElementType> types = new List<ElementType>();
-        for (int i = 0; i < player.spellnumber && i < ordered.Count; i++)
+        for (int i = 0; i < player.spellNumber && i < ordered.Count; i++)
         {
             types.Add(ordered[i].type);
         }

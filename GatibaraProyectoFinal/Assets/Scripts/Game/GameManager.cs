@@ -6,7 +6,6 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    private int currentSpellNumber;
     private int maxSpellNumberUnlocked;
     public int MaxSpellNumberUnlocked
     {
@@ -75,8 +74,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        currentSpellNumber = 1;
-        maxSpellNumberUnlocked = currentSpellNumber;
+        maxSpellNumberUnlocked = 1;
         hud.SetPlayer(playerGatibara);
     }
     private void OnEnable()
@@ -148,7 +146,7 @@ public class GameManager : MonoBehaviour
     }
     public int GetCurrentSpellNumber()
     {
-        return currentSpellNumber;
+        return playerGatibara.spellNumber;
     }
     public void SetRequiredKills(int required)
     {
@@ -166,26 +164,27 @@ public class GameManager : MonoBehaviour
     }
     public bool UnlockNewSpellNumber()
     {
-        if(hud.SpendPuntos(spellUnlockCost) && maxSpellNumberUnlocked < 3)
+        if(maxSpellNumberUnlocked < 3)
         {
-            maxSpellNumberUnlocked++;
-            spellUnlockCost *= 2;
-            Debug.Log("Acabas de aumentar el número de elementos que puedes usar");
-            return true;
+            if (hud.puntos >= spellUnlockCost)
+            {
+                hud.SpendPuntos(spellUnlockCost);
+                maxSpellNumberUnlocked++;
+                spellUnlockCost *= 2;
+                playerGatibara.SetGatibaraLevel(maxSpellNumberUnlocked);
+                Debug.Log("Aumentaste el número de elementos que puedes usar a ");
+                return true;
+            }
+            else
+            {
+                Debug.Log("No tienes suficientes monedas para desbloquear");
+                return false;
+            }
         }
         else
         {
-            Debug.Log("No tienes suficientes monedas para desbloquear");
+            Debug.Log("Ya alcanzaste el máximo de nivel de elementos");
             return false;
-        }
-    }
-    public void SetCurrentSpellNumber(int newSpellNumber)
-    {
-        if(newSpellNumber <= maxSpellNumberUnlocked)
-        {
-            currentSpellNumber = newSpellNumber;
-            playerGatibara.spellnumber = newSpellNumber;
-            manager.UpdateSlots();
         }
     }
     public int GetCost()
