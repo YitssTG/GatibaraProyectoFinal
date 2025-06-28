@@ -34357,6 +34357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1934623082}
+  elementVisualUI: {fileID: 870566523}
   spellNumberSlider: {fileID: 998521633}
   spellNumberText: {fileID: 544222523}
   priceCost: {fileID: 1268439012}

@@ -65,4 +65,22 @@ public class ElementVisualUI : MonoBehaviour
                 return ElementType.Empty;
         }
     }
+    public void SetSelectDurationForSpellNumber(int spellNumber)
+    {
+        switch (spellNumber)
+        {
+            case 1:
+                selectDuration = 0.5f;
+                break;
+            case 2:
+                selectDuration = 0.25f;
+                break;
+            case 3:
+                selectDuration = 0.12f;
+                break;
+            default:
+                selectDuration = 0.5f;
+                    break;
+        }
+    }
 }
