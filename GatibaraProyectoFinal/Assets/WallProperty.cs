@@ -4,12 +4,17 @@ public class WallProperty : MonoBehaviour
 {
     [SerializeField] private GameObject[] walls;
     [SerializeField] private int requiredKills;
-    void Start()
+    [SerializeField] private PuntoSpawn spawn;
+    private void Start()
     {
-        ////SetWallsActive(true); esto debe ser cuando se activa el generateenemy
+        SetWallsActive(false);
     }
     private void Update()
     {
+        if(spawn.GetState())
+        {
+            SetWallsActive(true);
+        }
         if(GameManager.instance.EnemyKilled >= requiredKills)
         {
             SetWallsActive(false);

@@ -39,6 +39,7 @@ public class PopUpController : MonoBehaviour
     }
     public void OnPopUpActive()
     {
+
         popUpPuase.SetActive(true);
         popUpSelectorPause.SetActive(true);
         Time.timeScale = 0f;
@@ -53,7 +54,6 @@ public class PopUpController : MonoBehaviour
     public void OnAudioPress()
     {
         popUpSliderSounds.SetActive(true);
-        popUpSelectorPause.SetActive(false);
     }
     public void OnPressClose()
     {

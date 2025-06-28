@@ -11,13 +11,14 @@ public class PuntoSpawn : MonoBehaviour
     public float intervaloSpawn = 2f;
     public int cantidadEnemigos = 5;
 
-    private bool activado = false;
+    private bool activado;
     private int enemigosRestantes;
     private float tiempo;
 
     void Start()
     {
         enemigosRestantes = cantidadEnemigos;
+        activado = false;
     }
 
     void Update()
@@ -68,5 +69,9 @@ public class PuntoSpawn : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, 3f);
+    }
+    public bool GetState()
+    {
+        return activado;
     }
 }
