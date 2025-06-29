@@ -48,7 +48,6 @@ public class ButtonController : MonoBehaviour
         popupAjustes.SetActive(false);
         popupJugar.SetActive(false);
 
-        // animación de salida del popup
         popupOptions.DOAnchorPosY(800f, 0.5f)
             .SetEase(Ease.InBack)
             .OnComplete(() => popupOptions.gameObject.SetActive(false));
