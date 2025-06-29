@@ -12,11 +12,6 @@ public class Move : MonoBehaviour
 
     public Animator move;
     private string lastTrigger = "";
-    private PlayerRaycast playerRaycast;
-    private void Awake()
-    {
-        playerRaycast = GetComponent<PlayerRaycast>();
-    }
     private void Update()
     {
         Vector3 forwardMovement = transform.forward * movementInput.y * player.currentSpeed * Time.deltaTime;
@@ -30,7 +25,7 @@ public class Move : MonoBehaviour
         movementInput = context.ReadValue<Vector2>();
         movementInput = movementInput.normalized;
         OnMoving?.Invoke(movementInput);
-        playerRaycast.isAttacking = false;
+
         if (movementInput.y != 0)
         {
             if (lastTrigger != "Run")

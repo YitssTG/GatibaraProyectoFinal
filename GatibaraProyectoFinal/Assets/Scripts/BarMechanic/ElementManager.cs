@@ -29,14 +29,6 @@ public class ElementManager : MonoBehaviour
         Elements.spellnumber = player.spellNumber;
         Elements.ReduceSpellNumber();
     }
-    [Button]
-    
-    public void SetLevel3()
-    {
-        player.spellNumber = 3;
-        UpdateSlots();
-        Debug.Log("Player puede usar tres habilidades a la vez");
-    }
     public List<ElementType> GetTypes()
     {
         List<ElementData> ordered = Elements.GetOrderedElements();

@@ -4,34 +4,63 @@ using UnityEngine.InputSystem;
 public class PlayerInteractor : MonoBehaviour
 {
     public static PlayerInteractor Instance;
-    private RaycastHit? currentHit;
+
+    [Header("Raycast Properties")]
+    [SerializeField] Transform _origin;
+    [SerializeField] float _distance;
+    [SerializeField] LayerMask _layermask;
+
+    [Header("Draw Properties")]
+    [SerializeField] Color debugColorHit = Color.green;
+    [SerializeField] Color debugColorNotHit = Color.red;
+    [SerializeField] Color highlightColor = Color.yellow;
+
+    private ObjectBreakable lastBreakable;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
-    public void SetCurrentHit(RaycastHit hit)
+    private void Update()
     {
-        currentHit = hit;
+        DoRaycast();
     }
-    public void ClearCurrentHit()
+    public void DoRaycast()
     {
-        currentHit = null;
+        RaycastHit hit;
+        if (Physics.Raycast(_origin.position, _origin.forward, out hit, _distance, _layermask))
+        {
+            Debug.DrawRay(_origin.position, _origin.forward * hit.distance, debugColorHit);
+            //Debug.Log("Obejto detectado");
+            ObjectBreakable hiteableObject = hit.collider.GetComponent <ObjectBreakable>();
+            // ==== INTERACTUABLES VISUALES ====
+            if (hiteableObject != null)
+            {
+                if (lastBreakable != null)
+                    lastBreakable.ResetColor();
+
+                hiteableObject.Highlight(highlightColor);
+                lastBreakable = hiteableObject;
+            }
+        }
+        else
+        {
+            Debug.DrawRay(_origin.position, _origin.forward * _distance, debugColorNotHit);
+            //Debug.Log("No hay obejto detectado");
+            if (lastBreakable != null)
+            {
+                lastBreakable.ResetColor();
+                lastBreakable = null;
+            }
+        }
     }
     public void OnBreak(InputAction.CallbackContext context)
     {
-        if (!context.performed || currentHit == null) return;
+        if (!context.performed || lastBreakable == null) return;
         if (!PopUpController.instance.IsInventoryActive())
         {
-            var hit = currentHit.Value;
-            var interactable = hit.collider.GetComponent<Interactable>();
-
-            if (interactable != null)
-            {
-                interactable.Interact();
-            }
-
+            lastBreakable.Interact();
         }        
     }
 }
