@@ -351,6 +351,14 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.y
       value: 0.76335037
       objectReference: {fileID: 0}
+    - target: {fileID: -2943923492859624634, guid: 0602c37d243ec09418bacf77dcf2401d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2943923492859624634, guid: 0602c37d243ec09418bacf77dcf2401d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
     - target: {fileID: -2356915838762956452, guid: 0602c37d243ec09418bacf77dcf2401d, type: 3}
       propertyPath: m_Layer
       value: 6
