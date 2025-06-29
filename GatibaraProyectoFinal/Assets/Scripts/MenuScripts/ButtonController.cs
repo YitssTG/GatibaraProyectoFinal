@@ -1,50 +1,67 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class ButtonController : MonoBehaviour
 {
-    public GameObject escena1;
-    public GameObject escena2;
-    public GameObject escena3;
+    public GameObject popupInicio;
+    public GameObject popupAjustes; 
+    public GameObject popupJugar;
+
+    public RectTransform popupOptions; 
+    public PopUpOptionsDrop popupAnimator; 
 
     private void Start()
     {
-        escena1.SetActive(true);
-        escena2.SetActive(false);
-        escena3.SetActive(false);
+        popupInicio.SetActive(true);
+        popupAjustes.SetActive(false);
+        popupJugar.SetActive(false);
+        popupOptions.gameObject.SetActive(false);
     }
+
     public void Play()
     {
-        escena1.SetActive(false);
-        escena2.SetActive(false);
-        escena3.SetActive(true);
-        Debug.Log("EscenaPlay");
+        popupInicio.SetActive(false);
+        popupAjustes.SetActive(false);
+        popupJugar.SetActive(true);
+        Debug.Log("Entrando a jugar");
     }
+
     public void Settings()
     {
-        escena1.SetActive(false);
-        escena2.SetActive(true);
-        escena3.SetActive(false);
+        popupInicio.SetActive(false);
+        popupAjustes.SetActive(true);
+        popupJugar.SetActive(false);
+
+        popupAnimator.ShowPopup(); // lanza el efecto de caída
     }
+
     public void Exit()
     {
         Application.Quit();
-        Debug.Log("Saliedno del juego... :(");
+        Debug.Log("Saliendo del juego... :(");
     }
+
     public void Back()
     {
-        escena1.SetActive(true);
-        escena2.SetActive(false);
-        escena3.SetActive(false);
+        popupInicio.SetActive(true);
+        popupAjustes.SetActive(false);
+        popupJugar.SetActive(false);
+
+        // animación de salida del popup
+        popupOptions.DOAnchorPosY(800f, 0.5f)
+            .SetEase(Ease.InBack)
+            .OnComplete(() => popupOptions.gameObject.SetActive(false));
     }
+
     public void NewGame(string newScene)
     {
         SceneManager.LoadScene(newScene);
         Debug.Log("Iniciando nueva partida");
     }
+
     public void Continue()
     {
         Debug.Log("Continuando partida");
     }
-
 }
