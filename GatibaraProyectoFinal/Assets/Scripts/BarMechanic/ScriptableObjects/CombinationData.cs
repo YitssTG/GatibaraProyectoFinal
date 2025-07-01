@@ -7,4 +7,5 @@ public class CombinationData : ScriptableObject
     public string combinationKey;
     public string abilityName;
     public Sprite icon;
+    public float cooldownBase;
 }

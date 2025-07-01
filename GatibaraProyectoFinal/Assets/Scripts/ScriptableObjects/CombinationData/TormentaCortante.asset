@@ -15,3 +15,4 @@ MonoBehaviour:
   combinationKey: Wind+Water
   abilityName: Tormenta Cortante
   icon: {fileID: 0}
+  cooldownBase: 35

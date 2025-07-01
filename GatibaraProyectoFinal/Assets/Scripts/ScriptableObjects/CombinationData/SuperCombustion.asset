@@ -15,3 +15,4 @@ MonoBehaviour:
   combinationKey: Wind+Fire
   abilityName: "Super Combusti\xF3n"
   icon: {fileID: 0}
+  cooldownBase: 35

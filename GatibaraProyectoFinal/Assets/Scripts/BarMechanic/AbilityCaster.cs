@@ -1,53 +1,69 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
-using DG.Tweening;
 
 public class AbilityCaster : MonoBehaviour
 {
     [SerializeField] private ElementCombination Listcombinations;
     [SerializeField] private UnlockedAbilities unlockedAbilities;
 
+    private List<AbilityCooldown> activeCooldowns = new List<AbilityCooldown>();
+    private void Update()
+    {
+        UpdateCooldowns();
+    }
     public CombinationData CastAbility(List<ElementType> types)
     {
         var combination = Listcombinations.GetCombination(types);
         if (combination != null)
         {
             unlockedAbilities.UnlockCombination(combination);
+
             return combination;
         }
-        return null;
+        else
+        {
+            Debug.Log("habilidad en cooldown o no válido.");
+        }
+            return null;
     }
-    //[SerializeField] public Image imageUI;
-    //[SerializeField] private ElementManager manager;
-    //[SerializeField] private ElementCombination listCombinations;
-    //[SerializeField] private PlayerShake cameraShake;
-    //[SerializeField] private UnlockedAbilities unlockedAbilities;
-    //[SerializeField] private InventoryUI inventoryUI;
-    //public void OnFCombinationButton(InputAction.CallbackContext context)
-    //{
-    //    if (context.performed)
-    //    {
-    //        List<ElementData.ElementType> activeTypes = manager.GetTypes();
-    //        CombinationData combination = listCombinations.GetCombination(activeTypes);
-    //        if (combination != null)
-    //        {
-    //            Debug.Log("Castear habilidad: " + combination.abilityName);
-    //            unlockedAbilities.UnlockCombination(combination);
-    //            inventoryUI.ShowUnlockedAbilities();
-    //            imageUI.GetComponent<RectTransform>().DOKill();
-    //            imageUI.GetComponent<RectTransform>().localScale = Vector3.one;
-    //            imageUI.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1f), 0.25f).SetLoops(2, LoopType.Yoyo);
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("Combinación no existente");
-    //            imageUI.GetComponent<RectTransform>().DOKill();
-    //            imageUI.GetComponent<RectTransform>().localScale = Vector3.one;
-    //            imageUI.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1f), 0.025f).SetLoops(2, LoopType.Yoyo);
-    //            cameraShake.Shake();
-    //        }
-    //    }
-    //}
+    public void StartCooldown(CombinationData combination)
+    {
+        activeCooldowns.Add(new AbilityCooldown(combination, combination.cooldownBase));
+    }
+    private void UpdateCooldowns()
+    {
+        for(int i = activeCooldowns.Count - 1;  i >= 0; i--)
+        {
+            activeCooldowns[i].UpdateCooldown(Time.deltaTime);
+            if (activeCooldowns[i].IsReady())
+            {
+                activeCooldowns.RemoveAt(i);
+            }
+        }
+    }
+    public bool IsOnCooldown(CombinationData combination)
+    {
+        foreach(var cooldown in activeCooldowns)
+        {
+            if(cooldown.data == combination)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public AbilityCooldown GetAvailableAbility()
+    {
+        AbilityCooldown next = null;
+        float minCooldown = float.MaxValue;
+        foreach(var cooldown in activeCooldowns)
+        {
+            if(cooldown.cooldownRemaining >0 && cooldown.cooldownRemaining < minCooldown)
+            {
+                minCooldown = cooldown.cooldownRemaining;
+                next = cooldown;
+            }
+        }
+        return next;
+    }
 }

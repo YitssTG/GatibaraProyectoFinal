@@ -5,6 +5,7 @@ using System.Collections;
 public class ElementEffectManager : MonoBehaviour
 {
     [SerializeField] private PlayerGatibara player;
+    [SerializeField] private EnemyDetector detector;
     private Coroutine healthCoroutine;
     private List<ElementType> types;
 
@@ -20,7 +21,7 @@ public class ElementEffectManager : MonoBehaviour
     private void OnDisable()
     {
         ElementManager.OnCkeck -= ApplyEffects;
-        //gaaaaaaaaaaaaaaaaaaaaa
+        //
     }
     IEnumerator HealthTick()
     {
@@ -100,6 +101,61 @@ public class ElementEffectManager : MonoBehaviour
         if(earthCount > 0)
         {
             enemy.ReduceDamage(earthCount);
+        }
+    }
+    public void ApplyCombinationEffect(CombinationData combination)
+    {
+        switch (combination.combinationKey)
+        {
+            case "Fire+Fire":
+                ApplyFireFireEffect(detector);
+                break;
+            //case "Water":
+            //    ApplyWaterEffect();
+            //    break;
+            //case "Earth":
+            //    ApplyEarthEffect();
+            //    break;
+            //case "Wind":
+            //    ApplyWindEffect();
+            //    break;
+            default:
+                Debug.Log("No hay efecto.");
+                break;
+        }
+    }
+    public void ApplyFireFireEffect(EnemyDetector detector)
+    {
+        Debug.Log("Habilidad carmesí casteada");
+        var enemies = new List<EnemyFollow>(detector.GetEnemies());
+        if(enemies.Count > 0)
+        {
+            return;
+        }
+        SelectionSortDistance(enemies);
+        EnemyFollow closest = enemies[0];
+        closest.RecibirAtaque();
+    }
+    public void SelectionSortDistance(List<EnemyFollow> enemies)
+    {
+        Vector3 origin = transform.position;
+        for (int i = 0; i < enemies.Count - 1; i++)
+        {
+            int minIndex = i;
+            float minDistance = Vector3.Distance(origin, enemies[i].transform.position);
+
+            for (int j = i + 1; j < enemies.Count; j++)
+            {
+                float distance = Vector3.Distance(origin, enemies[j].transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    minIndex = j;
+                }
+            }
+            var temp = enemies[i];
+            enemies[i] = enemies[minIndex];
+            enemies[minIndex] = temp;
         }
     }
 }

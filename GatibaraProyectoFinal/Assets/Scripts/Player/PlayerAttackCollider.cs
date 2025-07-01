@@ -6,6 +6,8 @@ public class PlayerAttackCollider : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] private BoxCollider attackCollider;
+    [SerializeField] private AbilityCaster abilityCaster;
+    [SerializeField] private ElementManager elementManager;
     [SerializeField] private float attackDuration = 0.5f;
     [SerializeField] private float hitDelay = 0.5f;
     [SerializeField] private float hitActiveTime = 0.5f;
@@ -16,11 +18,11 @@ public class PlayerAttackCollider : MonoBehaviour
     {
         attackCollider.enabled = false;
     }
-    public void OnRightClick(InputAction.CallbackContext context)
+    public void OnLeftClick(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            StartCoroutine(PerformAttackCoroutine());
+            AbilityManager.instance.TryCastOrAttack();
         }
     }
     public IEnumerator PerformAttackCoroutine()

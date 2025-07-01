@@ -6,6 +6,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
     private int maxSpellNumberUnlocked;
     public int MaxSpellNumberUnlocked
     {
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] HUD hud;
     [SerializeField] PlayerGatibara playerGatibara;
     [SerializeField] ElementManager manager;
+    [SerializeField] AbilityCaster abilitycaster;
 
     //public int PuntosTotales { get; private set; }
     [Header("Data Structure")]
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        hud.SetAbilityCaster(abilitycaster);
         maxSpellNumberUnlocked = 1;
         hud.SetPlayer(playerGatibara);
     }

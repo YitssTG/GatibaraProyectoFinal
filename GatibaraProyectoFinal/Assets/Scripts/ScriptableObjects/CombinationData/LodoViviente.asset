@@ -15,3 +15,4 @@ MonoBehaviour:
   combinationKey: Earth+Water
   abilityName: Lodo Viviente
   icon: {fileID: 0}
+  cooldownBase: 35

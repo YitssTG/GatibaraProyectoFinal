@@ -12,6 +12,12 @@ public class HUD : MonoBehaviour
     [Header("Coin Data")]
     public int puntos;
 
+    [Header("Ability Cooldown UI")]
+    public Image abilityIcon;
+    public TMP_Text cooldownText;
+
+    private AbilityCaster abilityCaster;
+
     private void OnEnable()
     {
         Coin.OnCoinsCollection += UpdatePoints;
@@ -20,10 +26,18 @@ public class HUD : MonoBehaviour
     {
         Coin.OnCoinsCollection -= UpdatePoints;
     }
+    private void Update()
+    {
+        UpdateAbilityHUD();
+    }
     //public int GetPuntos()
     //{
     //    return puntos;
     //}
+    public void SetAbilityCaster(AbilityCaster caster)
+    {
+        abilityCaster = caster;
+    }
     public void UpdatePoints()
     {
         ++puntos;
@@ -55,5 +69,27 @@ public class HUD : MonoBehaviour
     public float GetVidaMax()
     {
         return vidaMax;
+    }
+    private void UpdateAbilityHUD()
+    {
+        if (abilityCaster == null)
+        {
+            abilityIcon.enabled = false;
+            cooldownText.text = "";
+            return;
+        }
+        var nextAbility = abilityCaster.GetAvailableAbility();
+        if (nextAbility != null)
+        {
+            abilityIcon.sprite = nextAbility.data.icon;
+            abilityIcon.enabled = true;
+            cooldownText.text = nextAbility.cooldownRemaining.ToString("F1") + "s";
+        }
+        else
+        {
+            // Mostrar icono vacío o desactivar el actual
+            abilityIcon.enabled = false;
+            cooldownText.text = "";
+        }
     }
 }

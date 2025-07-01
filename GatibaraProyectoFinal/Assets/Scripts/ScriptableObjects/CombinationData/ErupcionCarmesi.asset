@@ -15,3 +15,4 @@ MonoBehaviour:
   combinationKey: Fire+Earth
   abilityName: "Erupci\xF3n Carmes\xED "
   icon: {fileID: 0}
+  cooldownBase: 35

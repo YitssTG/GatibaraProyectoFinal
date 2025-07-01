@@ -15,3 +15,4 @@ MonoBehaviour:
   combinationKey: Wind+Wind
   abilityName: "Ventisca Et\xE9rea"
   icon: {fileID: 0}
+  cooldownBase: 35

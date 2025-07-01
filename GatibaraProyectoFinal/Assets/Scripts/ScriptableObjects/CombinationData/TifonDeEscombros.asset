@@ -15,3 +15,4 @@ MonoBehaviour:
   combinationKey: Earth+Wind
   abilityName: "Tif\xF3n de Escombros"
   icon: {fileID: 0}
+  cooldownBase: 35

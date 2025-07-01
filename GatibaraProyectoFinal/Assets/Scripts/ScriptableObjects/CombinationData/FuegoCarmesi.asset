@@ -15,3 +15,4 @@ MonoBehaviour:
   combinationKey: Fire+Fire
   abilityName: "Fuego Carmes\xED"
   icon: {fileID: 0}
+  cooldownBase: 40
