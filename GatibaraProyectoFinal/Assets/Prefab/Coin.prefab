@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
       propertyPath: m_LocalPosition.x
@@ -61,9 +61,17 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e4f462c232653b9419bf81839912e14e, type: 2}
+      objectReference: {fileID: 2100000, guid: 16c0869f2d912454898fee3a24cc1a4d, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
     - target: {fileID: 919132149155446097, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
       propertyPath: m_Name
       value: Coin
