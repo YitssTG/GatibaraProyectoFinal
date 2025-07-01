@@ -1,31 +1,24 @@
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    Vector3 escalaOriginal;
-    Sequence respiracion;
+    private Vector3 originalScale;
+    [SerializeField] private float scaleFactor = 1.15f;
 
     void Start()
     {
-        escalaOriginal = transform.localScale;
-        respiracion = DOTween.Sequence();
-        respiracion.Append(transform.DOScale(escalaOriginal * 1.05f, 1f).SetEase(Ease.InOutSine));
-        respiracion.Append(transform.DOScale(escalaOriginal, 1f).SetEase(Ease.InOutSine));
-        respiracion.SetLoops(-1);
+        originalScale = transform.localScale;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        respiracion.Pause(); 
-        transform.DOScale(escalaOriginal * 1.15f, 0.2f).SetEase(Ease.OutBack);
+        transform.localScale = originalScale * scaleFactor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        transform.DOScale(escalaOriginal, 0.2f)
-                 .SetEase(Ease.InBack)
-                 .OnComplete(() => respiracion.Play());
+        transform.localScale = originalScale;
     }
 }
