@@ -14,6 +14,8 @@ public class AudioSlider : MonoBehaviour
 
         audioSettingsData.UpdateVolume(audioSettingsData.VolumeScaled);
 
+        slider.value = audioSettingsData.VolumeScaled;
+
         slider.onValueChanged.AddListener(audioSettingsData.UpdateVolume);
     }
 
