@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject mainMenuUI;
 
     [Header("Texto 'Press to Start'")]
-    [SerializeField] private TMP_Text pressToStartText;
+    [SerializeField] private Image pressToStartText;
     [SerializeField] private float fadeDuration = 1.2f;
     [SerializeField] private float scaleDuration = 1.4f;
     [SerializeField] private float scaleFactor = 1.05f;
