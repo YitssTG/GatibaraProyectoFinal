@@ -27,5 +27,4 @@ public class WallProperty : MonoBehaviour
             walls[i].SetActive(state);
         }
     }
-
 }

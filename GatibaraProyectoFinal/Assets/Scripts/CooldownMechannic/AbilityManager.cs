@@ -25,10 +25,12 @@ public class AbilityManager : MonoBehaviour
         {
             abilityCaster.StartCooldown(combination);
             StartCoroutine(AbilityAttack(combination));
+            Debug.Log("No está en cooldown");
         }
         else
         {
             StartCoroutine(playerAttackCollider.PerformAttackCoroutine());
+            Debug.Log("Está en cooldown");
         }
     }
     public IEnumerator AbilityAttack(CombinationData combination)
