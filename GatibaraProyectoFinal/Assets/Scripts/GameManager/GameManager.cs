@@ -75,8 +75,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        
- 
         hud.SetAbilityCaster(abilitycaster);
         maxSpellNumberUnlocked = 1;
         hud.SetPlayer(playerGatibara);
@@ -119,10 +117,6 @@ public class GameManager : MonoBehaviour
     {
         player = transform_Player;
     }
-    //public void SumarPuntos(int sumaPuntos)
-    //{
-    //    PuntosTotales += sumaPuntos;
-    //}
     public void PerderCorazones(int cantidad)
     {
         playerGatibara.vida -= cantidad;

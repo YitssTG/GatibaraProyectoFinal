@@ -60,10 +60,14 @@ public class PopUpOptionsSlide : MonoBehaviour
         {
             if (!inventory)
             {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 ShowPopup();
             }
             else
             {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 HidePopup();
             }
             inventory = !inventory;

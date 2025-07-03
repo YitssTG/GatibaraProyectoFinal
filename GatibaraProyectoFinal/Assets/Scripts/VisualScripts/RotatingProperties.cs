@@ -2,10 +2,11 @@ using UnityEngine;
 
 namespace Mathematics.Week6
 {
-    public class ConstantRotation3D : MonoBehaviour
+    public class RotatingProperties : MonoBehaviour
     {
         protected Vector3 anglesVariations = Vector3.zero;
         [SerializeField] protected Vector3 velocityModifier = Vector3.one;
+        [SerializeField] Transform reference;
 
         protected Quaternion qx = Quaternion.identity; //<0,,0,0,1>
         protected Quaternion qy = Quaternion.identity; //<0,,0,0,1>
@@ -15,6 +16,11 @@ namespace Mathematics.Week6
 
         protected float anguloSen;
         protected float anguloCos;
+
+        void Update()
+        {
+            transform.position = reference.GetComponent<Transform>().position;
+        }
 
         protected virtual void FixedUpdate()
         {
@@ -39,4 +45,5 @@ namespace Mathematics.Week6
             transform.rotation = r;
         }
     }
+
 }

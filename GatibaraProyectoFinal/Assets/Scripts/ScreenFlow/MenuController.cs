@@ -57,6 +57,12 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(gameSceneName);
     }
 
+    public void OnReturnToTittle()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+    }
+
     public void OnLoadGame()
     {
         Debug.Log("Load Game aún no implementado.");

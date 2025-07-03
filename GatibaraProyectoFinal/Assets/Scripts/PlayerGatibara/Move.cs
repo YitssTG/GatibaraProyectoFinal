@@ -6,7 +6,6 @@ public class Move : MonoBehaviour
     [Header("Player Movement Properties")]
     [SerializeField] PlayerGatibara player;
     [SerializeField] Vector2 movementInput;
-    public static event Action<Vector2> OnMoving;
     [SerializeField] Transform reference;
     [SerializeField] float rotationSpeed = 100f;
 
@@ -38,7 +37,6 @@ public class Move : MonoBehaviour
     {
         movementInput = context.ReadValue<Vector2>();
         movementInput = movementInput.normalized;
-        OnMoving?.Invoke(movementInput);
 
         if (movementInput.magnitude > 0.01f)
         {
