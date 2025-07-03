@@ -10,10 +10,10 @@ public class EnemyFollow : MonoBehaviour
     private float vidasMaximas;
 
     [Header("Stats Enemy DeBuffs")]
-    public int damageReduction = 1;
 
     public float vidas = 20;
-    public int baseDamage = 4;
+    public int baseDamage = 5;
+    [SerializeField] private int damageReduction;
     public int currentDamage;
     private NavMeshAgent agent;
     public static event Func<Transform> OnGetPlayerPosition;
@@ -21,16 +21,13 @@ public class EnemyFollow : MonoBehaviour
     private float tiempoUltimoGolpe = -999f;
     private float tiempoEntreGolpes = 1f;
 
-   
-    public ElementType resistances;
-
-    private Coroutine fireCoroutine;
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
     private void Start()
     {
+        damageReduction = 0;
         vidasMaximas = vidas;
         if (barraUI != null)
         {
@@ -63,13 +60,9 @@ public class EnemyFollow : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage, ElementType element)
+    public void ApplyFireDamage(int cantidad)
     {
-
-    }
-    public void RecibirFuego(int cantidad)
-    {
-        vidas -= (cantidad * 0.01f);
+        vidas -= (cantidad * 0.1f);
         if (barraUI != null)
         {
             barraUI.SetVida(vidas, vidasMaximas);
@@ -79,44 +72,6 @@ public class EnemyFollow : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void ApplyFireDamage(int stacks)
-    {
-        if(fireCoroutine != null)
-        {
-            StopCoroutine(fireCoroutine);
-        }
-        fireCoroutine = StartCoroutine(FireTick(stacks));
-    }
-    private IEnumerator FireTick(int stacks)
-    {
-        while (true)
-        {
-            RecibirFuego(stacks);
-            yield return new WaitForSeconds(1);
-        }
-    }
-    public void StopFireEffect()
-    {
-        if(fireCoroutine != null)
-        {
-            StopCoroutine(fireCoroutine);
-            fireCoroutine = null;
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player" && Time.time - tiempoUltimoGolpe > tiempoEntreGolpes)
-        {
-            tiempoUltimoGolpe = Time.time;
-            PlayerGatibara player = collision.gameObject.GetComponent<PlayerGatibara>();
-            if(player != null)
-            {
-                currentDamage = Mathf.Max(0, baseDamage - damageReduction);
-                GameManager.instance.PerderCorazones(currentDamage);
-            }
-            Debug.Log("Jugador alcanzado, pierde vida.");
-        }
-    }
     public void ReduceDamage(int stacks)
     {
         damageReduction = stacks;
@@ -124,10 +79,17 @@ public class EnemyFollow : MonoBehaviour
     public void ResetDebuffs()
     {
         damageReduction = 0;
-        //Debug.Log("Debuff Reseted");
     }
     private void OnDestroy()
     {
         GameManager.instance.RegisterKill();
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            currentDamage = Mathf.Max(0, baseDamage - damageReduction);
+            GameManager.instance.PerderCorazones(currentDamage);
+        }
     }
 }
