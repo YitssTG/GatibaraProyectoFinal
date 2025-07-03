@@ -13,13 +13,11 @@ public class PopUpOptionsDrop : MonoBehaviour
         popup.gameObject.SetActive(true);
 
         popup.anchoredPosition = new Vector2(popup.anchoredPosition.x, startOffsetY);
-        popup.DOAnchorPosY(dropToY, duration)
-             .SetEase(Ease.OutBounce);
+        popup.DOAnchorPosY(dropToY, duration).SetEase(Ease.OutBounce).SetUpdate(true);
+
     }
     public void HidePopup()
     {
-        popup.DOAnchorPosY(startOffsetY, 0.5f)
-             .SetEase(Ease.InBack)
-             .OnComplete(() => popup.gameObject.SetActive(false));
+        popup.DOAnchorPosY(startOffsetY, 0.5f).SetEase(Ease.InBack).SetUpdate(true).OnComplete(() => popup.gameObject.SetActive(false));
     }
 }

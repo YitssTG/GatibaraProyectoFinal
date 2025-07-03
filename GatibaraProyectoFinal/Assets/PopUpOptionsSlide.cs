@@ -1,0 +1,72 @@
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
+using DG.Tweening;
+
+public class PopUpOptionsSlide : MonoBehaviour
+{
+    public RectTransform popup;
+    public float slideToX = 0f;
+    public float startOffsetX = 1000f;
+    public float duration = 1.2f;
+
+    public InputActionReference togglePopupAction; // asigna desde el inspector
+
+    private bool inventory = false;
+
+    private void Start()
+    {
+        HidePopup(); // Ocultar desde el comienzo
+    }
+
+    private void OnEnable()
+    {
+        if (togglePopupAction != null)
+        {
+            togglePopupAction.action.Enable();
+            togglePopupAction.action.performed += OnIPressButton;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (togglePopupAction != null)
+        {
+            togglePopupAction.action.performed -= OnIPressButton;
+            togglePopupAction.action.Disable();
+        }
+    }
+
+    public void ShowPopup()
+    {
+        popup.gameObject.SetActive(true);
+        popup.anchoredPosition = new Vector2(startOffsetX, popup.anchoredPosition.y);
+        popup.DOAnchorPosX(slideToX, duration)
+             .SetEase(Ease.OutExpo)
+             .SetUpdate(true);
+    }
+
+    public void HidePopup()
+    {
+        popup.anchoredPosition = new Vector2(slideToX, popup.anchoredPosition.y);
+        popup.DOAnchorPosX(startOffsetX, 0.5f)
+             .SetEase(Ease.InSine)
+             .SetUpdate(true)
+             .OnComplete(() => popup.gameObject.SetActive(false));
+    }
+
+    public void OnIPressButton(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (!inventory)
+            {
+                ShowPopup();
+            }
+            else
+            {
+                HidePopup();
+            }
+            inventory = !inventory;
+        }
+    }
+}

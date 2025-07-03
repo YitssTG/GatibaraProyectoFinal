@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
-using UnityEngine.InputSystem.XR;
+
 
 public class PopUpController : MonoBehaviour
 {
@@ -13,9 +12,8 @@ public class PopUpController : MonoBehaviour
     public GameObject popUpSliderSounds;
     public GameObject popUpLoose;
     public GameObject popUpWin;
-    public GameObject popUpInventory;
     [SerializeField] private SelectorController barController;
-    bool inventory;
+    
     private void Awake()
     {
         if (instance == null)
@@ -29,13 +27,13 @@ public class PopUpController : MonoBehaviour
     }
     private void Start()
     {
-        inventory = false;
+        
         popUpPuase.SetActive(false);
         popUpLoose.SetActive(false);
         popUpWin.SetActive(false);
         popUpSelectorPause.SetActive(false);
         popUpSliderSounds.SetActive(false);
-        popUpInventory.SetActive(inventory);
+
     }
     public void OnPopUpActive()
     {
@@ -79,22 +77,15 @@ public class PopUpController : MonoBehaviour
         barController.isPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void OnIPressButton(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            popUpInventory.SetActive(!inventory);
-            inventory = !inventory;
-        }
-    }
+    
     public void ResetPrefs()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         ReiniciarNivel();
     }
-    public bool IsInventoryActive()
-    {
-        return inventory;
-    }
+    //public bool IsInventoryActive()
+    //{
+    //    return inventory;
+    //}
 }

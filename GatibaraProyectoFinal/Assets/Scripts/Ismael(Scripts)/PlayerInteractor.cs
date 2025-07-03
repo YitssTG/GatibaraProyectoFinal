@@ -58,9 +58,7 @@ public class PlayerInteractor : MonoBehaviour
     public void OnBreak(InputAction.CallbackContext context)
     {
         if (!context.performed || lastBreakable == null) return;
-        if (!PopUpController.instance.IsInventoryActive())
-        {
             lastBreakable.Interact();
-        }        
+           
     }
 }
