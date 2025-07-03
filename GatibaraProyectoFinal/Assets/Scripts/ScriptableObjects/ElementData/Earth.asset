@@ -15,4 +15,4 @@ MonoBehaviour:
   elementName: Earth
   elementDescription: Reduce el ataque del enemigo
   elementPrefab: {fileID: 5686416107812616841, guid: e74ba9f0e89833c4eb71e7317ea5681d, type: 3}
-  type: 3
+  type: 4

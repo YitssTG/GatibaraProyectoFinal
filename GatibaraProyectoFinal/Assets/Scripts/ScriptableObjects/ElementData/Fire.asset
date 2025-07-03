@@ -15,4 +15,4 @@ MonoBehaviour:
   elementName: Fire
   elementDescription: "Da\xF1o por segundo hacia el enemigo"
   elementPrefab: {fileID: 6239822572628777799, guid: 67e24a0bbf0321e4c9c60a1b7d1b4c56, type: 3}
-  type: 0
+  type: 1

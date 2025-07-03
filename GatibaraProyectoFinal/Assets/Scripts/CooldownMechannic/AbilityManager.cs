@@ -7,7 +7,7 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private AbilityCaster abilityCaster;
     [SerializeField] private ElementManager elementManager;
     [SerializeField] private PlayerAttackCollider playerAttackCollider;
-    [SerializeField] private ElementEffectManager elementEffectManager;
+    [SerializeField] private ElementAbilityManager elementAbilityManager;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -36,6 +36,6 @@ public class AbilityManager : MonoBehaviour
     public IEnumerator AbilityAttack(CombinationData combination)
     {
         yield return playerAttackCollider.PerformAttackCoroutine();
-        elementEffectManager.ApplyCombinationEffect(combination);
+        elementAbilityManager.ApplyAbilityEffect(combination);
     }
 }

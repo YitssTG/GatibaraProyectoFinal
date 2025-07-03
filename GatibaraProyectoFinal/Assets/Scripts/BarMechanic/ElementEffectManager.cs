@@ -5,157 +5,119 @@ using System.Collections;
 public class ElementEffectManager : MonoBehaviour
 {
     [SerializeField] private PlayerGatibara player;
-    [SerializeField] private EnemyDetector detector;
-    private Coroutine healthCoroutine;
-    private List<ElementType> types;
-
-    private void Start()
-    {
-        types = new List<ElementType>();
-    }
+    private List<ElementType> types = new List<ElementType>();
+    private List<Coroutine> activeCoroutines = new List<Coroutine>();
     private void OnEnable()
     {
         ElementManager.OnCkeck += ApplyEffects;
-        healthCoroutine = StartCoroutine(HealthTick());
     }
     private void OnDisable()
     {
         ElementManager.OnCkeck -= ApplyEffects;
-        //
-    }
-    IEnumerator HealthTick()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1f);
-            ApplyTickEffect();
-        }
-    }
-    private void ApplyTickEffect()
-    {
-        for(int i = 0; i < types.Count; i++)
-        {
-            //if(types[i] == ElementData.ElementType.Fire)
-            //{
-            //    for(int j = 0; j < enemies.Count; j++)
-            //    {
-            //        enemies[j].RecibirFuego(1);
-            //    }
-            //}
-            if(types[i] == ElementType.Water)
-            {
-                player.Heal(1);
-            }
-        }
+        StopAllCoroutines();
     }
     private void ApplyEffects(CustomSimpleLinkedList<ElementData> elements, ElementData elementData)
     {
         List<ElementData> ordered = elements.GetOrderedElements();
-
         types.Clear();
         int limit = Mathf.Min(player.spellNumber, ordered.Count);
         for(int i = 0;i < limit; i++)
         {
             types.Add(ordered[i].type);
         }
-        ApplyEffectsToPlayer(types);
+        ApplyEffectsToPlayer();
+        ResetAllEnemiesDebuffs();
+        RestartPassiveEffects();
     }
-    public void ApplyEffectsToPlayer(List<ElementType> activeElements)
+    public void ApplyEffectsToPlayer()
     {
         player.ResetEffect();
         int windCount = 0;
-        for (int i = 0; i < activeElements.Count; i++)
+        foreach (var type in types)
         {
-            if (activeElements[i] == ElementType.Wind)
-            {
+            if (type == ElementType.Wind)
                 windCount++;
-            }
         }
+
         if (windCount > 0)
         {
             player.IncreaseSpeed(windCount);
         }
     }
-    public void ApplyEffectsToEnemy(EnemyFollow enemy, List<ElementType> type)
+    private void RestartPassiveEffects()
     {
-        enemy.ResetDebuffs();
-        enemy.StopFireEffect();
-        int fireCount = 0;
-        int earthCount = 0;
-        for (int i = 0; i < type.Count; i++)
+        StopAllActiveCoroutines();
+        foreach (var type in types)
         {
-            switch (type[i])
+            switch (type)
             {
+                case ElementType.Water:
+                    activeCoroutines.Add(StartCoroutine(WaterTick(1f, 1)));
+                    break;
                 case ElementType.Fire:
-                    fireCount++;
+                    activeCoroutines.Add(StartCoroutine(FireTick(1f, 1)));
                     break;
                 case ElementType.Earth:
-                    earthCount++;
+                    ApplyEarthEffect(2);
                     break;
             }
         }
-        if (fireCount > 0)
+    }
+    IEnumerator WaterTick(float time, int healAmount)
+    {
+        while (true)
         {
-            enemy.ApplyFireDamage(fireCount);
-        }
-        if(earthCount > 0)
-        {
-            enemy.ReduceDamage(earthCount);
+            player.Heal(healAmount);
+            yield return new WaitForSeconds(time);
         }
     }
-    public void ApplyCombinationEffect(CombinationData combination)
+    IEnumerator FireTick(float time, int damage)
     {
-        switch (combination.combinationKey)
+        while (true)
         {
-            case "Fire+Fire":
-                ApplyFireFireEffect(detector);
-                break;
-            //case "Water":
-            //    ApplyWaterEffect();
-            //    break;
-            //case "Earth":
-            //    ApplyEarthEffect();
-            //    break;
-            //case "Wind":
-            //    ApplyWindEffect();
-            //    break;
-            default:
-                Debug.Log("No hay efecto.");
-                break;
-        }
-    }
-    public void ApplyFireFireEffect(EnemyDetector detector)
-    {
-        Debug.Log("Habilidad carmesí casteada");
-        var enemies = new List<EnemyFollow>(detector.GetEnemies());
-        if(enemies.Count > 0)
-        {
-            return;
-        }
-        SelectionSortDistance(enemies);
-        EnemyFollow closest = enemies[0];
-        closest.RecibirAtaque();
-    }
-    public void SelectionSortDistance(List<EnemyFollow> enemies)
-    {
-        Vector3 origin = transform.position;
-        for (int i = 0; i < enemies.Count - 1; i++)
-        {
-            int minIndex = i;
-            float minDistance = Vector3.Distance(origin, enemies[i].transform.position);
-
-            for (int j = i + 1; j < enemies.Count; j++)
+            Collider[] hits = Physics.OverlapSphere(player.transform.position, 5f, LayerMask.GetMask("Enemy"));
+            foreach (var hit in hits)
             {
-                float distance = Vector3.Distance(origin, enemies[j].transform.position);
-                if (distance < minDistance)
+                var enemy = hit.GetComponent<EnemyFollow>();
+                if (enemy != null)
                 {
-                    minDistance = distance;
-                    minIndex = j;
+                    enemy.ApplyFireDamage(damage);
                 }
             }
-            var temp = enemies[i];
-            enemies[i] = enemies[minIndex];
-            enemies[minIndex] = temp;
+            yield return new WaitForSeconds(time);
+        }
+    }
+    private void ApplyEarthEffect(int defence)
+    {
+        Collider[] hits = Physics.OverlapSphere(player.transform.position, 5f, LayerMask.GetMask("Enemy"));
+        foreach (var hit in hits)
+        {
+            var enemy = hit.GetComponent<EnemyFollow>();
+            if (enemy != null)
+            {
+                enemy.ReduceDamage(defence);
+            }
+        }
+    }
+    private void StopAllActiveCoroutines()
+    {
+        foreach (var coroutine in activeCoroutines)
+        {
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+        }
+        activeCoroutines.Clear();
+    }
+    private void ResetAllEnemiesDebuffs()
+    {
+        Collider[] hits = Physics.OverlapSphere(player.transform.position, 5f, LayerMask.GetMask("Enemy"));
+        foreach (var hit in hits)
+        {
+            var enemy = hit.GetComponent<EnemyFollow>();
+            if (enemy != null)
+            {
+                enemy.ResetDebuffs();
+            }
         }
     }
 }
