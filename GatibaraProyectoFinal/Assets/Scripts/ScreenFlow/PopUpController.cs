@@ -27,7 +27,8 @@ public class PopUpController : MonoBehaviour
     }
     private void Start()
     {
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         popUpPuase.SetActive(false);
         popUpLoose.SetActive(false);
         popUpWin.SetActive(false);
@@ -40,6 +41,8 @@ public class PopUpController : MonoBehaviour
 
         popUpPuase.SetActive(true);
         popUpSelectorPause.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
         barController.isPaused = true;
     }
@@ -48,6 +51,9 @@ public class PopUpController : MonoBehaviour
         popUpPuase.SetActive(false);
         Time.timeScale = 1f;
         barController.isPaused = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
     public void OnAudioPress()
     {
@@ -66,6 +72,8 @@ public class PopUpController : MonoBehaviour
     }
     public void ShowLosePopUp()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         popUpLoose.SetActive(true);
 
         Time.timeScale = 0f;

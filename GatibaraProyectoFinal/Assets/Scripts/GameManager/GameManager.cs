@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        
+ 
         hud.SetAbilityCaster(abilitycaster);
         maxSpellNumberUnlocked = 1;
         hud.SetPlayer(playerGatibara);
