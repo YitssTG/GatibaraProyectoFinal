@@ -14,11 +14,23 @@ public class Move : MonoBehaviour
     private string lastTrigger = "";
     private void Update()
     {
-        Vector3 forwardMovement = transform.forward * movementInput.y * player.currentSpeed * Time.deltaTime;
-        transform.position += forwardMovement;
+        if (movementInput.sqrMagnitude > 0.01f)
+        {
+            Vector3 camForward = reference.forward;
+            Vector3 camRight = reference.right;
+            camForward.y = 0;
+            camRight.y = 0;
+            camForward.Normalize();
+            camRight.Normalize();
 
-        float rotationAmount = movementInput.x * rotationSpeed * Time.deltaTime;
-        transform.Rotate(0, rotationAmount, 0);
+            Vector3 moveDirection = camForward * movementInput.y + camRight * movementInput.x;
+            moveDirection.Normalize();
+
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            transform.position += moveDirection * player.currentSpeed * Time.deltaTime;
+        }
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -26,7 +38,7 @@ public class Move : MonoBehaviour
         movementInput = movementInput.normalized;
         OnMoving?.Invoke(movementInput);
 
-        if (movementInput.y != 0)
+        if (movementInput.magnitude > 0.01f)
         {
             if (lastTrigger != "Run")
             {

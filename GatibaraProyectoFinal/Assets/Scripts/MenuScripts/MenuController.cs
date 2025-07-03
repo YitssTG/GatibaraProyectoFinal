@@ -74,9 +74,8 @@ public class MenuController : MonoBehaviour
 
     public void OnExitToTitle()
     {
-        hasStarted = false;
-        ShowOnly(titleScreenUI);
-        AnimatePressToStart();
+        Application.Quit();
+        Debug.Log("Saliste del juego... :(");
     }
 
     private void ShowOnly(GameObject screenToShow)
