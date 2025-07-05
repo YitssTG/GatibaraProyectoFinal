@@ -7,6 +7,8 @@ public class EnemyFollow : MonoBehaviour
 {
     public EnemyBarraVida barraUI;
     private float vidasMaximas;
+    private float originalSpeed;
+    private bool isSlowed;
 
     [Header("Stats Enemy DeBuffs")]
     public float vidas = 20;
@@ -28,7 +30,32 @@ public class EnemyFollow : MonoBehaviour
     {
         damageReduction = 0;
         vidasMaximas = vidas;
+<<<<<<< HEAD
 
+=======
+        isSlowed = false;
+        originalSpeed = agent.speed;
+        if (barraUI != null)
+        {
+            barraUI.SetVida(vidas, vidasMaximas);
+        }
+        if (playerTransform == null)
+        {
+            playerTransform = OnGetPlayerPosition?.Invoke();
+        }
+    }
+    void Update()
+    {
+        Destination(playerTransform.position);
+    }
+    private void Destination(Vector3 destino)
+    {
+        agent.destination = destino;
+    }
+    public void RecibirAtaque()
+    {
+        vidas = vidas - 3;
+>>>>>>> origin/EspinoRIcardo
         if (barraUI != null)
         {
             barraUI.SetVida(vidas, vidasMaximas);
@@ -65,6 +92,18 @@ public class EnemyFollow : MonoBehaviour
         if (vidas <= 0 && !isDying)
         {
             MorirConAnimacion();
+        }
+    }
+    public void RecibirAtaque(float abilitydamage)
+    {
+        vidas = vidas - abilitydamage;
+        if (barraUI != null)
+        {
+            barraUI.SetVida(vidas, vidasMaximas);
+        }
+        if (vidas <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -110,7 +149,26 @@ public class EnemyFollow : MonoBehaviour
     {
         damageReduction = 0;
     }
+<<<<<<< HEAD
 
+=======
+    public void SpeedModify(float percentage)
+    {
+        if (!isSlowed)
+        {
+            agent.speed *= percentage;
+            isSlowed = true;
+        }
+    }
+    public void SpeedRestore()
+    {
+        if (isSlowed)
+        {
+            agent.speed = originalSpeed;
+            isSlowed = false;
+        }
+    }
+>>>>>>> origin/EspinoRIcardo
     private void OnDestroy()
     {
         GameManager.instance.RegisterKill();
