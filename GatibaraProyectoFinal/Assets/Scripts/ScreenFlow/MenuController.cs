@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] private Image blackFade;
+    [SerializeField] private float fadeDurationToLoad = 1f;
+
     [Header("Pantallas")]
     [SerializeField] private GameObject titleScreenUI;
     [SerializeField] private GameObject mainMenuUI;
@@ -54,7 +57,17 @@ public class MenuController : MonoBehaviour
 
     public void OnNewGame()
     {
-        SceneManager.LoadScene(gameSceneName);
+        StartCoroutine(FadeAndLoadScene(gameSceneName));
+    }
+
+    private IEnumerator FadeAndLoadScene(string sceneName)
+    {
+        blackFade.gameObject.SetActive(true);
+        blackFade.color = new Color(0, 0, 0, 0);
+
+        yield return blackFade.DOFade(1f, fadeDurationToLoad).SetEase(Ease.InOutSine).WaitForCompletion();
+
+        SceneManager.LoadScene(sceneName);
     }
 
     public void OnReturnToTittle()

@@ -9,8 +9,12 @@ public class ObjectBreakable : MonoBehaviour, Interactable
     public int maxMonedas = 5;
     public float radioSpawn = 1f;
 
+    [Header("Durabilidad")]
+    public int vida = 2; // Vida de la caja
+
     private Renderer _renderer;
     private Color _originalColor;
+
     private void Start()
     {
         isInteract = true;
@@ -20,10 +24,23 @@ public class ObjectBreakable : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        Debug.Log("Objeto destruido");
-        SoltarMonedas();
-        Destroy(this.gameObject);
+        if (!isInteract) return;
+
+        vida--;
+
+        if (vida <= 0)
+        {
+            Debug.Log("Objeto destruido");
+            SoltarMonedas();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("¡Golpe recibido! Vida restante: " + vida);
+            // Puedes agregar una animación de daño o cambio de color aquí si deseas.
+        }
     }
+
     void SoltarMonedas()
     {
         int chance = Random.Range(0, 100);
@@ -58,14 +75,30 @@ public class ObjectBreakable : MonoBehaviour, Interactable
                 transform.position.y + 1f,
                 transform.position.z + offset.y
             );
-            Instantiate(monedaPrefab, posicion, Quaternion.identity);
+
+            GameObject moneda = Instantiate(monedaPrefab, posicion, Quaternion.identity);
+
+            Coin coinScript = moneda.GetComponent<Coin>();
+            if (coinScript != null)
+            {
+                Vector3 offsetDestino = new Vector3(
+                    UnityEngine.Random.Range(-1f, 1f),
+                    0,
+                    UnityEngine.Random.Range(-1f, 1f)
+                );
+                Vector3 destinoFinal = posicion + offsetDestino;
+
+                coinScript.IniciarSalto(destinoFinal);
+            }
         }
     }
+
     public void Highlight(Color color)
     {
         if (_renderer != null)
             _renderer.material.color = color;
     }
+
     public void ResetColor()
     {
         if (_renderer != null)

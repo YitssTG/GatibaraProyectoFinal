@@ -86,9 +86,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
       insertIndex: -1
       addedObject: {fileID: 347354662377600596}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8964028966557314276}
   m_SourcePrefab: {fileID: 100100000, guid: 40dd763c20c5e914884a374c3b4a7c24, type: 3}
 --- !u!1 &1989460427315158686 stripped
 GameObject:
@@ -128,17 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f9858ceca63a54aae3749cb2dccf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8964028966557314276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989460427315158686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f11e81f67bc2041a2cbd4c172f7b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: 2
-  altura: 0.5
+  duracionSalto: 0.6
+  alturaSalto: 1.5
+  velocidadFlotar: 2
+  alturaFlotar: 0.5

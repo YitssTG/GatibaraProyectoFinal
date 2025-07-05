@@ -62,7 +62,7 @@ public class PlayerGatibara : MonoBehaviour
     public void Heal(int healQuantity)
     {
         vida += healQuantity;
-        if(vida > hud.GetVidaMax())
+        if (vida > hud.GetVidaMax())
         {
             vida = hud.GetVidaMax();
         }

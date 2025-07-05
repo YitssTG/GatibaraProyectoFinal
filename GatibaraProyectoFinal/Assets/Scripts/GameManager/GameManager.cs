@@ -83,7 +83,6 @@ public class GameManager : MonoBehaviour
     {
         Health.OnHealthDestroy += RecuperarCorazon;
     }
-
     private void OnDisable()
     {
         Health.OnHealthDestroy -= RecuperarCorazon;
@@ -155,14 +154,14 @@ public class GameManager : MonoBehaviour
     {
         enemiesKilled++;
         Debug.Log("Enemigos eliminados: " + requiredKills);
-        if(enemiesKilled >= RequiredKills)
+        if (enemiesKilled >= RequiredKills)
         {
             OnAllEnemiesKilled?.Invoke();
         }
     }
     public bool UnlockNewSpellNumber()
     {
-        if(maxSpellNumberUnlocked < 3)
+        if (maxSpellNumberUnlocked < 3)
         {
             if (hud.puntos >= spellUnlockCost)
             {

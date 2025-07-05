@@ -12817,7 +12817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &331123467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22316,6 +22316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07518d16b382fd408483e5f69c8ff60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monedaUIPrefab: {fileID: 920296113824898482, guid: c8f40c5f03b18414da68f126c2bd1346, type: 3}
+  mainCanvas: {fileID: 677100004}
+  monedaHUDTarget: {fileID: 271629513}
   points: {fileID: 1726370880}
   rellenoVida: {fileID: 1174050269}
   puntos: 0

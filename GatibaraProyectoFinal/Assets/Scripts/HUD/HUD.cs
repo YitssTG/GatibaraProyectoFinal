@@ -1,9 +1,14 @@
+﻿using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
+    [SerializeField] private GameObject monedaUIPrefab;
+    [SerializeField] private Canvas mainCanvas;
+    [SerializeField] private Transform monedaHUDTarget;
+
     public TMP_Text points;
     public Image rellenoVida;
     private PlayerGatibara playerGatibara;
@@ -20,32 +25,50 @@ public class HUD : MonoBehaviour
 
     private void OnEnable()
     {
-        Coin.OnCoinsCollection += UpdatePoints;
+        Coin.OnCoinsCollection += AnimarMonedaHUD;
     }
     private void OnDisable()
     {
-        Coin.OnCoinsCollection -= UpdatePoints;
+        Coin.OnCoinsCollection -= AnimarMonedaHUD;
     }
-    private void Update()
+
+    private void AnimarMonedaHUD(Vector3 mundoPos)
     {
-        UpdateAbilityHUD();
+        Vector3 pantallaPos = Camera.main.WorldToScreenPoint(mundoPos);
+        GameObject monedaUI = Instantiate(monedaUIPrefab, mainCanvas.transform);
+        monedaUI.transform.position = pantallaPos;
+
+        monedaUI.transform.DOMove(monedaHUDTarget.position, 0.5f)
+            .SetEase(Ease.InOutCubic)
+            .OnComplete(() =>
+            {
+                Destroy(monedaUI);
+                UpdatePoints();
+            });
     }
-    //public int GetPuntos()
-    //{
-    //    return puntos;
-    //}
-    public void SetAbilityCaster(AbilityCaster caster)
-    {
-        abilityCaster = caster;
-    }
-    public void UpdatePoints()
+    private void OnCoinCollected(Coin coin)
     {
         ++puntos;
         points.text = puntos.ToString();
     }
+    public void UpdatePoints()
+    {
+        puntos++;
+        points.text = puntos.ToString();
+    }
+
+    private void Update()
+    {
+        UpdateAbilityHUD();
+    }
+    public void SetAbilityCaster(AbilityCaster caster)
+    {
+        abilityCaster = caster;
+    }
+
     public bool SpendPuntos(int amount)
     {
-        if(puntos >= amount)
+        if (puntos >= amount)
         {
             puntos -= amount;
             points.text = puntos.ToString();
@@ -87,7 +110,7 @@ public class HUD : MonoBehaviour
         }
         else
         {
-            // Mostrar icono vac�o o desactivar el actual
+            // Mostrar icono vacío o desactivar el actual
             abilityIcon.enabled = false;
             cooldownText.text = "";
         }

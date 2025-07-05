@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: d09ebabb7cc50134b8c605cf5f333fd7
-  - enabled: 0
-    path: Assets/Scenes/RicardoUpdate.unity
-    guid: 6f9f9532f7dea54429ac94e082088882
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: fd8069be7da779b4188b93842752da74
   - enabled: 1
     path: Assets/Scenes/Carrasco.unity
     guid: 8dea865195d00654981419ddcc5ed1fd
