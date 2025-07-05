@@ -25,14 +25,11 @@ public class EnemyFollow : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
     }
-
     private void Start()
     {
         damageReduction = 0;
         vidasMaximas = vidas;
-<<<<<<< HEAD
 
-=======
         isSlowed = false;
         originalSpeed = agent.speed;
         if (barraUI != null)
@@ -44,29 +41,6 @@ public class EnemyFollow : MonoBehaviour
             playerTransform = OnGetPlayerPosition?.Invoke();
         }
     }
-    void Update()
-    {
-        Destination(playerTransform.position);
-    }
-    private void Destination(Vector3 destino)
-    {
-        agent.destination = destino;
-    }
-    public void RecibirAtaque()
-    {
-        vidas = vidas - 3;
->>>>>>> origin/EspinoRIcardo
-        if (barraUI != null)
-        {
-            barraUI.SetVida(vidas, vidasMaximas);
-        }
-
-        if (playerTransform == null)
-        {
-            playerTransform = OnGetPlayerPosition?.Invoke();
-        }
-    }
-
     void Update()
     {
         if (!isDying)
@@ -149,9 +123,7 @@ public class EnemyFollow : MonoBehaviour
     {
         damageReduction = 0;
     }
-<<<<<<< HEAD
 
-=======
     public void SpeedModify(float percentage)
     {
         if (!isSlowed)
@@ -168,7 +140,7 @@ public class EnemyFollow : MonoBehaviour
             isSlowed = false;
         }
     }
->>>>>>> origin/EspinoRIcardo
+
     private void OnDestroy()
     {
         GameManager.instance.RegisterKill();
