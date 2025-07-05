@@ -8,6 +8,8 @@ public class EnemyFollow : MonoBehaviour
 {
     public EnemyBarraVida barraUI;
     private float vidasMaximas;
+    private float originalSpeed;
+    private bool isSlowed;
 
     [Header("Stats Enemy DeBuffs")]
 
@@ -29,6 +31,8 @@ public class EnemyFollow : MonoBehaviour
     {
         damageReduction = 0;
         vidasMaximas = vidas;
+        isSlowed = false;
+        originalSpeed = agent.speed;
         if (barraUI != null)
         {
             barraUI.SetVida(vidas, vidasMaximas);
@@ -59,6 +63,18 @@ public class EnemyFollow : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void RecibirAtaque(float abilitydamage)
+    {
+        vidas = vidas - abilitydamage;
+        if (barraUI != null)
+        {
+            barraUI.SetVida(vidas, vidasMaximas);
+        }
+        if (vidas <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void ApplyFireDamage(int cantidad)
     {
@@ -79,6 +95,22 @@ public class EnemyFollow : MonoBehaviour
     public void ResetDebuffs()
     {
         damageReduction = 0;
+    }
+    public void SpeedModify(float percentage)
+    {
+        if (!isSlowed)
+        {
+            agent.speed *= percentage;
+            isSlowed = true;
+        }
+    }
+    public void SpeedRestore()
+    {
+        if (isSlowed)
+        {
+            agent.speed = originalSpeed;
+            isSlowed = false;
+        }
     }
     private void OnDestroy()
     {
