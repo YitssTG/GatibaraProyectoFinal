@@ -22,17 +22,16 @@ public class HUD : MonoBehaviour
     public TMP_Text cooldownText;
 
     private AbilityCaster abilityCaster;
-
     private void OnEnable()
     {
         Coin.OnCoinsCollection += AnimarMonedaHUD;
     }
+
     private void OnDisable()
     {
         Coin.OnCoinsCollection -= AnimarMonedaHUD;
     }
-
-    private void AnimarMonedaHUD(Vector3 mundoPos)
+    public void AnimarMonedaHUD(Vector3 mundoPos)
     {
         Vector3 pantallaPos = Camera.main.WorldToScreenPoint(mundoPos);
         GameObject monedaUI = Instantiate(monedaUIPrefab, mainCanvas.transform);
@@ -45,11 +44,6 @@ public class HUD : MonoBehaviour
                 Destroy(monedaUI);
                 UpdatePoints();
             });
-    }
-    private void OnCoinCollected(Coin coin)
-    {
-        ++puntos;
-        points.text = puntos.ToString();
     }
     public void UpdatePoints()
     {

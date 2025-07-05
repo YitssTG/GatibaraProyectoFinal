@@ -11,17 +11,19 @@ public class AudioManager : MonoBehaviour
     public static event Action<AudioMixerGroup> OnCollisionStopMusic;
     public static event Action<AudioMixerGroup, AudioClip> OnExitCollision;
 
+    public static event Action<AudioClip> OnFootstep;
+    public static event Action<AudioClip> OnCoinCollectedSound;
+
     private void Start()
     {
         OnCollisionMusic?.Invoke(audioSettings.AudioMixerGroup, audioData.AudioClip);
     }
-    //private void OnTriggerExit(Collider collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        OnCollisionStopMusic?.Invoke(audioSettings.AudioMixerGroup);
-
-    //        OnExitCollision?.Invoke(audioSettings.AudioMixerGroup, audioData.AudioClip);
-    //    }
-    //}
+    public static void TriggerFootstep(AudioClip clip)
+    {
+        OnFootstep?.Invoke(clip);
+    }
+    public static void TriggerCoinSound(AudioClip clip)
+    {
+        OnCoinCollectedSound?.Invoke(clip);
+    }
 }

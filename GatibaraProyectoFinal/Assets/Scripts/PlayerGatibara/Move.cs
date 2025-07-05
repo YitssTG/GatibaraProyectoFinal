@@ -3,6 +3,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class Move : MonoBehaviour
 {
+    [SerializeField] private AudioData pasoAudioData;
+    [SerializeField] private float intervaloPasos = 0.5f;
+    private float contadorPaso;
+
+    private float tiempoPaso;
+
     [Header("Player Movement Properties")]
     [SerializeField] PlayerGatibara player;
     [SerializeField] Vector2 movementInput;
@@ -15,6 +21,7 @@ public class Move : MonoBehaviour
     {
         if (movementInput.sqrMagnitude > 0.01f)
         {
+            // Movimiento
             Vector3 camForward = reference.forward;
             Vector3 camRight = reference.right;
             camForward.y = 0;
@@ -29,9 +36,23 @@ public class Move : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             transform.position += moveDirection * player.currentSpeed * Time.deltaTime;
-        }
 
-        //rotacion de la camara junto al personaje
+            // Pasos
+            contadorPaso += Time.deltaTime;
+            if (contadorPaso >= intervaloPasos)
+            {
+                if (pasoAudioData != null && pasoAudioData.AudioClip != null)
+                {
+                    AudioManager.TriggerFootstep(pasoAudioData.AudioClip);
+                }
+                contadorPaso = 0f;
+            }
+        }
+        else
+        {
+            // Si no se mueve, reinicia el contador
+            contadorPaso = intervaloPasos;
+        }
     }
     public void OnMove(InputAction.CallbackContext context)
     {

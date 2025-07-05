@@ -129,3 +129,4 @@ MonoBehaviour:
   alturaSalto: 1.5
   velocidadFlotar: 2
   alturaFlotar: 0.5
+  coinSoundData: {fileID: 11400000, guid: 93fa0b1b3e5b4174980b440297becfd1, type: 2}

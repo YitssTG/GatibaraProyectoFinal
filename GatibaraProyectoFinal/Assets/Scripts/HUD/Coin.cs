@@ -18,6 +18,9 @@ public class Coin : MonoBehaviour
     private Vector3 posicionFlotacionInicial;
     private bool puedeFlotar = false;
 
+    [Header("Audio")]
+    [SerializeField] private AudioData coinSoundData;
+
     void Start()
     {
         transform.DORotate(new Vector3(0, 360, 0), 1f, RotateMode.FastBeyond360)
@@ -71,9 +74,16 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
+            Debug.Log("Moneda recogida por el jugador");
+
+            if (coinSoundData != null && coinSoundData.AudioClip != null)
+            {
+                AudioManager.TriggerFootstep(coinSoundData.AudioClip);
+            }
+
             OnCoinsCollection?.Invoke(transform.position);
-            Destroy(gameObject, 1f);
+
+            Destroy(gameObject);
         }
     }
 }

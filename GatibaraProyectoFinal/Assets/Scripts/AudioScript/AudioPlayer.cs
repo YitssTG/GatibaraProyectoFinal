@@ -11,13 +11,28 @@ public class AudioPlayer : MonoBehaviour
         AudioManager.OnCollisionMusic += PlayPlayer;
         AudioManager.OnCollisionStopMusic += StopPlayer;
         AudioManager.OnExitCollision += PlayExit;
+        AudioManager.OnFootstep += ReproducirPaso;
+        AudioManager.OnCoinCollectedSound += PlayCoinSound;
     }
     private void OnDisable()
     {
         AudioManager.OnCollisionMusic -= PlayPlayer;
         AudioManager.OnCollisionStopMusic -= StopPlayer;
         AudioManager.OnExitCollision -= PlayExit;
+        AudioManager.OnFootstep -= ReproducirPaso;
+        AudioManager.OnCoinCollectedSound -= PlayCoinSound;
 
+    }
+    private void ReproducirPaso(AudioClip pasoClip)
+    {
+        if (pasoClip != null && sfxPlayer != null)
+        {
+            sfxPlayer.PlayClip(pasoClip, false); // Usa CreateTempAudioSource
+        }
+    }
+    private void PlayCoinSound(AudioClip clip)
+    {
+        sfxPlayer.PlayClip(clip, false);
     }
     private void PlayPlayer(AudioMixerGroup currentGroup, AudioClip currentAudioClip)
     {

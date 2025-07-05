@@ -12,6 +12,9 @@ public class PlayerAttackCollider : MonoBehaviour
     [SerializeField] private float hitDelay = 0.5f;
     [SerializeField] private float hitActiveTime = 0.5f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioData hitSoundData;
+
     private bool isAttacking = false;
     //
     private void Start()
@@ -25,19 +28,33 @@ public class PlayerAttackCollider : MonoBehaviour
             AbilityManager.instance.TryCastOrAttack();
         }
     }
-    public IEnumerator PerformAttackCoroutine()//parte de coroutine que hace q el golpe sea mas realista
+    public IEnumerator PerformAttackCoroutine()
     {
         isAttacking = true;
+
+        // Disparar animación
         animator.SetTrigger("isAttack");
+
+        // Reproducir sonido de ataque siempre que se haga el movimiento
+        if (hitSoundData != null && hitSoundData.AudioClip != null)
+        {
+            AudioManager.TriggerFootstep(hitSoundData.AudioClip);
+        }
+
         yield return new WaitForSeconds(hitDelay);
+
         attackCollider.enabled = true;
+
         yield return new WaitForSeconds(hitActiveTime);
+
         attackCollider.enabled = false;
+
         float remaining = attackDuration - (hitDelay + hitActiveTime);
         if (remaining > 0)
         {
             yield return new WaitForSeconds(remaining);
         }
+
         animator.SetTrigger("Idle");
         isAttacking = false;
     }
@@ -46,10 +63,15 @@ public class PlayerAttackCollider : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyFollow enemy = other.GetComponent<EnemyFollow>();
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.RecibirAtaque();
+
+                if (hitSoundData != null && hitSoundData.AudioClip != null)
+                {
+                    AudioManager.TriggerFootstep(hitSoundData.AudioClip);
+                }
             }
         }
-    }// se relaciona con el enemigo
+    }
 }

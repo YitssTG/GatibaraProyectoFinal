@@ -12817,7 +12817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &331123467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39861,6 +39861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80919ce66655920438bc13bac0289b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackFade: {fileID: 0}
+  fadeDurationToLoad: 1
   titleScreenUI: {fileID: 0}
   mainMenuUI: {fileID: 0}
   pressToStartText: {fileID: 0}
@@ -56886,6 +56888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cf4c1c7e43dc3488114cddfdddd64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pasoAudioData: {fileID: 11400000, guid: f3a438d4acdc1a043867f42b66e1aa51, type: 2}
+  intervaloPasos: 0.3
   player: {fileID: 1934623082}
   movementInput: {x: 0, y: 0}
   reference: {fileID: 962885728}
@@ -56910,6 +56914,7 @@ MonoBehaviour:
   attackDuration: 0.5
   hitDelay: 0.5
   hitActiveTime: 0.5
+  hitSoundData: {fileID: 11400000, guid: 091996ffff7d07a4e87a80c456df7a89, type: 2}
 --- !u!114 &1934623082
 MonoBehaviour:
   m_ObjectHideFlags: 0
