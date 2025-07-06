@@ -1580,6 +1580,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 77875431}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1940,6 +1968,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 90277034}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5948,7 +6004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3e7076682ecebb549954041ab13ccb9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c87e6caf04f76834b806bd8a59478259, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15468,6 +15524,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 442539636}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16454,6 +16538,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 468452002}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17767,6 +17879,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 519123412}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20713,6 +20853,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 622100627}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24271,6 +24439,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 738204435}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24948,6 +25144,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 752422253}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29037,6 +29261,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 877707894}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30109,6 +30361,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 951369052}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32617,6 +32897,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1502842148}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34703,6 +35011,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1117148761}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36558,6 +36894,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1212004533}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38135,6 +38499,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1270870244}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39985,6 +40377,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 281135155}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40205,6 +40625,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1344064161}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41869,6 +42317,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1434356366}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43096,6 +43572,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1474028605}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45647,6 +46151,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 2052851029}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47131,6 +47663,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1629776755}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49211,6 +49771,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1678775850}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50687,6 +51275,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1730744506}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51432,6 +52048,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 719093394}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52270,6 +52914,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1781801468}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52400,6 +53072,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1403201511}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -54651,6 +55351,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1860312468}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61181,6 +61909,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 2112038730}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71660,6 +72416,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bb72af04cafd99c4e9728a3f3b6930cb, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 6117917768469241594}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 1946156673739597850, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitSoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e30f281360b2a428f16ca61e84cf69, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 7854349521899128440, guid: e2cc9c07f5c0ee84b8e624ffa2e5c1ff, type: 3}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: destroySoundData
+      value: 
+      objectReference: {fileID: 11400000, guid: b79521f6c94022a4d9fe57eb020b1a86, type: 2}
+    - target: {fileID: 9020378169698332209, guid: aeed9f87b6945fd4792fe59f1b9872ee, type: 3}
+      propertyPath: hitParticlesPrefab
+      value: 
+      objectReference: {fileID: 7659885292939032379, guid: 4861399d8734a04438d4c91c29fe28ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
