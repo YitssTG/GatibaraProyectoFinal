@@ -59,7 +59,7 @@ public class PlayerGatibara : MonoBehaviour
     {
         Debug.Log("Corazon Recogido");
     }
-    public void Heal(int healQuantity)
+    public void Heal(float healQuantity)
     {
         vida += healQuantity;
         if (vida > hud.GetVidaMax())
