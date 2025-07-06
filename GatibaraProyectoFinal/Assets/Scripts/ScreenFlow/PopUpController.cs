@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
@@ -13,7 +13,7 @@ public class PopUpController : MonoBehaviour
     public GameObject popUpLoose;
     public GameObject popUpWin;
     [SerializeField] private SelectorController barController;
-    
+
     private void Awake()
     {
         if (instance == null)
@@ -85,7 +85,7 @@ public class PopUpController : MonoBehaviour
         barController.isPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    
+
     public void ResetPrefs()
     {
         PlayerPrefs.DeleteAll();

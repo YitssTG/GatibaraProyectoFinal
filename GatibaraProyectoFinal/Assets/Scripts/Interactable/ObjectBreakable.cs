@@ -29,7 +29,12 @@ public class ObjectBreakable : MonoBehaviour, Interactable
     {
         isInteract = true;
         _renderer = GetComponent<Renderer>();
-        _originalColor = _renderer.material.color;
+
+        if (_renderer != null)
+        {
+            _renderer.material = new Material(_renderer.material); // Clona el material para no afectar a otros
+            _originalColor = _renderer.material.color;
+        }
     }
 
     public void Interact()
@@ -54,6 +59,12 @@ public class ObjectBreakable : MonoBehaviour, Interactable
             Debug.Log("¡Golpe recibido! Vida restante: " + vida);
 
             transform.DOShakePosition(0.2f, 0.15f, 10, 90, false, true);
+
+            // Feedback visual: parpadeo rojo
+            if (_renderer != null)
+            {
+                _renderer.material.DOColor(Color.red, 0.1f).SetLoops(2, LoopType.Yoyo);
+            }
 
             if (hitSoundData != null && hitSoundData.AudioClip != null)
                 AudioManager.TriggerFootstep(hitSoundData.AudioClip);
