@@ -57619,9 +57619,11 @@ MonoBehaviour:
   pasoAudioData: {fileID: 11400000, guid: f3a438d4acdc1a043867f42b66e1aa51, type: 2}
   intervaloPasos: 0.3
   player: {fileID: 1934623082}
+  attackScript: {fileID: 1934623081}
   movementInput: {x: 0, y: 0}
   reference: {fileID: 962885728}
   rotationSpeed: 100
+  canMove: 1
   move: {fileID: 5866666020467672649}
 --- !u!114 &1934623081
 MonoBehaviour:
@@ -57635,6 +57637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d90ac147f6f8084e9bfc776d65df4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveScript: {fileID: 1934623080}
   animator: {fileID: 5866666020467672649}
   attackCollider: {fileID: 584665487}
   abilityCaster: {fileID: 870566527}
