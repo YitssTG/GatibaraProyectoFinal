@@ -2,18 +2,15 @@ using UnityEngine;
 
 public class FireWindAbility : MonoBehaviour
 {
-    [SerializeField] private float maxScale;
-    [SerializeField] private float growSpeed;
+    [SerializeField] private float maxScale = 5f;
+    [SerializeField] private float growSpeed = 2f;
     [SerializeField] private float damage;
     private Vector3 targetScale;
     private bool isGrowing;
     void Start()
     {
-        maxScale = 5f;
-        growSpeed = 2f;
         isGrowing = true;
-        transform.position = Vector3.zero;
-        targetScale = Vector3.one * maxScale;
+        targetScale = new Vector3(maxScale, 1f, maxScale);
     }
     void Update()
     {
@@ -32,7 +29,7 @@ public class FireWindAbility : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyFollow enemy = other.GetComponent<EnemyFollow>();
-            enemy.RecibirAtaque(5f);
+            enemy.RecibirAtaque(damage);
         }
     }
 }

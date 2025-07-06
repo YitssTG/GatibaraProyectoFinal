@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class EarthWaterAbility : MonoBehaviour
 {
-    [SerializeField] private float duration;
-    [SerializeField] private float slowAmount;
+    [SerializeField] private float duration = 8f;
+    [SerializeField] private float slowAmount = 0.5f;
     void Start()
     {
-        duration = 5f;
-        slowAmount = 0.5f;
         Destroy(gameObject, duration);
     }
     private void OnTriggerEnter(Collider other)
