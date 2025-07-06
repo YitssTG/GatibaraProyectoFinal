@@ -53,7 +53,7 @@ public class ElementEffectManager : MonoBehaviour
             switch (type)
             {
                 case ElementType.Water:
-                    activeCoroutines.Add(StartCoroutine(WaterTick(1f, 1)));
+                    activeCoroutines.Add(StartCoroutine(WaterTick(1f, 0.2f)));
                     break;
                 case ElementType.Fire:
                     activeCoroutines.Add(StartCoroutine(FireTick(1f, 1)));
@@ -64,7 +64,7 @@ public class ElementEffectManager : MonoBehaviour
             }
         }
     }
-    IEnumerator WaterTick(float time, int healAmount)
+    IEnumerator WaterTick(float time, float healAmount)
     {
         while (true)
         {

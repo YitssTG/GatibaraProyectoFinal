@@ -22,7 +22,7 @@ public class FireFireAbility : MonoBehaviour
             EnemyFollow enemy = other.GetComponent<EnemyFollow>();
             if (enemy != null)
             {
-                enemy.RecibirAtaque(5f);//recibe daño, pero puede ser otro tipo de daño
+                enemy.RecibirAtaque(damage);//recibe daño, pero puede ser otro tipo de daño
             }
             Destroy(gameObject);
         }

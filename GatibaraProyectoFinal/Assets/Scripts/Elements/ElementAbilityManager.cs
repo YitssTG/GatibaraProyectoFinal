@@ -100,8 +100,7 @@ public class ElementAbilityManager : MonoBehaviour
     }
     public void ApplyFireWindAbility()
     {
-        Vector3 reference = player.transform.position;
-        GameObject firefog = Instantiate(fireWindPrefab, reference, Quaternion.identity);
+        GameObject firefog = Instantiate(fireWindPrefab, player.transform.position, Quaternion.identity);
     }
     public void ApplyEarthWaterPrefab()
     {
@@ -113,7 +112,8 @@ public class ElementAbilityManager : MonoBehaviour
     }
     public void ApplyFireEarthAbility()
     {
-        Instantiate(fireEarthPrefab, player.transform.position, Quaternion.identity);
+        GameObject fireEarth = Instantiate(fireEarthPrefab, player.transform.position, Quaternion.identity);
+        Destroy(fireEarth, 2f);
         Collider[] hits = Physics.OverlapSphere(player.transform.position, fireEarthRadius, LayerMask.GetMask("Enemy"));
         for(int i = 0; i < hits.Length; i++)
         {
@@ -123,7 +123,7 @@ public class ElementAbilityManager : MonoBehaviour
             float finalDamage = Mathf.Lerp(fireEarthDamage, 1f, distance/fireEarthRadius);
             enemy.RecibirAtaque(finalDamage);
         }
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 8; i++)
         {
             float randomX = Random.Range(-1.5f, 1.5f);
             float randomZ = Random.Range(-1.5f, 1.5f);
@@ -136,7 +136,7 @@ public class ElementAbilityManager : MonoBehaviour
             Vector3 randomDirection = new Vector3(dirX, dirY, dirZ).normalized;
             float randomForce = Random.Range(9f, 15f);
             rockRigidBody.AddForce(randomDirection * randomForce, ForceMode.Impulse);
-            Destroy(rock, 3f);
+            Destroy(rock, 2f);
         }
     }
 }
