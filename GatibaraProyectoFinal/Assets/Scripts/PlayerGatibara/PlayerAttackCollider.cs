@@ -35,6 +35,7 @@ public class PlayerAttackCollider : MonoBehaviour
     {
         if (moveScript != null)
         {
+            AbilityManager.instance.TryCastOrAttack();
             moveScript.canMove = false;
             moveScript.ResetMovementInput();
         }       
