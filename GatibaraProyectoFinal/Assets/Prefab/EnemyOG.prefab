@@ -655,7 +655,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -700,12 +700,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb818d62c265b4345894bddfe893e436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 1.5
+  requiredStayTime: 3
+  attackCooldown: 5
   barraUI: {fileID: 2187161723910999386}
-  damageReduction: 1
   vidas: 20
-  baseDamage: 3
+  baseDamage: 2
+  damageReduction: 1
   currentDamage: 0
-  resistances: 0
 --- !u!195 &8633302838338769120
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -720,7 +722,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2.38
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
