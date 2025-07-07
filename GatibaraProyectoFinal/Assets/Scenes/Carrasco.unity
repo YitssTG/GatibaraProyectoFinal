@@ -29025,7 +29025,7 @@ MonoBehaviour:
   abilityCaster: {fileID: 870566527}
   elementManager: {fileID: 1952537655}
   playerAttackCollider: {fileID: 1934623081}
-  elementAbilityManager: {fileID: 1952537660}
+  elementAbilityManager: {fileID: 0}
 --- !u!1001 &875397928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35006,7 +35006,7 @@ RectTransform:
   m_Father: {fileID: 1378861105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -39772,7 +39772,7 @@ RectTransform:
   m_Father: {fileID: 719746272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -42051,7 +42051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1427760394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49778,13 +49778,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1176166038}
+        m_TargetAssemblyTypeName: PopUpController, Assembly-CSharp
+        m_MethodName: ReiniciarNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -51801,7 +51801,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1952537659}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: OnSliderChanged
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -57691,7 +57691,6 @@ GameObject:
   - component: {fileID: 1952537656}
   - component: {fileID: 1952537658}
   - component: {fileID: 1952537659}
-  - component: {fileID: 1952537660}
   m_Layer: 0
   m_Name: ElementManager
   m_TagString: Untagged
@@ -57792,28 +57791,6 @@ MonoBehaviour:
   - {fileID: 548139758}
   - {fileID: 1924676397}
   - {fileID: 2137519445}
---- !u!114 &1952537660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952537652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d544ad1b252ead94386c0eeb9907cb2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1934623082}
-  fireFirePrefab: {fileID: 1812773374822600692, guid: 1328261231bf95243b2e348207f4af0c, type: 3}
-  fireWindPrefab: {fileID: 157472051032442558, guid: 4d8de5f678e5c9044ba2fda660eace90, type: 3}
-  earthWaterPrefab: {fileID: 4423905739014609368, guid: 45d567ebde1c7a54fa143e7dd468f7e5, type: 3}
-  earthWindPrefab: {fileID: 7844933379335607000, guid: 064835e04f5e1114c82bb1a200b53bda, type: 3}
-  fireEarthPrefab: {fileID: 3842311818076280668, guid: 7bb6cd7a0b458cd4a82e3259dfaae7e6, type: 3}
-  stonePrefab: {fileID: 3770892725833704557, guid: d8219bb0202ec6c40825585c295921a1, type: 3}
-  fireFireSpeed: 0.01
-  fireEarthRadius: 5
-  fireEarthDamage: 8
 --- !u!1001 &1952830854
 PrefabInstance:
   m_ObjectHideFlags: 0

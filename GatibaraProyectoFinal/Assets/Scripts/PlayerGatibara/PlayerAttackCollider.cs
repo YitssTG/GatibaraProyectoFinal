@@ -25,8 +25,10 @@ public class PlayerAttackCollider : MonoBehaviour
     }
     public void OnLeftClick(InputAction.CallbackContext context)
     {
+        
         if (context.performed && !isAttacking)
         {
+            AbilityManager.instance.TryCastOrAttack();
             isAttacking = true; 
             StartCoroutine(PerformAttackCoroutine());
         }
@@ -35,7 +37,6 @@ public class PlayerAttackCollider : MonoBehaviour
     {
         if (moveScript != null)
         {
-            AbilityManager.instance.TryCastOrAttack();
             moveScript.canMove = false;
             moveScript.ResetMovementInput();
         }       
