@@ -32,9 +32,11 @@ public class EnemyFollow : MonoBehaviour
     private Renderer enemyRenderer;
     private Color originalColor;
     private Coroutine flashRoutine;
+    private Animator animator;
 
     void Awake()
     {
+        animator=GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
     private void Start()
@@ -70,13 +72,15 @@ public class EnemyFollow : MonoBehaviour
             {
                 AtacarJugador();
                 lastAttackTime = Time.time;
+
                 playerInsideTime = 0f; // reinicia el tiempo tras atacar
             }
         }
         else
         {
             isPlayerInRange = false;
-            playerInsideTime = 0f; // reinicia si se va
+            playerInsideTime = 0f;
+            animator.SetTrigger("Walk");
         }
     }
     private void Destination(Vector3 destino)
@@ -166,6 +170,7 @@ public class EnemyFollow : MonoBehaviour
     }
     private void AtacarJugador()
     {
+        animator.SetTrigger("Ataque");
         int dañoCalculado = baseDamage - damageReduction;
         Debug.Log($"[DEBUG] {gameObject.name} → base: {baseDamage}, reducción: {damageReduction}, bruto: {dañoCalculado}");
 
