@@ -5,6 +5,14 @@ using DG.Tweening;
 
 public class EnemyFollow : MonoBehaviour
 {
+    [Header("Detección y ataque")]
+    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private float requiredStayTime = 3f; // Tiempo necesario en rango
+    [SerializeField] private float attackCooldown = 5f;
+    private float lastAttackTime;
+    private float playerInsideTime = 0f;
+    private bool isPlayerInRange = false;
+
     public EnemyBarraVida barraUI;
     private float vidasMaximas;
     private float originalSpeed;
@@ -12,7 +20,7 @@ public class EnemyFollow : MonoBehaviour
 
     [Header("Stats Enemy DeBuffs")]
     public float vidas = 20;
-    public int baseDamage = 5;
+    public int baseDamage = 0;
     [SerializeField] private int damageReduction;
     public int currentDamage;
 
@@ -21,43 +29,58 @@ public class EnemyFollow : MonoBehaviour
     private static Transform playerTransform;
     private bool isDying = false;
 
-    // Feedback visual
     private Renderer enemyRenderer;
     private Color originalColor;
     private Coroutine flashRoutine;
+    private Animator animator;
+
     void Awake()
     {
+        animator=GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
     private void Start()
     {
         damageReduction = 0;
         vidasMaximas = vidas;
-
         isSlowed = false;
         originalSpeed = agent.speed;
 
+        if (barraUI != null) barraUI.SetVida(vidas, vidasMaximas);
+
         enemyRenderer = GetComponentInChildren<Renderer>();
-        if (enemyRenderer != null)
-        {
-            originalColor = enemyRenderer.material.color;
-        }
+        if (enemyRenderer != null) originalColor = enemyRenderer.material.color;
 
-        if (barraUI != null)
-        {
-            barraUI.SetVida(vidas, vidasMaximas);
-        }
+        if (playerTransform == null) playerTransform = OnGetPlayerPosition?.Invoke();
 
-        if (playerTransform == null)
-        {
-            playerTransform = OnGetPlayerPosition?.Invoke();
-        }
+        lastAttackTime = Time.time; // inicia cooldown desde que aparece
     }
     void Update()
     {
-        if (!isDying)
+        if (isDying || playerTransform == null) return;
+
+        Destination(playerTransform.position);
+
+        float distancia = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (distancia <= attackRange)
         {
-            Destination(playerTransform.position);
+            isPlayerInRange = true;
+            playerInsideTime += Time.deltaTime;
+
+            if (playerInsideTime >= requiredStayTime && Time.time >= lastAttackTime + attackCooldown)
+            {
+                AtacarJugador();
+                lastAttackTime = Time.time;
+
+                playerInsideTime = 0f; // reinicia el tiempo tras atacar
+            }
+        }
+        else
+        {
+            isPlayerInRange = false;
+            playerInsideTime = 0f;
+            animator.SetTrigger("Walk");
         }
     }
     private void Destination(Vector3 destino)
@@ -68,60 +91,39 @@ public class EnemyFollow : MonoBehaviour
     {
         vidas -= 3;
         FlashRed();
-
-        if (barraUI != null)
-        {
-            barraUI.SetVida(vidas, vidasMaximas);
-        }
+        barraUI?.SetVida(vidas, vidasMaximas);
 
         if (vidas <= 0 && !isDying)
-        {
             MorirConAnimacion();
-        }
     }
     public void RecibirAtaque(float abilitydamage)
     {
         vidas -= abilitydamage;
         FlashRed();
-
-        if (barraUI != null)
-        {
-            barraUI.SetVida(vidas, vidasMaximas);
-        }
+        barraUI?.SetVida(vidas, vidasMaximas);
 
         if (vidas <= 0 && !isDying)
-        {
             MorirConAnimacion();
-        }
     }
     public void ApplyFireDamage(int cantidad)
     {
         vidas -= (cantidad * 0.1f);
         FlashRed();
-
-        if (barraUI != null)
-        {
-            barraUI.SetVida(vidas, vidasMaximas);
-        }
+        barraUI?.SetVida(vidas, vidasMaximas);
 
         if (vidas <= 0 && !isDying)
-        {
             MorirConAnimacion();
-        }
     }
     private void FlashRed()
     {
         if (enemyRenderer == null) return;
-
-        if (flashRoutine != null)
-            StopCoroutine(flashRoutine);
-
+        if (flashRoutine != null) StopCoroutine(flashRoutine);
         flashRoutine = StartCoroutine(FlashRoutine());
     }
     private System.Collections.IEnumerator FlashRoutine()
     {
         enemyRenderer.material.color = Color.red;
-        yield return new WaitForSecondsRealtime(0.12f); // Compatible con Time.timeScale = 0
+        yield return new WaitForSecondsRealtime(0.12f);
         enemyRenderer.material.color = originalColor;
         flashRoutine = null;
     }
@@ -135,22 +137,13 @@ public class EnemyFollow : MonoBehaviour
 
         this.enabled = false;
 
-        transform.DOLocalRotate(new Vector3(0, 1440f, 0), 0.7f, RotateMode.FastBeyond360)
-                 .SetEase(Ease.OutCubic);
-
-        transform.DOScale(Vector3.zero, 0.4f)
-                 .SetEase(Ease.InBack)
-                 .SetDelay(0.3f)
-                 .OnComplete(() =>
-                 {
-                     Destroy(gameObject);
-                 });
+        transform.DOLocalRotate(new Vector3(0, 1440f, 0), 0.7f, RotateMode.FastBeyond360).SetEase(Ease.OutCubic);
+        transform.DOScale(Vector3.zero, 0.4f).SetEase(Ease.InBack).SetDelay(0.3f).OnComplete(() => Destroy(gameObject));
     }
     public void ReduceDamage(int stacks)
     {
-        damageReduction = stacks;
+        damageReduction = Mathf.Max(0, stacks);
     }
-
     public void ResetDebuffs()
     {
         damageReduction = 0;
@@ -175,12 +168,16 @@ public class EnemyFollow : MonoBehaviour
     {
         GameManager.instance.RegisterKill();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void AtacarJugador()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            currentDamage = Mathf.Max(0, baseDamage - damageReduction);
-            GameManager.instance.PerderCorazones(currentDamage);
-        }
+        animator.SetTrigger("Ataque");
+        int dañoCalculado = baseDamage - damageReduction;
+        Debug.Log($"[DEBUG] {gameObject.name} → base: {baseDamage}, reducción: {damageReduction}, bruto: {dañoCalculado}");
+
+        currentDamage = Mathf.Clamp(Mathf.Max(0, dañoCalculado), 0, 1);
+        GameManager.instance.PerderCorazones(currentDamage);
+        Debug.Log($"{gameObject.name} atacó al jugador → Daño final: {currentDamage}");
+
+        transform.DOShakePosition(0.2f, 0.2f, 10, 90);
     }
 }
