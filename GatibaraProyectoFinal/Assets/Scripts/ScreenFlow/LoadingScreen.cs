@@ -8,7 +8,7 @@ public class LoadingScreen : MonoBehaviour
 {
     public Slider barraCarga;
     public Image fadeImage; 
-    public string nombreEscena = "Carrasco";
+    public string nombreEscena = "Historia";
 
     void Start()
     {

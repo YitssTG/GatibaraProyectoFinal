@@ -434,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraCarga: {fileID: 678287924}
   fadeImage: {fileID: 1337761034}
-  nombreEscena: Carrasco
+  nombreEscena: Historia
 --- !u!1 &678287922
 GameObject:
   m_ObjectHideFlags: 0
