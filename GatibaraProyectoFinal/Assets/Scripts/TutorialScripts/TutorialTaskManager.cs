@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
-
 public class TutorialTaskManager : MonoBehaviour
 {
     [Header("Cola de prioridad")]
@@ -15,18 +14,27 @@ public class TutorialTaskManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerAttackCollider.OnMoving += CheckTaskMove;
-        SelectorController.OnSelectElement += CheckSelectElement;
+        PlayerAttackCollider.OnAttack += CheckAttack;
+        SelectorController.OnSelectElement1 += CheckSelectElement1;
+        SelectorController.OnSelectElement2 += CheckSelectElement2;
         Coin.OnCoinsCollection += CheckCoinsCollection;
         PopUpOptionsSlide.OnInventoryOpened += CheckInventoryOpened;
         InventoryUI.OnPurchase += CheckPurchase;
+        ElementAbilityManager.OnAbilityUsed += CheckAbilityUsed;
+        PopUpController.OnWin += CheckWin;
+
     }
     private void OnDisable()
     {
         PlayerAttackCollider.OnMoving -= CheckTaskMove;
-        SelectorController.OnSelectElement -= CheckSelectElement;
+        PlayerAttackCollider.OnAttack -= CheckAttack;
+        SelectorController.OnSelectElement1 -= CheckSelectElement1;
+        SelectorController.OnSelectElement2 += CheckSelectElement2;
         Coin.OnCoinsCollection -= CheckCoinsCollection;
         PopUpOptionsSlide.OnInventoryOpened -= CheckInventoryOpened;
         InventoryUI.OnPurchase -= CheckPurchase;
+        ElementAbilityManager.OnAbilityUsed -= CheckAbilityUsed;
+        PopUpController.OnWin -= CheckWin;
     }
     private void AssinTask()
     {
@@ -39,10 +47,8 @@ public class TutorialTaskManager : MonoBehaviour
         taskQueue.Enqueue(new Task(Task.TaskType.ConseguirMonedas), 5);
         taskQueue.Enqueue(new Task(Task.TaskType.PresionarI), 6);
         taskQueue.Enqueue(new Task(Task.TaskType.Comprar), 7);
-        taskQueue.Enqueue(new Task(Task.TaskType.Nivel2), 8);
-        taskQueue.Enqueue(new Task(Task.TaskType.TierraAire), 9);
-        taskQueue.Enqueue(new Task(Task.TaskType.Habilidad), 10);
-        taskQueue.Enqueue(new Task(Task.TaskType.Ganar), 11);
+        taskQueue.Enqueue(new Task(Task.TaskType.TierraAire), 8);
+        taskQueue.Enqueue(new Task(Task.TaskType.Ganar), 9);
 
         UpdateTaskText();
         Debug.Log("Lista de tareas iniciada.");
@@ -74,28 +80,82 @@ public class TutorialTaskManager : MonoBehaviour
             taskText.text = "Has completado todas las tareas";
         }
     }
+    private bool IsCurrentPriority(int expectedPriority)
+    {
+        taskQueue.TryPeek(out var currentNode, out int priority);
+
+        if (currentNode != null)
+        {
+            return priority == expectedPriority;
+        }
+
+        return false;
+    }
     //public bool IsTaskQueueEmpty()
     //{
     //    return taskQueue.Count == 0;
     //}
     private void CheckTaskMove()
     {
-        CompleteCurrentTask();
+        if (IsCurrentPriority(1))
+        {
+            CompleteCurrentTask();
+        }
     }
-    private void CheckSelectElement()
+    private void CheckAttack()
     {
-        CompleteCurrentTask();
+        if (IsCurrentPriority(2))
+        {
+            CompleteCurrentTask();
+}
+    }
+    private void CheckSelectElement1()
+    {
+        if (IsCurrentPriority(3))
+        {
+            CompleteCurrentTask();
+        }
+    }
+    private void CheckSelectElement2()
+    {
+        if (IsCurrentPriority(4))
+        {
+            CompleteCurrentTask();
+        }
     }
     private void CheckCoinsCollection(Vector3 empty)
     {
-        CompleteCurrentTask();
+        if (IsCurrentPriority(5))
+        {
+            CompleteCurrentTask();
+        }
     }
     private void CheckInventoryOpened()
     {
-        CompleteCurrentTask();
+        if (IsCurrentPriority(6))
+        {
+            CompleteCurrentTask();
+        }
     }
     private void CheckPurchase()
     {
-        CompleteCurrentTask();
+        if (IsCurrentPriority(7))
+        {
+            CompleteCurrentTask();
+        }
+    }
+    private void CheckAbilityUsed()
+    {
+        if (IsCurrentPriority(8))
+        {
+            CompleteCurrentTask();
+        }
+    }
+    private void CheckWin()
+    {
+        if (IsCurrentPriority(9))
+        {
+            CompleteCurrentTask();
+        }
     }
 }

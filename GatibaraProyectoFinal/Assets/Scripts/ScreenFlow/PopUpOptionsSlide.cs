@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
-using Sirenix.OdinInspector.Editor.GettingStarted;
 
 public class PopUpOptionsSlide : MonoBehaviour
 {
@@ -23,7 +22,6 @@ public class PopUpOptionsSlide : MonoBehaviour
         tutorial = true;
         HidePopup(); // Ocultar desde el comienzo
     }
-
     private void OnEnable()
     {
         if (togglePopupAction != null)
@@ -32,7 +30,6 @@ public class PopUpOptionsSlide : MonoBehaviour
             togglePopupAction.action.performed += OnIPressButton;
         }
     }
-
     private void OnDisable()
     {
         if (togglePopupAction != null)
@@ -41,7 +38,6 @@ public class PopUpOptionsSlide : MonoBehaviour
             togglePopupAction.action.Disable();
         }
     }
-
     public void ShowPopup()
     {
         popup.gameObject.SetActive(true);
@@ -50,7 +46,6 @@ public class PopUpOptionsSlide : MonoBehaviour
              .SetEase(Ease.OutExpo)
              .SetUpdate(true);
     }
-
     public void HidePopup()
     {
         popup.anchoredPosition = new Vector2(slideToX, popup.anchoredPosition.y);
@@ -59,7 +54,6 @@ public class PopUpOptionsSlide : MonoBehaviour
              .SetUpdate(true)
              .OnComplete(() => popup.gameObject.SetActive(false));
     }
-
     public void OnIPressButton(InputAction.CallbackContext context)
     {
         if (context.performed)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,14 @@ public class ElementAbilityManager : MonoBehaviour
     [SerializeField] private float fireFireSpeed;
     [SerializeField] private float fireEarthRadius;
     [SerializeField] private float fireEarthDamage;
+
+    public static event Action OnAbilityUsed;
+
+    private bool tutorial;
+    private void Start()
+    {
+        tutorial = true;
+    }
     public void ApplyAbilityEffect(CombinationData combination)
     {
         switch (combination.combinationKey)
@@ -46,6 +55,11 @@ public class ElementAbilityManager : MonoBehaviour
             case "Wind+Fire":
                 break;
             case "Earth+Wind"://hecho
+                if (tutorial)
+                {
+                    OnAbilityUsed?.Invoke();
+                    tutorial = false;
+                }
                 ApplyEarthWindAbility();
                 break;
             case "Wind+Water":
@@ -125,16 +139,16 @@ public class ElementAbilityManager : MonoBehaviour
         }
         for(int i = 0; i < 8; i++)
         {
-            float randomX = Random.Range(-1.5f, 1.5f);
-            float randomZ = Random.Range(-1.5f, 1.5f);
+            float randomX = UnityEngine.Random.Range(-1.5f, 1.5f);
+            float randomZ = UnityEngine.Random.Range(-1.5f, 1.5f);
             Vector3 reference = new Vector3(player.transform.position.x + randomX, player.transform.position.y, player.transform.position.z + randomZ);
             GameObject rock = Instantiate(stonePrefab, reference, Quaternion.identity);
             Rigidbody rockRigidBody = rock.GetComponent<Rigidbody>();
-            float dirX = Random.Range(-1f, 1f);
-            float dirY = Random.Range(0.5f, 1f);
-            float dirZ = Random.Range(-1f, 1f);
+            float dirX = UnityEngine.Random.Range(-1f, 1f);
+            float dirY = UnityEngine.Random.Range(0.5f, 1f);
+            float dirZ = UnityEngine.Random.Range(-1f, 1f);
             Vector3 randomDirection = new Vector3(dirX, dirY, dirZ).normalized;
-            float randomForce = Random.Range(9f, 15f);
+            float randomForce = UnityEngine.Random.Range(9f, 15f);
             rockRigidBody.AddForce(randomDirection * randomForce, ForceMode.Impulse);
             Destroy(rock, 2f);
         }

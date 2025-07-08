@@ -14,9 +14,7 @@ public class Task
         ConseguirMonedas,
         PresionarI,
         Comprar,
-        Nivel2,
         TierraAire,
-        Habilidad,
         Ganar
     }
     public TaskType Type
@@ -51,13 +49,9 @@ public class Task
             case TaskType.PresionarI:
                 return "Presiona I para abrir el libro de elementos.";
             case TaskType.Comprar:
-                return "Compra la mejora.";
-            case TaskType.Nivel2:
-                return "Desbloquear el nivel 2.";
+                return "Compra la mejora para subir al nivel 2.";
             case TaskType.TierraAire:
-                return "Crea la combinación Tierra + Aire.";
-            case TaskType.Habilidad:
-                return "Lanzar habilidad combinada con click.";
+                return "Crea la combinación Tierra + Aire y luego castea la habilidad con click.";
             case TaskType.Ganar:
                 return "Completar el nivel.";
             default:

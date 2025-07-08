@@ -16,41 +16,47 @@ public class SelectorController : MonoBehaviour
     [Header("UI Panel")]
     public GameObject ElementBarPanel;
 
-    public static event Action OnSelectElement;
+    public static event Action OnSelectElement1;
+    public static event Action OnSelectElement2;
 
     private int currentIndex = 0;
     private Coroutine spinRoutine;
     private bool isSpinning = false;
     public bool isPaused = false;
-    private bool tutorial;
+    private int tutorialcount;
     private void Start()
     {
-        tutorial = true;
+        tutorialcount = 0;
         ElementBarPanel.SetActive(false);
     }
     public void OnSpace(InputAction.CallbackContext context)
     {
         if (context.performed && !isPaused)
         {
-            if (tutorial)
+            if (tutorialcount == 0)
             {
-                OnSelectElement?.Invoke();
-                tutorial = false;
+                OnSelectElement1?.Invoke();
+                tutorialcount++;
+            }
+            else if(tutorialcount == 1)
+            {
+                OnSelectElement2?.Invoke();
+                tutorialcount++;
             }
             if (!isSpinning)
-            {
-                ElementBarPanel.SetActive(true);
-                spinRoutine = StartCoroutine(SpinCycle());
-                isSpinning = true;
-            }
-            else
-            {
-                StopCoroutine(spinRoutine);
-                isSpinning = false;
-                ElementBarPanel.SetActive(false);
-                ElementType selected = elements[currentIndex];
-                manager.ApplyElement(selected);
-            }
+    {
+        ElementBarPanel.SetActive(true);
+        spinRoutine = StartCoroutine(SpinCycle());
+        isSpinning = true;
+    }
+    else
+    {
+        StopCoroutine(spinRoutine);
+        isSpinning = false;
+        ElementBarPanel.SetActive(false);
+        ElementType selected = elements[currentIndex];
+        manager.ApplyElement(selected);
+    }
         }
     }
     private IEnumerator SpinCycle()
