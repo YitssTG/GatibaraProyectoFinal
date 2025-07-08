@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector.Editor.GettingStarted;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,13 +15,19 @@ public class Move : MonoBehaviour
     [SerializeField] private Transform reference;
     [SerializeField] private float rotationSpeed = 100f;
 
+    public static event Action OnMoving;
+
     [SerializeField] private Animator move;
 
     private Vector2 movementInput;
     private Vector2 inputRaw;
     public bool canMove = true;
+    private bool tutorial;
     private string lastTrigger = "";
-
+    private void Start()
+    {
+        tutorial = true;
+    }
     private void Update()
     {
         if (!canMove)
@@ -33,6 +40,11 @@ public class Move : MonoBehaviour
 
         if (movementInput.sqrMagnitude > 0.01f)
         {
+            if (tutorial)
+            {
+                OnMoving?.Invoke();
+                tutorial = false;
+            }
             Vector3 camForward = reference.forward;
             Vector3 camRight = reference.right;
             camForward.y = 0;

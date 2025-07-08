@@ -18,26 +18,23 @@ public class PlayerAttackCollider : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioData hitSoundData;
 
-    public static event Action OnMoving;
     public static event Action OnAttack;
-    private bool tutorial1;
-    private bool tutorial2;
+    private bool tutorial;
     private bool isAttacking = false;
     public bool IsAttacking => isAttacking;
     private void Start()
     {
-        tutorial1 = true;
-        tutorial2 = true;
+        tutorial = true;
         attackCollider.enabled = false;
     }
     public void OnLeftClick(InputAction.CallbackContext context)
     {
         if (context.performed && !isAttacking)
         {
-            if (tutorial2)
+            if (tutorial)
             {
                 OnAttack?.Invoke();
-                tutorial2 = false;
+                tutorial = false;
             }
             AbilityManager.instance.TryCastOrAttack();
             isAttacking = true; 
@@ -48,11 +45,6 @@ public class PlayerAttackCollider : MonoBehaviour
     {
         if (moveScript != null)
         {
-            if (tutorial1)
-            {
-                OnMoving?.Invoke();
-                tutorial1 = false;
-            }
             moveScript.canMove = false;
             moveScript.ResetMovementInput();
         }       
