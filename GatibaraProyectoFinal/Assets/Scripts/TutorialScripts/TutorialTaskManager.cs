@@ -36,7 +36,7 @@ public class TutorialTaskManager : MonoBehaviour
         SelectorController.OnSelectElement2 += CheckSelectElement2;
         Coin.OnCoinsCollection += CheckCoinsCollection;
         PopUpOptionsSlide.OnInventoryOpened += CheckInventoryOpened;
-        InventoryUI.OnPurchase += CheckPurchase;
+        InventoryUI.OnUpdateLevel += CheckUpdateLevel;
         ElementAbilityManager.OnAbilityUsed += CheckAbilityUsed;
         AbilityListener.OnUnlockedList += CheckUnlockedList;
         PopUpController.OnWin += CheckWin;
@@ -49,7 +49,7 @@ public class TutorialTaskManager : MonoBehaviour
         SelectorController.OnSelectElement2 -= CheckSelectElement2;
         Coin.OnCoinsCollection -= CheckCoinsCollection;
         PopUpOptionsSlide.OnInventoryOpened -= CheckInventoryOpened;
-        InventoryUI.OnPurchase -= CheckPurchase;
+        InventoryUI.OnUpdateLevel -= CheckUpdateLevel;
         ElementAbilityManager.OnAbilityUsed -= CheckAbilityUsed;
         AbilityListener.OnUnlockedList -= CheckUnlockedList;
         PopUpController.OnWin -= CheckWin;
@@ -60,7 +60,7 @@ public class TutorialTaskManager : MonoBehaviour
 
         taskQueue.Enqueue(new Task(Task.TaskType.Moverse), 10);
         taskQueue.Enqueue(new Task(Task.TaskType.Atacar), 9);
-        taskQueue.Enqueue(new Task(Task.TaskType.SeleccionarElemento1), 9);
+        taskQueue.Enqueue(new Task(Task.TaskType.SeleccionarElemento1), 8);
         taskQueue.Enqueue(new Task(Task.TaskType.SeleccionarElemento2), 7);
         taskQueue.Enqueue(new Task(Task.TaskType.ConseguirMonedas), 6);
         taskQueue.Enqueue(new Task(Task.TaskType.PresionarI), 5);
@@ -172,7 +172,7 @@ public class TutorialTaskManager : MonoBehaviour
             CompleteCurrentTask();
         }
     }
-    private void CheckPurchase()
+    private void CheckUpdateLevel()
     {
         if (IsCurrentPriority(4) && taskReady)
         {

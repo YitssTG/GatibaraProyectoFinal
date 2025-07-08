@@ -6,14 +6,16 @@ using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
-    public static event Action OnPurchase;
+    public static event Action OnUpdateLevel;
     [SerializeField] private PlayerGatibara player;
     [SerializeField] private ElementVisualUI elementVisualUI;
     [SerializeField] private SelectorController selectorController;
 
+    [SerializeField] private Image CurrentImage;
+    [SerializeField] private List<Sprite> sprites;
     [SerializeField] private Slider spellNumberSlider;
-    [SerializeField] private TMP_Text spellNumberText;
     [SerializeField] private TMP_Text priceCost;
+    //[SerializeField] private TMP_Text spellNumberText;
 
     [SerializeField] private UnlockedAbilities unlockedAbilities;
     [SerializeField] private List<GameObject> slot;
@@ -32,11 +34,19 @@ public class InventoryUI : MonoBehaviour
         spellNumberSlider.minValue = 1;
         spellNumberSlider.maxValue = GameManager.instance.MaxSpellNumberUnlocked;
         spellNumberSlider.value = GameManager.instance.GetCurrentSpellNumber();
-        UpdateText(spellNumberSlider.value);
+        //UpdateText(spellNumberSlider.value);
+    }
+    private void OnEnable()
+    {
+        InventoryUI.OnUpdateLevel += UpdateImage;
+    }
+    private void OnDisable()
+    {
+        InventoryUI.OnUpdateLevel -= UpdateImage;
     }
     private void Update()
     {
-        priceCost.text = "Costo para la mejora: " + GameManager.instance.GetCost();
+        priceCost.text = GameManager.instance.GetCost().ToString();
     }
     public void ShowUnlockedAbilities()
     {
@@ -69,12 +79,12 @@ public class InventoryUI : MonoBehaviour
         bool success = GameManager.instance.UnlockNewSpellNumber();
         if (success)
         {
-            OnPurchase?.Invoke();
+            OnUpdateLevel?.Invoke();
             int newSpellNumber = GameManager.instance.MaxSpellNumberUnlocked;
             spellNumberSlider.maxValue = newSpellNumber;
             spellNumberSlider.value = newSpellNumber;
             selectorController.SetSpinSpeedForSpellNumber(newSpellNumber);
-            UpdateText(spellNumberSlider.value);
+            //UpdateText(spellNumberSlider.value);
             player.SetGatibaraLevel(newSpellNumber);
         }
     }
@@ -85,11 +95,17 @@ public class InventoryUI : MonoBehaviour
         {
             player.SetGatibaraLevel(newSpellNumber);
             selectorController.SetSpinSpeedForSpellNumber(newSpellNumber);
-            UpdateText(newSpellNumber);
+            //UpdateText(newSpellNumber);
         }
     }
-    private void UpdateText(float newspeelnumber)
+    private void UpdateImage()
     {
-        spellNumberText.text = Mathf.RoundToInt(newspeelnumber).ToString();
+        int newSpellNumber = GameManager.instance.MaxSpellNumberUnlocked;
+        int index = Mathf.Clamp(newSpellNumber - 1, 0, sprites.Count - 1);
+        CurrentImage.sprite = sprites[index];
     }
+    //private void UpdateText(float newspeelnumber)
+    //{
+    //    spellNumberText.text = Mathf.RoundToInt(newspeelnumber).ToString();
+    //}
 }
