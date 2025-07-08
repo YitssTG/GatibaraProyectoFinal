@@ -11,10 +11,10 @@ public class AudioSettings : ScriptableObject
     [SerializeField] private string audioKeySafe;
     [SerializeField, Range(0, 1)] private float volumeScaled = 1;
     [SerializeField, Range(-80, 20)] private float volumeDBs = 0;
+    public float VolumeScaled => volumeScaled;
     [SerializeField] private bool isMuted;
 
     public AudioMixerGroup AudioMixerGroup => audioMixerGroup;
-    public float VolumeScaled => volumeScaled;
 
     public Action<float> OnUpdateVolume;
     //guarda ajustes de todo 
