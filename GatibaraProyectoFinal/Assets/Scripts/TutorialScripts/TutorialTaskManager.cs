@@ -17,8 +17,8 @@ public class TutorialTaskManager : MonoBehaviour
     private bool taskReady;
 
     [Header("OriginalPositions and Scale")]
-    private Vector3 originalPosition = new Vector3(49f, 34f, 0f);
-    private Vector3 originalScale = new Vector3(7.7f, 7.3f, 1f);
+    private Vector3 originalPosition = new Vector3(49f, -190f, 0f);
+    private Vector3 originalScale = new Vector3(5.8f, 5.7f, 1f);
     void Start()
     {
         textTransform = taskText.GetComponent<RectTransform>();
@@ -38,8 +38,8 @@ public class TutorialTaskManager : MonoBehaviour
         PopUpOptionsSlide.OnInventoryOpened += CheckInventoryOpened;
         InventoryUI.OnPurchase += CheckPurchase;
         ElementAbilityManager.OnAbilityUsed += CheckAbilityUsed;
+        AbilityListener.OnUnlockedList += CheckUnlockedList;
         PopUpController.OnWin += CheckWin;
-
     }
     private void OnDisable()
     {
@@ -51,20 +51,22 @@ public class TutorialTaskManager : MonoBehaviour
         PopUpOptionsSlide.OnInventoryOpened -= CheckInventoryOpened;
         InventoryUI.OnPurchase -= CheckPurchase;
         ElementAbilityManager.OnAbilityUsed -= CheckAbilityUsed;
+        AbilityListener.OnUnlockedList -= CheckUnlockedList;
         PopUpController.OnWin -= CheckWin;
     }
     private void AssinTask()
     {
         taskQueue.Clear();
 
-        taskQueue.Enqueue(new Task(Task.TaskType.Moverse), 9);
-        taskQueue.Enqueue(new Task(Task.TaskType.Atacar), 8);
-        taskQueue.Enqueue(new Task(Task.TaskType.SeleccionarElemento1), 7);
-        taskQueue.Enqueue(new Task(Task.TaskType.SeleccionarElemento2), 6);
-        taskQueue.Enqueue(new Task(Task.TaskType.ConseguirMonedas), 5);
-        taskQueue.Enqueue(new Task(Task.TaskType.PresionarI), 4);
-        taskQueue.Enqueue(new Task(Task.TaskType.Comprar), 3);
-        taskQueue.Enqueue(new Task(Task.TaskType.TierraAire), 2);
+        taskQueue.Enqueue(new Task(Task.TaskType.Moverse), 10);
+        taskQueue.Enqueue(new Task(Task.TaskType.Atacar), 9);
+        taskQueue.Enqueue(new Task(Task.TaskType.SeleccionarElemento1), 9);
+        taskQueue.Enqueue(new Task(Task.TaskType.SeleccionarElemento2), 7);
+        taskQueue.Enqueue(new Task(Task.TaskType.ConseguirMonedas), 6);
+        taskQueue.Enqueue(new Task(Task.TaskType.PresionarI), 5);
+        taskQueue.Enqueue(new Task(Task.TaskType.Comprar), 4);
+        taskQueue.Enqueue(new Task(Task.TaskType.TierraAire), 3);
+        taskQueue.Enqueue(new Task(Task.TaskType.UnlockedList), 2);
         taskQueue.Enqueue(new Task(Task.TaskType.Ganar), 1);
 
         UpdateTaskText();
@@ -112,7 +114,7 @@ public class TutorialTaskManager : MonoBehaviour
         textTransform.anchoredPosition = originalPosition;
         textTransform.localScale = originalScale;
         yield return new WaitForSeconds(2f);
-        var moveTween = textTransform.DOAnchorPos(new Vector2(-722f, 191f), 0.5f).SetEase(Ease.OutQuad);
+        var moveTween = textTransform.DOAnchorPos(new Vector2(-722f, 291f), 0.5f).SetEase(Ease.OutQuad);
         var scaleTween = textTransform.DOScale(new Vector3(2.2f, 2.4f, 1f), 0.5f).SetEase(Ease.OutBack);
         yield return moveTween.WaitForCompletion();
         yield return scaleTween.WaitForCompletion();
@@ -130,54 +132,61 @@ public class TutorialTaskManager : MonoBehaviour
     //}
     private void CheckTaskMove()
     {
-        if (IsCurrentPriority(9) && taskReady)
+        if (IsCurrentPriority(10) && taskReady)
         {
             CompleteCurrentTask();
         }
     }
     private void CheckAttack()
     {
-        if (IsCurrentPriority(8) && taskReady)
+        if (IsCurrentPriority(9) && taskReady)
         {
             CompleteCurrentTask();
 }
     }
     private void CheckSelectElement1()
     {
-        if (IsCurrentPriority(7) && taskReady)
+        if (IsCurrentPriority(8) && taskReady)
         {
             CompleteCurrentTask();
         }
     }
     private void CheckSelectElement2()
     {
-        if (IsCurrentPriority(6) && taskReady)
+        if (IsCurrentPriority(7) && taskReady)
         {
             CompleteCurrentTask();
         }
     }
     private void CheckCoinsCollection(Vector3 empty)
     {
-        if (IsCurrentPriority(5) && taskReady)
+        if (IsCurrentPriority(6) && taskReady)
         {
             CompleteCurrentTask();
         }
     }
     private void CheckInventoryOpened()
     {
-        if (IsCurrentPriority(4) && taskReady)
+        if (IsCurrentPriority(5) && taskReady)
         {
             CompleteCurrentTask();
         }
     }
     private void CheckPurchase()
     {
-        if (IsCurrentPriority(3) && taskReady)
+        if (IsCurrentPriority(4) && taskReady)
         {
             CompleteCurrentTask();
         }
     }
     private void CheckAbilityUsed()
+    {
+        if (IsCurrentPriority(3) && taskReady)
+        {
+            CompleteCurrentTask();
+        }
+    }
+    public void CheckUnlockedList()
     {
         if (IsCurrentPriority(2) && taskReady)
         {

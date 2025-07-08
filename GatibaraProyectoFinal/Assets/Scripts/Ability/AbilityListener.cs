@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -11,10 +12,12 @@ public class AbilityListener : MonoBehaviour
     [SerializeField] private PlayerShake cameraShake;
     [SerializeField] private AbilityUIFeedback uiFeedback;
 
+    public static event Action OnUnlockedList;
     public void OnCast(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
+            OnUnlockedList?.Invoke();
             var types = manager.GetTypes();
             var result = caster.CastAbility(types);
             if (result != null)
