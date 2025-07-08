@@ -7244,7 +7244,7 @@ Transform:
   m_GameObject: {fileID: 300876785}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.377027, z: -0, w: 0.92620224}
-  m_LocalPosition: {x: 8.97, y: 0, z: -233.52}
+  m_LocalPosition: {x: 5.92, y: 0, z: -231.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16561,13 +16561,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459809898}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9932721, z: 0, w: 0.11580401}
-  m_LocalPosition: {x: -20.6, y: 0, z: -148.6}
+  m_LocalRotation: {x: -0, y: 0.9659369, z: -0, w: -0.25877786}
+  m_LocalPosition: {x: -13.76, y: 0, z: -137.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 854626556}
-  m_LocalEulerAnglesHint: {x: 0, y: 166.7, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 209.995, z: 0}
 --- !u!65 &459809900
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21016,7 +21016,7 @@ Transform:
   m_GameObject: {fileID: 625080743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.5867596, z: -0, w: 0.8097612}
-  m_LocalPosition: {x: -18.01, y: 0, z: -245.78}
+  m_LocalPosition: {x: -17.72, y: 0, z: -241.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23370,10 +23370,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walls:
-  - {fileID: 625080743}
-  - {fileID: 300876785}
+  - {fileID: 1908469827}
+  - {fileID: 1255720316}
   requiredKills: 25
-  spawn: {fileID: 1602913483}
+  spawn: {fileID: 915665987}
 --- !u!1001 &700576955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47434,7 +47434,7 @@ MonoBehaviour:
   enemigoPrefab: {fileID: 7163858109842313714, guid: 556f6a3d7605ecc4384ac836efcf8fd5, type: 3}
   particulasTierraPrefab: {fileID: 1823761842082884029, guid: 6e3aff8ab8522df4a83d5a64c3449b82, type: 3}
   jugador: {fileID: 543450652121586739}
-  distanciaActivacion: 10
+  distanciaActivacion: 7.74
   intervaloSpawn: 2
   cantidadEnemigos: 5
 --- !u!4 &1602913484
@@ -47446,7 +47446,7 @@ Transform:
   m_GameObject: {fileID: 1602913482}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.71, y: 23.1, z: 112.4}
+  m_LocalPosition: {x: 11.93, y: 23.1, z: 109.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
