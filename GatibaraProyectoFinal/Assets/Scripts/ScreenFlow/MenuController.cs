@@ -41,10 +41,8 @@ public class MenuController : MonoBehaviour
         popupOptions.popup.gameObject.SetActive(false);
         ShowOnly(titleScreenUI);
         currentScreen = titleScreenUI;
-
         AnimatePressToStart();
     }
-
     void Update()
     {
         if (!hasStarted && Keyboard.current.anyKey.wasPressedThisFrame)
@@ -54,12 +52,10 @@ public class MenuController : MonoBehaviour
             ShowOnly(mainMenuUI);
         }
     }
-
     public void OnNewGame()
     {
         StartCoroutine(FadeAndLoadScene(gameSceneName));
     }
-
     private IEnumerator FadeAndLoadScene(string sceneName)
     {
         blackFade.gameObject.SetActive(true);
@@ -69,34 +65,28 @@ public class MenuController : MonoBehaviour
 
         SceneManager.LoadScene(sceneName);
     }
-
     public void OnReturnToTittle()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
-
     public void OnLoadGame()
     {
         Debug.Log("Load Game aún no implementado.");
     }
-
     public void OnOptions()
     {
         popupOptions.ShowPopup();
     }
-
     public void OnClosePopup()
     {
         popupOptions.HidePopup();
     }
-
     public void OnExitToTitle()
     {
         Application.Quit();
         Debug.Log("Saliste del juego... :(");
     }
-
     private void ShowOnly(GameObject screenToShow)
     {
         if (isTransitioning || currentScreen == screenToShow) return;

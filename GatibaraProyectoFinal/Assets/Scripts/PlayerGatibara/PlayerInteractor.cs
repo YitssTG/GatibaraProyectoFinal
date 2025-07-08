@@ -59,6 +59,5 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (!context.performed || lastBreakable == null) return;
             lastBreakable.Interact();
-           
     }
 }

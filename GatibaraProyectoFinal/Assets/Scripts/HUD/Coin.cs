@@ -30,7 +30,6 @@ public class Coin : MonoBehaviour
         posicionFlotacionInicial = transform.position;
         puedeFlotar = true;
     }
-
     void Update()
     {
         if (puedeFlotar)
@@ -43,7 +42,6 @@ public class Coin : MonoBehaviour
             );
         }
     }
-
     public void IniciarSalto(Vector3 destino)
     {
         puedeFlotar = false;
@@ -51,7 +49,6 @@ public class Coin : MonoBehaviour
         Vector3 inicio = transform.position;
         StartCoroutine(SaltoParabolico(inicio, destino, alturaSalto, duracionSalto));
     }
-
     IEnumerator SaltoParabolico(Vector3 inicio, Vector3 fin, float altura, float duracion)
     {
         float tiempo = 0f;
@@ -64,9 +61,7 @@ public class Coin : MonoBehaviour
             tiempo += Time.deltaTime;
             yield return null;
         }
-
         transform.position = fin;
-
         posicionFlotacionInicial = transform.position;
         puedeFlotar = true;
     }
@@ -80,9 +75,7 @@ public class Coin : MonoBehaviour
             {
                 AudioManager.TriggerFootstep(coinSoundData.AudioClip);
             }
-
             OnCoinsCollection?.Invoke(transform.position);
-
             Destroy(gameObject);
         }
     }

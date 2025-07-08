@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using Sirenix.OdinInspector.Editor.GettingStarted;
 
 public class PopUpOptionsSlide : MonoBehaviour
 {
@@ -11,10 +13,14 @@ public class PopUpOptionsSlide : MonoBehaviour
 
     public InputActionReference togglePopupAction; // asigna desde el inspector
 
-    private bool inventory = false;
+    public static event Action OnInventoryOpened;
+
+    private bool tutorial;
+    private bool inventory = true;
 
     private void Start()
     {
+        tutorial = true;
         HidePopup(); // Ocultar desde el comienzo
     }
 
@@ -58,6 +64,11 @@ public class PopUpOptionsSlide : MonoBehaviour
     {
         if (context.performed)
         {
+            if (tutorial)
+            {
+                OnInventoryOpened?.Invoke();
+                tutorial = false;
+            }
             if (!inventory)
             {
                 Cursor.visible = true;

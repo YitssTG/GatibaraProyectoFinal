@@ -12,6 +12,22 @@ public class TutorialTaskManager : MonoBehaviour
     {
         AssinTask();
     }
+    private void OnEnable()
+    {
+        PlayerAttackCollider.OnMoving += CheckTaskMove;
+        SelectorController.OnSelectElement += CheckSelectElement;
+        Coin.OnCoinsCollection += CheckCoinsCollection;
+        PopUpOptionsSlide.OnInventoryOpened += CheckInventoryOpened;
+        InventoryUI.OnPurchase += CheckPurchase;
+    }
+    private void OnDisable()
+    {
+        PlayerAttackCollider.OnMoving -= CheckTaskMove;
+        SelectorController.OnSelectElement -= CheckSelectElement;
+        Coin.OnCoinsCollection -= CheckCoinsCollection;
+        PopUpOptionsSlide.OnInventoryOpened -= CheckInventoryOpened;
+        InventoryUI.OnPurchase -= CheckPurchase;
+    }
     private void AssinTask()
     {
         taskQueue.Clear();
@@ -36,7 +52,7 @@ public class TutorialTaskManager : MonoBehaviour
         taskQueue.Enqueue(new Task(type), priority);
         UpdateTaskText();
     }
-    public void CompleteCeurrentTask()
+    public void CompleteCurrentTask()
     {
         if(taskQueue.Count <= 0)
         {
@@ -62,4 +78,24 @@ public class TutorialTaskManager : MonoBehaviour
     //{
     //    return taskQueue.Count == 0;
     //}
+    private void CheckTaskMove()
+    {
+        CompleteCurrentTask();
+    }
+    private void CheckSelectElement()
+    {
+        CompleteCurrentTask();
+    }
+    private void CheckCoinsCollection(Vector3 empty)
+    {
+        CompleteCurrentTask();
+    }
+    private void CheckInventoryOpened()
+    {
+        CompleteCurrentTask();
+    }
+    private void CheckPurchase()
+    {
+        CompleteCurrentTask();
+    }
 }

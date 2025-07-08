@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,17 +18,27 @@ public class PlayerAttackCollider : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioData hitSoundData;
 
+    public static event Action OnMoving;
+    public static event Action OnAttack;
+    private bool tutorial1;
+    private bool tutorial2;
     private bool isAttacking = false;
     public bool IsAttacking => isAttacking;
     private void Start()
     {
+        tutorial1 = true;
+        tutorial2 = true;
         attackCollider.enabled = false;
     }
     public void OnLeftClick(InputAction.CallbackContext context)
     {
-        
         if (context.performed && !isAttacking)
         {
+            if (tutorial2)
+            {
+                OnAttack?.Invoke();
+                tutorial2 = false;
+            }
             AbilityManager.instance.TryCastOrAttack();
             isAttacking = true; 
             StartCoroutine(PerformAttackCoroutine());
@@ -37,6 +48,11 @@ public class PlayerAttackCollider : MonoBehaviour
     {
         if (moveScript != null)
         {
+            if (tutorial1)
+            {
+                OnMoving?.Invoke();
+                tutorial1 = false;
+            }
             moveScript.canMove = false;
             moveScript.ResetMovementInput();
         }       
@@ -60,6 +76,7 @@ public class PlayerAttackCollider : MonoBehaviour
         if (moveScript != null)
         {
             moveScript.canMove = true;
+
         }
         isAttacking = false;
     }

@@ -1,13 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
-using static UnityEngine.Rendering.DebugUI;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static event Action OnPurchase;
     [SerializeField] private PlayerGatibara player;
     [SerializeField] private ElementVisualUI elementVisualUI;
+    [SerializeField] private SelectorController selectorController;
 
     [SerializeField] private Slider spellNumberSlider;
     [SerializeField] private TMP_Text spellNumberText;
@@ -16,8 +18,11 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private UnlockedAbilities unlockedAbilities;
     [SerializeField] private List<GameObject> slot;
 
+    private bool tutorial;
+
     private void Start()
     {
+        tutorial = true;
         for (int i = 0; i < slot.Count; i++)
         {
             var ui = slot[i].GetComponent<AbilitySlotUI>();
@@ -64,24 +69,30 @@ public class InventoryUI : MonoBehaviour
     }
     public void OnUnlockSpellNumber()
     {
+        if (tutorial)
+        {
+            OnPurchase?.Invoke();
+            tutorial = false;
+        }
         bool success = GameManager.instance.UnlockNewSpellNumber();
         if (success)
         {
-            spellNumberSlider.maxValue = GameManager.instance.MaxSpellNumberUnlocked;
-            spellNumberSlider.value = GameManager.instance.MaxSpellNumberUnlocked;
-            elementVisualUI.SetSelectDurationForSpellNumber(GameManager.instance.MaxSpellNumberUnlocked);
+            int newSpellNumber = GameManager.instance.MaxSpellNumberUnlocked;
+            spellNumberSlider.maxValue = newSpellNumber;
+            spellNumberSlider.value = newSpellNumber;
+            selectorController.SetSpinSpeedForSpellNumber(newSpellNumber);
             UpdateText(spellNumberSlider.value);
-            player.SetGatibaraLevel(GameManager.instance.MaxSpellNumberUnlocked);
+            player.SetGatibaraLevel(newSpellNumber);
         }
     }
     public void OnSliderChanged(float value)
     {
-        int newspeelnumber = Mathf.RoundToInt(value);
-        if(newspeelnumber >= 1 && newspeelnumber < (GameManager.instance.MaxSpellNumberUnlocked + 1))
+        int newSpellNumber = Mathf.RoundToInt(value);
+        if (newSpellNumber >= 1 && newSpellNumber <= GameManager.instance.MaxSpellNumberUnlocked)
         {
-            player.SetGatibaraLevel(newspeelnumber);
-            elementVisualUI.SetSelectDurationForSpellNumber(newspeelnumber);
-            UpdateText(newspeelnumber);
+            player.SetGatibaraLevel(newSpellNumber);
+            selectorController.SetSpinSpeedForSpellNumber(newSpellNumber);
+            UpdateText(newSpellNumber);
         }
     }
     private void UpdateText(float newspeelnumber)
