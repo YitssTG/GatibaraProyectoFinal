@@ -22554,13 +22554,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1901853267}
   - {fileID: 1174050268}
   - {fileID: 404092583}
   - {fileID: 2136853257}
   - {fileID: 1626155787}
   - {fileID: 120170751}
   - {fileID: 1427760394}
+  - {fileID: 1901853267}
   - {fileID: 1109875660}
   - {fileID: 1434466105}
   - {fileID: 2009459529}
@@ -36661,7 +36661,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskText: {fileID: 1901853268}
-  textTransform: {fileID: 0}
 --- !u!4 &1184414461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 164053714260508285, guid: 98cfa0fe60bda784faca1250f1e855f3, type: 3}
@@ -57437,10 +57436,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 49
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

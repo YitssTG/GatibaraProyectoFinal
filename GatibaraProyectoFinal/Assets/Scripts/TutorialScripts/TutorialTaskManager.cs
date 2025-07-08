@@ -9,7 +9,7 @@ public class TutorialTaskManager : MonoBehaviour
     [SerializeField] private CustomPriorityQueue<Task> taskQueue= new CustomPriorityQueue<Task>();
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI taskText;
-    [SerializeField] private RectTransform textTransform;
+    private RectTransform textTransform;
 
     private Coroutine animateRoutine;
 

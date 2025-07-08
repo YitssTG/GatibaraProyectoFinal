@@ -40,22 +40,22 @@ public class SelectorController : MonoBehaviour
             else if(tutorialcount == 1)
             {
                 OnSelectElement2?.Invoke();
-                tutorialcount++;
+                tutorialcount = 0;
             }
             if (!isSpinning)
-    {
-        ElementBarPanel.SetActive(true);
-        spinRoutine = StartCoroutine(SpinCycle());
-        isSpinning = true;
-    }
-    else
-    {
-        StopCoroutine(spinRoutine);
-        isSpinning = false;
-        ElementBarPanel.SetActive(false);
-        ElementType selected = elements[currentIndex];
-        manager.ApplyElement(selected);
-    }
+            {
+                ElementBarPanel.SetActive(true);
+                spinRoutine = StartCoroutine(SpinCycle());
+                isSpinning = true;
+            }
+            else
+            {
+                StopCoroutine(spinRoutine);
+                isSpinning = false;
+                ElementBarPanel.SetActive(false);
+                ElementType selected = elements[currentIndex];
+                manager.ApplyElement(selected);
+            }
         }
     }
     private IEnumerator SpinCycle()

@@ -22,11 +22,6 @@ public class ElementAbilityManager : MonoBehaviour
 
     public static event Action OnAbilityUsed;
 
-    private bool tutorial;
-    private void Start()
-    {
-        tutorial = true;
-    }
     public void ApplyAbilityEffect(CombinationData combination)
     {
         switch (combination.combinationKey)
@@ -55,11 +50,7 @@ public class ElementAbilityManager : MonoBehaviour
             case "Wind+Fire":
                 break;
             case "Earth+Wind"://hecho
-                if (tutorial)
-                {
-                    OnAbilityUsed?.Invoke();
-                    tutorial = false;
-                }
+                OnAbilityUsed?.Invoke();
                 ApplyEarthWindAbility();
                 break;
             case "Wind+Water":

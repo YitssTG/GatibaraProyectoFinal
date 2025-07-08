@@ -21,12 +21,7 @@ public class Move : MonoBehaviour
     private Vector2 movementInput;
     private Vector2 inputRaw;
     public bool canMove = true;
-    private bool tutorial;
     private string lastTrigger = "";
-    private void Start()
-    {
-        tutorial = true;
-    }
     private void Update()
     {
         if (!canMove)
@@ -39,11 +34,7 @@ public class Move : MonoBehaviour
 
         if (movementInput.sqrMagnitude > 0.01f)
         {
-            if (tutorial)
-            {
-                OnMoving?.Invoke();
-                tutorial = false;
-            }
+            OnMoving?.Invoke();
             Vector3 camForward = reference.forward;
             Vector3 camRight = reference.right;
             camForward.y = 0;

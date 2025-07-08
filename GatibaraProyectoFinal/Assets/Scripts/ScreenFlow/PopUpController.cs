@@ -17,8 +17,6 @@ public class PopUpController : MonoBehaviour
 
     public static event Action OnWin;
 
-    private bool tutorial;
-
     private void Awake()
     {
         if (instance == null)
@@ -32,7 +30,6 @@ public class PopUpController : MonoBehaviour
     }
     private void Start()
     {
-        tutorial = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         popUpPuase.SetActive(false);
@@ -72,11 +69,7 @@ public class PopUpController : MonoBehaviour
     }
     public void ShowWinPopUp()
     {
-        if (tutorial)
-        {
-            OnWin?.Invoke();
-            tutorial = false;
-        }
+        OnWin?.Invoke();
         popUpWin.SetActive(true);
         Time.timeScale = 0f;
         barController.isPaused = true;

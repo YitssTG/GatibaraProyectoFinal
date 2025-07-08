@@ -18,11 +18,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private UnlockedAbilities unlockedAbilities;
     [SerializeField] private List<GameObject> slot;
 
-    private bool tutorial;
-
     private void Start()
     {
-        tutorial = true;
         for (int i = 0; i < slot.Count; i++)
         {
             var ui = slot[i].GetComponent<AbilitySlotUI>();
@@ -69,14 +66,10 @@ public class InventoryUI : MonoBehaviour
     }
     public void OnUnlockSpellNumber()
     {
-        if (tutorial)
-        {
-            OnPurchase?.Invoke();
-            tutorial = false;
-        }
         bool success = GameManager.instance.UnlockNewSpellNumber();
         if (success)
         {
+            OnPurchase?.Invoke();
             int newSpellNumber = GameManager.instance.MaxSpellNumberUnlocked;
             spellNumberSlider.maxValue = newSpellNumber;
             spellNumberSlider.value = newSpellNumber;

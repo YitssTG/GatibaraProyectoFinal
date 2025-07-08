@@ -14,12 +14,11 @@ public class PopUpOptionsSlide : MonoBehaviour
 
     public static event Action OnInventoryOpened;
 
-    private bool tutorial;
-    private bool inventory = true;
+    private bool inventory;
 
     private void Start()
     {
-        tutorial = true;
+        inventory = false;
         HidePopup(); // Ocultar desde el comienzo
     }
     private void OnEnable()
@@ -58,11 +57,7 @@ public class PopUpOptionsSlide : MonoBehaviour
     {
         if (context.performed)
         {
-            if (tutorial)
-            {
-                OnInventoryOpened?.Invoke();
-                tutorial = false;
-            }
+            OnInventoryOpened?.Invoke();
             if (!inventory)
             {
                 Cursor.visible = true;

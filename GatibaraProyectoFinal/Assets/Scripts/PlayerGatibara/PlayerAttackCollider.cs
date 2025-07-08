@@ -19,23 +19,17 @@ public class PlayerAttackCollider : MonoBehaviour
     [SerializeField] private AudioData hitSoundData;
 
     public static event Action OnAttack;
-    private bool tutorial;
     private bool isAttacking = false;
     public bool IsAttacking => isAttacking;
     private void Start()
     {
-        tutorial = true;
         attackCollider.enabled = false;
     }
     public void OnLeftClick(InputAction.CallbackContext context)
     {
         if (context.performed && !isAttacking)
         {
-            if (tutorial)
-            {
-                OnAttack?.Invoke();
-                tutorial = false;
-            }
+            OnAttack?.Invoke();
             AbilityManager.instance.TryCastOrAttack();
             isAttacking = true; 
             StartCoroutine(PerformAttackCoroutine());
