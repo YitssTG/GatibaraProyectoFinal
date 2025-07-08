@@ -1,5 +1,4 @@
 ﻿using System;
-using Sirenix.OdinInspector.Editor.GettingStarted;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
